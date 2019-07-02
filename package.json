@@ -1,6 +1,6 @@
 {
-    "name": "@ckeditor/ckeditor5-build-decoupled-document",
-    "version": "12.0.0",
+    "name": "@devaptas/ckeditor5-build-decoupled-document",
+    "version": "12.2.0",
     "description": "The document editor build of CKEditor 5 – the best browser-based rich text editor.",
     "keywords": [
         "ckeditor5-build",
@@ -61,10 +61,10 @@
     "author": "CKSource (http://cksource.com/)",
     "license": "GPL-2.0-or-later",
     "homepage": "https://ckeditor.com/ckeditor-5",
-    "bugs": "https://github.com/ckeditor/ckeditor5-build-decoupled-document/issues",
+    "bugs": "https://github.com/devaptas/ckeditor5-build-decoupled-document/issues",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ckeditor/ckeditor5-build-decoupled-document.git"
+        "url": "https://github.com/devaptas/ckeditor5-build-decoupled-document.git"
     },
     "scripts": {
         "build": "webpack --mode production",

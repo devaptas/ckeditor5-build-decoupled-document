@@ -32,9 +32,9 @@ import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 // Custom Plugins
 import SimpleUpload from '../customPlugins/ckeditor5-simple-upload/src/simpleupload';
 import PageBreak from '../customPlugins/pagebreak/src/pagebreak';
-import Cardio from '../customPlugins/cardio/cardio';
-import CardioComp from '../customPlugins/cardiocomp/cardiocomp';
-import CardioStress from '../customPlugins/cardiostress/cardiostress';
+// import Cardio from '../customPlugins/cardio/cardio';
+// import CardioComp from '../customPlugins/cardiocomp/cardiocomp';
+// import CardioStress from '../customPlugins/cardiostress/cardiostress';
 
 export default class DecoupledEditor extends DecoupledEditorBase {}
 
@@ -64,10 +64,10 @@ DecoupledEditor.builtinPlugins = [
 	PageBreak,
 	Autosave,
 	Link,
-	RemoveFormat,
-	Cardio,
-	CardioComp,
-	CardioStress
+	RemoveFormat
+	// Cardio,
+	// CardioComp,
+	// CardioStress
 ];
 
 // Editor configuration.
@@ -92,9 +92,9 @@ DecoupledEditor.defaultConfig = {
 			'insertTable',
 			'pageBreak',
 			'link',
-			'cardio',
-			'cardiocomp',
-			'cardioStress'
+			// 'cardio',
+			// 'cardiocomp',
+			// 'cardioStress'
 		]
 	},
 	image: {
