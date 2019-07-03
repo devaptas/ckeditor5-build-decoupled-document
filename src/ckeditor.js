@@ -29,9 +29,12 @@ import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 
+
 // Custom Plugins
 import SimpleUpload from '../customPlugins/ckeditor5-simple-upload/src/simpleupload';
 import PageBreak from '../customPlugins/pagebreak/src/pagebreak';
+import CustomFontSizeUI from '../customPlugins/custom-font-ui/src/CustomFontSizeUI';
+import CustomFontFamilyUI from '../customPlugins/custom-font-ui/src/CustomFontFamilyUI';
 // import Cardio from '../customPlugins/cardio/cardio';
 // import CardioComp from '../customPlugins/cardiocomp/cardiocomp';
 // import CardioStress from '../customPlugins/cardiostress/cardiostress';
@@ -64,7 +67,9 @@ DecoupledEditor.builtinPlugins = [
 	PageBreak,
 	Autosave,
 	Link,
-	RemoveFormat
+	RemoveFormat,
+	CustomFontSizeUI,
+	CustomFontFamilyUI
 	// Cardio,
 	// CardioComp,
 	// CardioStress
@@ -76,8 +81,8 @@ DecoupledEditor.defaultConfig = {
 		items: [
 			'undo',
 			'redo',
-			'fontFamily',
-			'fontSize',
+			'fontFamilyDropdown',
+			'fontSizeDropdown',
 			'fontColor',
 			'fontBackgroundColor',
 			'removeFormat',
