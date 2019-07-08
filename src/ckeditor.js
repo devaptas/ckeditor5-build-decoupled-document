@@ -29,7 +29,6 @@ import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 
-
 // Custom Plugins
 import SimpleUpload from '../customPlugins/ckeditor5-simple-upload/src/simpleupload';
 import PageBreak from '../customPlugins/pagebreak/src/pagebreak';
@@ -96,7 +95,7 @@ DecoupledEditor.defaultConfig = {
 			'imageUpload',
 			'insertTable',
 			'pageBreak',
-			'link',
+			'link'
 			// 'cardio',
 			// 'cardiocomp',
 			// 'cardioStress'
@@ -214,8 +213,8 @@ function displayStatus() {
 	pendingActions.off( 'change:hasAny' );
 	pendingActions.on( 'change:hasAny', ( evt, propertyName, newValue ) => {
 		autosaveAlert.css( 'opacity', 1 );
-		if ( newValue ) {
-			if ( statusIndicator.is( ':animated' ) ) {
+		if (newValue) {
+			if (statusIndicator.is( ':animated' )) {
 				statusIndicator.stop().show();
 			}
 			circleLoader.removeClass( 'load-complete' );
