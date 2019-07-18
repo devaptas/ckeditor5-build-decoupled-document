@@ -69,14 +69,14 @@ export default class CardioEditing extends Plugin {
             model: 'cardioComp',
             view: {
                 name: 'table',
-                classes: 'cardiocomp-wrapper'
+                classes: 'cardio-comp-wrapper'
             }
         } );
         conversion.for( 'downcast' ).elementToElement( {
             converterPriority: 'highest',
             model: 'cardioComp',
             view: ( modelElement, viewWriter ) => {
-                const table = viewWriter.createContainerElement( 'table', { class: 'cardiocomp-wrapper' } );
+                const table = viewWriter.createContainerElement( 'table', { class: 'cardio-comp-wrapper' } );
                 return toWidget( table, viewWriter, { label: 'cardio comp widget' } );
             }
         } );
@@ -87,7 +87,7 @@ export default class CardioEditing extends Plugin {
             model: 'cardioCompRow',
             view: {
                 name: 'tr',
-                classes: 'cardiocomp-row',
+                classes: 'cardio-comp-row',
 
             }
         } );
@@ -95,7 +95,7 @@ export default class CardioEditing extends Plugin {
             converterPriority: 'highest',
             model: 'cardioCompRow',
             view: ( modelElement, viewWriter ) => {
-                return viewWriter.createContainerElement( 'tr', { class: 'cardiocomp-row' } );
+                return viewWriter.createContainerElement( 'tr', { class: 'cardio-comp-row' } );
             }
         } );
 
@@ -105,7 +105,7 @@ export default class CardioEditing extends Plugin {
             model: 'cardioCompCell',
             view: {
                 name: 'td',
-                classes: 'cardiocomp-cell',
+                classes: 'cardio-comp-cell',
             }
         } );
 
@@ -113,7 +113,7 @@ export default class CardioEditing extends Plugin {
             converterPriority: 'highest',
             model: 'cardioCompCell',
             view: ( modelElement, viewWriter ) => {
-                return viewWriter.createContainerElement( 'td', { class: 'cardiocomp-cell' } );
+                return viewWriter.createContainerElement( 'td', { class: 'cardio-comp-cell' } );
             }
         } );
 
@@ -133,7 +133,7 @@ export default class CardioEditing extends Plugin {
             model: 'cardioCompEditableField',
             view: ( modelElement, viewWriter ) => {
             	const id = modelElement.getAttribute('id');
-                const td = viewWriter.createEditableElement( 'td', { class: 'cardiocomp-editable-field', id: id } );
+                const td = viewWriter.createEditableElement( 'td', { class: 'cardio-comp-editable-field', id: id } );
                 if(id)
                 	editableFields[id] = td;
 
@@ -146,7 +146,7 @@ export default class CardioEditing extends Plugin {
 		this.editor.model.document.on( 'change:data', (evt, data) => {
 			let editor = this.editor
 		    let editableElement = editor.editing.view.document.selection.editableElement;
-		    if(editableElement && editableElement.hasClass('cardiocomp-editable-field')) {
+		    if(editableElement && editableElement.hasClass('cardio-comp-editable-field')) {
 	    		makeCalculations(editableElement.getAttribute('id'), editor);
 		    }
 		} );

@@ -147,7 +147,7 @@ function createCardioTable( editor ) {
     return '<table class="cardio-wrapper" style="width:100%;">' +
                 '<tbody>' +
                     '<tr class="cardio-row">' +
-                        '<td class="cardio-cell cardio-title-cell">Dados do Paciente:</td>' +
+                        '<td class="cardio-title-cell">Dados do Paciente:</td>' +
                     '</tr>' +
 
                     '<tr class="cardio-row">' +

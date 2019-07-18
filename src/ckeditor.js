@@ -5,7 +5,6 @@
 
 // The editor creator to use.
 import DecoupledEditorBase from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor';
-import CKEditorInspector from '@ckeditor/ckeditor5-inspector';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import Font from '@ckeditor/ckeditor5-font/src/font';
@@ -31,13 +30,13 @@ import Link from '@ckeditor/ckeditor5-link/src/link';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 
 // Custom Plugins
-import SimpleUpload from '../customPlugins/ckeditor5-simple-upload/simpleupload';
+import SimpleUpload from '../customPlugins/custom-simple-upload/simpleupload';
 import PageBreak from '../customPlugins/pagebreak/src/pagebreak';
 import CustomFontSizeUI from '../customPlugins/custom-font-ui/src/CustomFontSizeUI';
 import CustomFontFamilyUI from '../customPlugins/custom-font-ui/src/CustomFontFamilyUI';
 import Cardio from '../customPlugins/cardio/cardio';
-// import CardioComp from '../customPlugins/cardiocomp/cardiocomp';
-// import CardioStress from '../customPlugins/cardiostress/cardiostress';
+// import CardioComp from '../customPlugins/cardio-comp/cardio-comp';
+// import CardioStress from '../customPlugins/cardio-stress/cardio-stress';
 
 import '../css/custom.css';
 
@@ -100,7 +99,7 @@ DecoupledEditor.defaultConfig = {
 			'pageBreak',
 			'link',
 			'cardio',
-			// 'cardiocomp',
+			// 'cardio-comp',
 			// 'cardioStress'
 		]
 	},

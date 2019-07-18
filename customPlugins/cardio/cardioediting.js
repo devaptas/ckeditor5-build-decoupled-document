@@ -141,7 +141,6 @@ export default class CardioEditing extends Plugin {
                 const td = viewWriter.createEditableElement( 'td', { class: 'cardio-editable-field', id: id } );
                 if(id)
                 	editableFields[id] = td;
-                console.log(editableFields);
                 return toWidgetEditable( td, viewWriter );
             }
         } );
