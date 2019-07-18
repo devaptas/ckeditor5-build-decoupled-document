@@ -90,6 +90,7 @@
         "@ckeditor/ckeditor5-highlight": "^11.0.0",
         "@ckeditor/ckeditor5-link": "^11.1.0",
         "@ckeditor/ckeditor5-remove-format": "^10.0.0",
+        "@ckeditor/ckeditor5-ui": "^13.0.2",
         "@ckeditor/ckeditor5-widget": "^11.0.0",
         "ckeditor5-simple-upload": "^1.0.4"
     }

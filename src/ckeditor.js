@@ -5,6 +5,7 @@
 
 // The editor creator to use.
 import DecoupledEditorBase from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor';
+import CKEditorInspector from '@ckeditor/ckeditor5-inspector';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import Font from '@ckeditor/ckeditor5-font/src/font';
@@ -30,13 +31,15 @@ import Link from '@ckeditor/ckeditor5-link/src/link';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 
 // Custom Plugins
-import SimpleUpload from '../customPlugins/ckeditor5-simple-upload/src/simpleupload';
+import SimpleUpload from '../customPlugins/ckeditor5-simple-upload/simpleupload';
 import PageBreak from '../customPlugins/pagebreak/src/pagebreak';
 import CustomFontSizeUI from '../customPlugins/custom-font-ui/src/CustomFontSizeUI';
 import CustomFontFamilyUI from '../customPlugins/custom-font-ui/src/CustomFontFamilyUI';
-// import Cardio from '../customPlugins/cardio/cardio';
+import Cardio from '../customPlugins/cardio/cardio';
 // import CardioComp from '../customPlugins/cardiocomp/cardiocomp';
 // import CardioStress from '../customPlugins/cardiostress/cardiostress';
+
+import '../css/custom.css';
 
 export default class DecoupledEditor extends DecoupledEditorBase {}
 
@@ -68,8 +71,8 @@ DecoupledEditor.builtinPlugins = [
 	Link,
 	RemoveFormat,
 	CustomFontSizeUI,
-	CustomFontFamilyUI
-	// Cardio,
+	CustomFontFamilyUI,
+	Cardio
 	// CardioComp,
 	// CardioStress
 ];
@@ -95,8 +98,8 @@ DecoupledEditor.defaultConfig = {
 			'imageUpload',
 			'insertTable',
 			'pageBreak',
-			'link'
-			// 'cardio',
+			'link',
+			'cardio',
 			// 'cardiocomp',
 			// 'cardioStress'
 		]

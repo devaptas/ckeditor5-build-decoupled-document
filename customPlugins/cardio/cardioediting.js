@@ -9,7 +9,6 @@ import {
 
 import { makeCalculations } from './utils';
 
-
 export default class CardioEditing extends Plugin {
 
     static get requires() {
