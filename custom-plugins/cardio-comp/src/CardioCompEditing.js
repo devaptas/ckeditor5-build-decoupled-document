@@ -1,6 +1,6 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import Widget from '@ckeditor/ckeditor5-widget/src/widget';
-import InsertCardioCompCommand from './insertcardiocompcommand';
+import InsertCardioCompCommand from './InsertCardioCompCommand';
 import {
  toWidget,
  toWidgetEditable,
@@ -9,7 +9,7 @@ import {
 import { makeCalculations } from './utils';
 
 
-export default class CardioEditing extends Plugin {
+export default class CardioCompEditing extends Plugin {
 
     static get requires() {
         return [ Widget ];

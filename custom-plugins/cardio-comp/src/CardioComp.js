@@ -1,5 +1,5 @@
-import CardioCompEditing from './cardiocompediting';
-import CardioCompUI from './cardiocompui';
+import CardioCompEditing from './CardioCompEditing';
+import CardioCompUI from './CardioCompUI';
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 
 export default class CardioComp extends Plugin {

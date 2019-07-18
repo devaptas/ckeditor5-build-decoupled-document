@@ -1,6 +1,6 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import Widget from '@ckeditor/ckeditor5-widget/src/widget';
-import InsertCardioCommand from './insertcardiocommand';
+import InsertCardioCommand from './InsertCardioCommand';
 import {
  toWidget,
  toWidgetEditable,
@@ -65,7 +65,7 @@ export default class CardioEditing extends Plugin {
 
     _defineConverters() {
         const conversion = this.editor.conversion;
-       	var editableFields = [];
+       	let editableFields = [];
 
 
         // <cardio> converters

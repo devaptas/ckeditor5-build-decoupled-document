@@ -1,6 +1,6 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import Widget from '@ckeditor/ckeditor5-widget/src/widget';
-import InsertCardioStressCommand from './insertcardiostresscommand';
+import InsertCardioStressCommand from './InsertCardioStressCommand';
 import {
  toWidget,
  toWidgetEditable,

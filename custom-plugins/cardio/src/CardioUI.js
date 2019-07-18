@@ -2,7 +2,7 @@
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 
-import imageIcon from './heart.svg';
+import imageIcon from '../icon/heart.svg';
 
 export default class CardioUI extends Plugin {
     init() {

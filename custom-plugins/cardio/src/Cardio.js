@@ -1,5 +1,5 @@
-import CardioEditing from './cardioediting';
-import CardioUI from './cardioui';
+import CardioEditing from './CardioEditing';
+import CardioUI from './CardioUI';
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 
 export default class Cardio extends Plugin {

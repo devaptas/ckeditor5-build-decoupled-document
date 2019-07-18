@@ -30,13 +30,13 @@ import Link from '@ckeditor/ckeditor5-link/src/link';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 
 // Custom Plugins
-import SimpleUpload from '../customPlugins/custom-simple-upload/simpleupload';
-import PageBreak from '../customPlugins/pagebreak/src/pagebreak';
-import CustomFontSizeUI from '../customPlugins/custom-font-ui/src/CustomFontSizeUI';
-import CustomFontFamilyUI from '../customPlugins/custom-font-ui/src/CustomFontFamilyUI';
-import Cardio from '../customPlugins/cardio/cardio';
-// import CardioComp from '../customPlugins/cardio-comp/cardio-comp';
-// import CardioStress from '../customPlugins/cardio-stress/cardio-stress';
+import CustomSimpleUpload from '../custom-plugins/custom-simple-upload/src/CustomSimpleUpload';
+import PageBreak from '../custom-plugins/pagebreak/src/PageBreak';
+import CustomFontSizeUI from '../custom-plugins/custom-font-ui/src/CustomFontSizeUI';
+import CustomFontFamilyUI from '../custom-plugins/custom-font-ui/src/CustomFontFamilyUI';
+import Cardio from '../custom-plugins/cardio/src/Cardio';
+// import CardioComp from '../custom-plugins/cardio-comp/cardio-comp';
+// import CardioStress from '../custom-plugins/cardio-stress/cardio-stress';
 
 import '../css/custom.css';
 
@@ -64,7 +64,7 @@ DecoupledEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	SimpleUpload,
+	CustomSimpleUpload,
 	PageBreak,
 	Autosave,
 	Link,

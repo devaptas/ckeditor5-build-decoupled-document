@@ -5,10 +5,8 @@ export default class InsertCardioCommand extends Command {
     execute() {
         const editor = this.editor;
         editor.model.change( () => {
-
             const viewFragment = editor.data.processor.toView( createCardioTable( editor ));
             const modelFragment = editor.data.toModel( viewFragment );
-
             editor.model.insertContent( modelFragment, editor.model.document.selection );
 
         } );
