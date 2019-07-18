@@ -1,37 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="merge com v12.3.1&#10;&#10;# Conflicts:&#10;#&#9;build/ckeditor.js&#10;#&#9;build/ckeditor.js.map&#10;#&#9;build/translations/af.js&#10;#&#9;build/translations/ar.js&#10;#&#9;build/translations/ast.js&#10;#&#9;build/translations/az.js&#10;#&#9;build/translations/bg.js&#10;#&#9;build/translations/ca.js&#10;#&#9;build/translations/cs.js&#10;#&#9;build/translations/da.js&#10;#&#9;build/translations/de-ch.js&#10;#&#9;build/translations/de.js&#10;#&#9;build/translations/el.js&#10;#&#9;build/translations/en-au.js&#10;#&#9;build/translations/eo.js&#10;#&#9;build/translations/es.js&#10;#&#9;build/translations/et.js&#10;#&#9;build/translations/eu.js&#10;#&#9;build/translations/fa.js&#10;#&#9;build/translations/fi.js&#10;#&#9;build/translations/fr.js&#10;#&#9;build/translations/gl.js&#10;#&#9;build/translations/gu.js&#10;#&#9;build/translations/he.js&#10;#&#9;build/translations/hr.js&#10;#&#9;build/translations/hu.js&#10;#&#9;build/translations/id.js&#10;#&#9;build/translations/it.js&#10;#&#9;build/translations/ja.js&#10;#&#9;build/translations/km.js&#10;#&#9;build/translations/kn.js&#10;#&#9;build/translations/ko.js&#10;#&#9;build/translations/ku.js&#10;#&#9;build/translations/lt.js&#10;#&#9;build/translations/lv.js&#10;#&#9;build/translations/nb.js&#10;#&#9;build/translations/ne.js&#10;#&#9;build/translations/nl.js&#10;#&#9;build/translations/no.js&#10;#&#9;build/translations/oc.js&#10;#&#9;build/translations/pl.js&#10;#&#9;build/translations/pt-br.js&#10;#&#9;build/translations/pt.js&#10;#&#9;build/translations/ro.js&#10;#&#9;build/translations/ru.js&#10;#&#9;build/translations/si.js&#10;#&#9;build/translations/sk.js&#10;#&#9;build/translations/sq.js&#10;#&#9;build/translations/sr-latn.js&#10;#&#9;build/translations/sr.js&#10;#&#9;build/translations/sv.js&#10;#&#9;build/translations/tr.js&#10;#&#9;build/translations/tt.js&#10;#&#9;build/translations/ug.js&#10;#&#9;build/translations/uk.js&#10;#&#9;build/translations/vi.js&#10;#&#9;build/translations/zh-cn.js&#10;#&#9;build/translations/zh.js&#10;#&#9;package.json">
+    <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio-comp/cardiocomp.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioComp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio-comp/cardiocompediting.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompEditing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio-comp/cardiocompui.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio-comp/insertcardiocompcommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertCardioCompCommand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio-comp/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio-stress/cardiostress.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStress.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio-stress/cardiostressediting.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressEditing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio-stress/cardiostressui.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio-stress/insertcardiostresscommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/InsertCardioStressCommand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio-stress/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio/cardio.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/Cardio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio/cardioediting.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio/cardioui.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio/heart.svg" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/icon/heart.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio/insertcardiocommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/cardio/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/custom-font-ui/src/CustomFontFamilyUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontFamilyUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/custom-font-ui/src/CustomFontSizeUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontSizeUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/custom-simple-upload/adapter.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/custom-simple-upload/src/Adapter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/custom-simple-upload/simpleupload.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/custom-simple-upload/src/CustomSimpleUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/pagebreak/icon/pagebreak.svg" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/pagebreak/icon/pagebreak.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/pagebreak/src/pagebreak.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/pagebreak/src/PageBreak.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/pagebreak/src/pagebreakcommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/pagebreak/src/PageBreakCommand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/pagebreak/src/pagebreakediting.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/pagebreak/src/PageBreakEditing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customPlugins/pagebreak/src/pagebreakui.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/pagebreak/src/PageBreakUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ckeditor.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +22,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ckeditor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/Cardio.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
               <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
@@ -56,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
-              <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+            <state relative-caret-position="12">
+              <caret line="1" column="70" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -82,6 +83,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="49" column="47" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -186,27 +196,7 @@
             </path>
             <path>
               <item name="ckeditor5-build-decoupled-document" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ckeditor5-build-decoupled-document" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ckeditor5-build-decoupled-document" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ckeditor5-build-decoupled-document" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ckeditor5-build-decoupled-document" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ckeditor5-build-decoupled-document" type="462c0819:PsiDirectoryNode" />
-              <item name="custom-plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ckeditor5-build-decoupled-document" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ckeditor5-build-decoupled-document" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ckeditor5-build-decoupled-document" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -273,7 +263,7 @@
       <workItem from="1562789126628" duration="1540000" />
       <workItem from="1563366999825" duration="9001000" />
       <workItem from="1563390406309" duration="6133000" />
-      <workItem from="1563452106536" duration="15037000" />
+      <workItem from="1563452106536" duration="16221000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -359,11 +349,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563465305972</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="v12.3.1 + Refatoração da estrutura de custom plugins">
+      <created>1563476466803</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1563476466804</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76409000" />
+    <option name="totallyTimeSpent" value="77593000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="308" width="1366" height="735" extended-state="6" />
@@ -384,7 +381,7 @@
       <window_info anchor="bottom" id="Migrations" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007553" side_tool="true" weight="0.5138211" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3284553" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49924472" weight="0.20487805" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49924472" visible="true" weight="0.20487805" />
       <window_info anchor="bottom" id="File Transfer" order="13" weight="0.20813008" />
       <window_info anchor="bottom" id="Messages" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -411,7 +408,8 @@
     <MESSAGE value="Rebuild p/ aptasSaude 1.4.6.4" />
     <MESSAGE value="Add inspector para criar plugin de cardio" />
     <MESSAGE value="Refatoração dos diretórios" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refatoração dos diretórios" />
+    <MESSAGE value="v12.3.1 + Refatoração da estrutura de custom plugins" />
+    <option name="LAST_COMMIT_MESSAGE" value="v12.3.1 + Refatoração da estrutura de custom plugins" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tests/manual/sample.jpg" />
@@ -506,13 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-24">
-          <caret line="1" column="70" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -524,13 +515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -549,13 +533,6 @@
         <state split_layout="SPLIT">
           <first_editor />
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="81" column="9" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -622,17 +599,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ckeditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1560">
-          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/Cardio.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -653,10 +623,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yarn.lock">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="1" column="70" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ckeditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+        <state relative-caret-position="216">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="49" column="47" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
