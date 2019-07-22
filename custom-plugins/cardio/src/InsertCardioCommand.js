@@ -8,7 +8,6 @@ export default class InsertCardioCommand extends Command {
             const viewFragment = editor.data.processor.toView( createCardioTable( editor ));
             const modelFragment = editor.data.toModel( viewFragment );
             editor.model.insertContent( modelFragment, editor.model.document.selection );
-
         } );
     }
 
@@ -24,10 +23,13 @@ export default class InsertCardioCommand extends Command {
 function createCardioTable( editor ) {
 
     const patientGender = editor.config.get('patientGender');
-    const patientAge =  parseInt(editor.config.get('patientAge'));
+    const patientAgeYears = parseInt(editor.config.get('patientAgeYears'));
+    const patientAgeMonths = parseInt(editor.config.get('patientAgeMonths'));
     let references = {};
 
-    if (patientAge > 15) {
+    console.log([patientAgeMonths, patientAgeYears]);
+
+    if (patientAgeYears > 15) {
         if (patientGender === 'M') {
             references = {
                  refsao: '31 - 37 mm',
@@ -85,17 +87,15 @@ function createCardioTable( editor ) {
 
     } else {
 
-        if (patientAge < 1) {
-            if (patientAge <= 3) {
-
+        if (patientAgeYears < 1) {
+            if (patientAgeMonths <= 3) {
                 references = {
                     refddfve:'21,7 mm',
                     refaesq:'15,7 mm',
                     refeds:'4,2 mm',
                     refedppve:'4,2 mm'
                 }
-            } else if (patientAge > 3 && patientAge < 12) {
-
+            } else {
                 references = {
                     refddfve:'26,4 mm',
                     refaesq:'19,2 mm',
@@ -103,7 +103,7 @@ function createCardioTable( editor ) {
                     refedppve:'4,6 mm'
                 }
             }
-        } else if (patientAge >= 1 && patientAge <= 2) {
+        } else if (patientAgeYears <= 2) {
 
             references = {
                 refddfve:'30,8 mm',
@@ -112,7 +112,7 @@ function createCardioTable( editor ) {
                 refedppve:'5,4 mm'
             }
 
-        } else if (patientAge >= 3 && patientAge <= 5) {
+        } else if (patientAgeYears <= 5) {
 
             references = {
                 refddfve:'35,9 mm',
@@ -121,7 +121,7 @@ function createCardioTable( editor ) {
                 refedppve:'6,1 mm',
             }
 
-        } else if (patientAge >= 6 && patientAge <= 10) {
+        } else if (patientAgeYears <= 10) {
 
             references = {
                 refddfve:'39,7 mm',
@@ -130,7 +130,7 @@ function createCardioTable( editor ) {
                 refedppve:'7,3 mm',
             }
 
-        } else if (patientAge >= 11 && patientAge <= 15) {
+        } else if (patientAgeYears <= 15) {
 
             references = {
                 refddfve:'46,3 mm',
@@ -142,210 +142,214 @@ function createCardioTable( editor ) {
         }
     }
 
-    return '<table class="cardio-wrapper" style="width:100%;">' +
-                '<tbody>' +
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-title-cell">Dados do Paciente:</td>' +
-                    '</tr>' +
+    return '<table class="cardio-table">' +
+        '<tbody class="cardio-tbody">' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Altura:</td>' +
-                        '<td class="cardio-editable-field  edt" id="altura"> </td> ' +
-                        '<td class="cardio-cell">cm</td>' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-section-cell">Dados do Paciente:</td>' +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Peso:</td>' +
-                        '<td class="cardio-editable-field edt" id="peso"> </td> ' +
-                        '<td class="cardio-cell">kg</td>' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Altura:</td>' +
+                '<td class="cardio-input-cell" id="altura"> </td> ' +
+                '<td class="cardio-unit-cell">cm</td>' +
+                '<td class="cardio-ref-cell"></td>' +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Superfície Corporal:</td>' +
-                        '<td class="cardio-editable-field edt" id="sc"> </td> ' +
-                        '<td class="cardio-cell">m²</td>' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Peso:</td>' +
+                '<td class="cardio-input-cell" id="peso"> </td> ' +
+                '<td class="cardio-unit-cell">kg</td>' +
+                '<td class="cardio-ref-cell"></td>' +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell cardio-title-cell"><b>Parâmetros Estruturais:</b></td>' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Superfície Corporal:</td>' +
+                `<td class="cardio-auto-value-cell" id="sc">${(references['sc'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">m²</td>' +
+                `<td class="cardio-ref-cell"></td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Seios Aórticos:</td>' +
-                        '<td class="cardio-editable-field edt" id="sao"></td> ' +
-                        '<td class="cardio-cell">mm</td>' +
-                        '<td class="cardio-editable-field" id="refsao">'+(references['refsao'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-section-cell">Parâmetros Estruturais:</td>' +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Junção Sinotubular:</td>' +
-                        '<td class="cardio-editable-field edt" id="jsn"></td> ' +
-                        '<td class="cardio-cell">mm</td>' +
-                        '<td class="cardio-editable-field" id="refjsn">'+(references['refjsn'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Seios Aórticos:</td>' +
+                '<td class="cardio-input-cell" id="sao"></td>' +
+                '<td class="cardio-unit-cell">mm</td>' +
+                `<td class="cardio-ref-cell" id="refsao">${(references['refsao'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Aorta Ascendente:</td>' +
-                        '<td class="cardio-editable-field edt" id="aasc"></td> ' +
-                        '<td class="cardio-cell">mm</td>' +
-                        '<td class="cardio-editable-field" id="refaa">'+(references['refaa'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Junção Sinotubular:</td>' +
+                '<td class="cardio-input-cell" id="jsn"></td>' +
+                '<td class="cardio-unit-cell">mm</td>' +
+                `<td class="cardio-ref-cell" id="refjsn">${(references['refjsn'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Átrio Esquerdo:</td>' +
-                        '<td class="cardio-editable-field edt" id="aesq"></td> ' +
-                        '<td class="cardio-cell">mm</td>' +
-                        '<td class="cardio-editable-field" id="refaesq">'+(references['refaesq'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Aorta Ascendente:</td>' +
+                '<td class="cardio-input-cell" id="aasc"></td>' +
+                '<td class="cardio-unit-cell">mm</td>' +
+                `<td class="cardio-ref-cell" id="refaa">${(references['refaa'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Volume do Átrio Esquerdo:</td>' +
-                        '<td class="cardio-editable-field edt" id="vae"></td> ' +
-                        '<td class="cardio-cell">ml</td>' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Átrio Esquerdo:</td>' +
+                '<td class="cardio-input-cell" id="aesq"></td>' +
+                '<td class="cardio-unit-cell">mm</td>' +
+                `<td class="cardio-ref-cell" id="refaesq">${(references['refaesq'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Diâmetro Basal do Ventrículo Direito:</td>' +
-                        '<td class="cardio-editable-field edt" id="dbvd"></td> ' +
-                        '<td class="cardio-cell">mm</td>' +
-                        '<td class="cardio-editable-field" id="refdbvd">'+(references['refdbvd'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Volume do Átrio Esquerdo:</td>' +
+                '<td class="cardio-input-cell" id="vae"></td>' +
+                '<td class="cardio-unit-cell">ml</td>' +
+                '<td class="cardio-ref-cell"></td>' +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell"> Diâmetro Proximal da Via de Saída do VD:</td>' +
-                        '<td class="cardio-editable-field edt" id="dpvsvd"></td> ' +
-                        '<td class="cardio-cell">mm</td>' +
-                        '<td class="cardio-editable-field" id="refdpvsvd">'+(references['refdpvsvd'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Diâmetro Basal do Ventrículo Direito:</td>' +
+                '<td class="cardio-input-cell" id="dbvd"></td>' +
+                '<td class="cardio-unit-cell">mm</td>' +
+                `<td class="cardio-ref-cell" id="refdbvd">${(references['refdbvd'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Diâmetro Diastólico Final do VE:</td>' +
-                        '<td class="cardio-editable-field edt" id="ddfve"></td> ' +
-                        '<td class="cardio-cell">mm</td>' +
-                        '<td class="cardio-editable-field" id="refddfve">'+(references['refddfve'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Diâmetro Proximal da Via de Saída do VD:</td>' +
+                '<td class="cardio-input-cell" id="dpvsvd"></td>' +
+                '<td class="cardio-unit-cell">mm</td>' +
+                `<td class="cardio-ref-cell" id="refdpvsvd">${(references['refdpvsvd'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Diâmetro Sistólico Final do VE:</td>' +
-                        '<td class="cardio-editable-field edt" id="dsfve"></td> ' +
-                        '<td class="cardio-cell">mm</td>' +
-                        '<td class="cardio-editable-field" id="refdsfve">'+(references['refdsfve'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Diâmetro Diastólico Final do VE:</td>' +
+                '<td class="cardio-input-cell" id="ddfve"></td>' +
+                '<td class="cardio-unit-cell">mm</td>' +
+                `<td class="cardio-ref-cell" id="refddfve">${(references['refddfve'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Espessura Diastólica do Septo:</td>' +
-                        '<td class="cardio-editable-field edt" id="eds"></td> ' +
-                        '<td class="cardio-cell">mm</td>' +
-                        '<td class="cardio-editable-field" id="refeds">'+(references['refeds'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Diâmetro Sistólico Final do VE:</td>' +
+                '<td class="cardio-input-cell" id="dsfve"></td>' +
+                '<td class="cardio-unit-cell">mm</td>' +
+                `<td class="cardio-ref-cell" id="refdsfve">${(references['refdsfve'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Espessura Diastólica da PPVE:</td>' +
-                        '<td class="cardio-editable-field edt" id="edppve"></td> ' +
-                        '<td class="cardio-cell">mm</td>' +
-                        '<td class="cardio-editable-field" id="refedppve">'+(references['refedppve'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Espessura Diastólica do Septo:</td>' +
+                '<td class="cardio-input-cell" id="eds"></td>' +
+                '<td class="cardio-unit-cell">mm</td>' +
+                `<td class="cardio-ref-cell" id="refeds">${(references['refeds'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell"> <b>Relações e Funções:</b></td>' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Espessura Diastólica da PPVE:</td>' +
+                '<td class="cardio-input-cell" id="edppve"></td>' +
+                '<td class="cardio-unit-cell">mm</td>' +
+                `<td class="cardio-ref-cell" id="refedppve">${(references['refedppve'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Volume do AE / Superfície Corporal:</td>' +
-                        '<td class="cardio-editable-field edt" id="vaesc"></td> ' +
-                        '<td class="cardio-cell">ml/m²</td>' +
-                        '<td class="cardio-editable-field" id="refvaesc">'+(references['refvaesc'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-section-cell">Relações e Funções:</td>' +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Volume Diastólico Final:</td>' +
-                        '<td class="cardio-editable-field edt" id="vdf"></td> ' +
-                        '<td class="cardio-cell">ml</td>' +
-                        '<td class="cardio-editable-field" id="refvdf">'+(references['refvdf'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Volume do AE / Superfície Corporal:</td>' +
+                `<td class="cardio-auto-value-cell" id="vaesc">${(references['vaesc'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">ml/m²</td>' +
+                `<td class="cardio-ref-cell" id="refvaesc">${(references['refvaesc'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Volume Sistólico Final:</td>' +
-                        '<td class="cardio-editable-field edt" id="vsf"></td> ' +
-                        '<td class="cardio-cell">ml</td>' +
-                        '<td class="cardio-editable-field" id="refvsf">'+(references['refvsf'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Volume Diastólico Final:</td>' +
+                '<td class="cardio-input-cell" id="vdf"></td>' +
+                '<td class="cardio-unit-cell">ml</td>' +
+                `<td class="cardio-ref-cell" id="refvdf">${(references['refvdf'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Volume Diastólico Final / SC:</td>' +
-                        '<td class="cardio-editable-field edt" id="vdfsc"></td> ' +
-                        '<td class="cardio-cell">ml/m²</td>' +
-                        '<td class="cardio-editable-field" id="refvdfsc">'+(references['refvdfsc'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Volume Sistólico Final:</td>' +
+                '<td class="cardio-input-cell" id="vsf"></td>' +
+                '<td class="cardio-unit-cell">ml</td>' +
+                `<td class="cardio-ref-cell" id="refvsf">${(references['refvsf'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Volume Sistólico Final / SC:</td>' +
-                        '<td class="cardio-editable-field edt" id="vsfsc"></td> ' +
-                        '<td class="cardio-cell">ml/m²</td>' +
-                        '<td class="cardio-editable-field" id="refvsfsc">'+(references['refvsfsc'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Volume Diastólico Final / SC:</td>' +
+                `<td class="cardio-auto-value-cell" id="vdfsc">${(references['vdfsc'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">ml/m²</td>' +
+                `<td class="cardio-ref-cell" id="refvdfsc">${(references['refvdfsc'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Diâmetro Diastólico Final do VE / SC:</td>' +
-                        '<td class="cardio-editable-field edt" id="ddfvesc"></td> ' +
-                        '<td class="cardio-cell">mm/m²</td>' +
-                        '<td class="cardio-editable-field" id="refddfvesc">'+(references['refddfvesc'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Volume Sistólico Final / SC:</td>' +
+                `<td class="cardio-auto-value-cell" id="vsfsc">${(references['vsfsc'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">ml/m²</td>' +
+                `<td class="cardio-ref-cell" id="refvsfsc">${(references['refvsfsc'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Diâmetro Sistólico Final do VE / SC:</td>' +
-                        '<td class="cardio-editable-field edt" id="dsfvesc"></td> ' +
-                        '<td class="cardio-cell">mm/m²</td>' +
-                        '<td class="cardio-editable-field" id="refdsfvesc">'+(references['refdsfvesc'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Diâmetro Diastólico Final do VE / SC:</td>' +
+                `<td class="cardio-auto-value-cell" id="ddfvesc">${(references['ddfvesc'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">mm/m²</td>' +
+                `<td class="cardio-ref-cell" id="refddfvesc">${(references['refddfvesc'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Fração de Ejeção (Simpson):</td>' +
-                        '<td class="cardio-editable-field edt" id="fes"></td> ' +
-                        '<td class="cardio-cell">%</</td>' +
-                        '<td class="cardio-editable-field" id="reffes">'+(references['reffes'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Diâmetro Sistólico Final do VE / SC:</td>' +
+                `<td class="cardio-auto-value-cell" id="dsfvesc">${(references['dsfvesc'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">mm/m²</td>' +
+                `<td class="cardio-ref-cell" id="refdsfvesc">${(references['refdsfvesc'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Fração de Ejeção:</td>' +
-                        '<td class="cardio-editable-field edt" id="fet"></td> ' +
-                        '<td class="cardio-cell">%</</td>' +
-                        '<td class="cardio-editable-field" id="reffet">'+(references['reffet'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Fração de Ejeção (Simpson):</td>' +
+                '<td class="cardio-input-cell" id="fes"></td>' +
+                '<td class="cardio-unit-cell">%</</td>' +
+                `<td class="cardio-ref-cell" id="reffes">${(references['reffes'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Percent. Encurt. Cavidade:</td>' +
-                        '<td class="cardio-editable-field edt" id="pec"></td> ' +
-                        '<td class="cardio-cell">%</</td>' +
-                        '<td class="cardio-editable-field" id="refpec">'+(references['refpec'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Fração de Ejeção:</td>' +
+                `<td class="cardio-auto-value-cell" id="fet">${(references['fet'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">%</</td>' +
+                `<td class="cardio-ref-cell" id="reffet">${(references['reffet'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Massa do VE / Superfície Corporal:</td>' +
-                        '<td class="cardio-editable-field edt" id="mvesc"></td> ' +
-                        '<td class="cardio-cell">g/m²</</td>' +
-                        '<td class="cardio-editable-field" id="refmvesc">'+(references['refmvesc'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Percent. Encurt. Cavidade:</td>' +
+                `<td class="cardio-auto-value-cell" id="pec">${(references['pec'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">%</</td>' +
+                `<td class="cardio-ref-cell" id="refpec">${(references['refpec'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Massa Ventricular Esquerda:</td>' +
-                        '<td class="cardio-editable-field edt" id="mve"></td> ' +
-                        '<td class="cardio-cell">g</</td>' +
-                        '<td class="cardio-editable-field" id="refmve">'+(references['refmve'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Massa do VE / Superfície Corporal:</td>' +
+                `<td class="cardio-auto-value-cell" id="mvesc">${(references['mvesc'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">g/m²</</td>' +
+                `<td class="cardio-ref-cell" id="refmvesc">${(references['refmvesc'] || '-')}</td>` +
+            '</tr>' +
 
-                    '<tr class="cardio-row">' +
-                        '<td class="cardio-cell">Espessura Relativa das Paredes do VE:</td>' +
-                        '<td class="cardio-editable-field edt" id="erpve"></td> ' +
-                        '<td class="cardio-cell">mm</</td>' +
-                        '<td class="cardio-editable-field" id="referpve">'+(references['referpve'] || '-')+'</td> ' +
-                    '</tr>' +
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Massa Ventricular Esquerda:</td>' +
+                `<td class="cardio-auto-value-cell" id="mve">${(references['mve'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">g</</td>' +
+                `<td class="cardio-ref-cell" id="refmve">${(references['refmve'] || '-')}</td>` +
+            '</tr>' +
 
-                '<tr class="cardio-row">' +
-                    '<td class="cardio-cell">Relação ERP e Massa VE i:</td>' +
-                    '<td class="cardio-editable-field edt" id="rerp"></td> ' +
-                    '<td class="cardio-cell"></td>' +
-                    '<td class="cardio-editable-field"></td>' +
-                '</tr>' +
-            '</table>';
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Espessura Relativa das Paredes do VE:</td>' +
+                `<td class="cardio-auto-value-cell" id="erpve">${(references['erpve'] || '-')}</td>` +
+                '<td class="cardio-unit-cell">mm</</td>' +
+                `<td class="cardio-ref-cell" id="referpve">${(references['referpve'] || '-')}</td>` +
+            '</tr>' +
+
+            '<tr class="cardio-row">' +
+                '<td class="cardio-label-cell">Relação ERP e Massa VE i:</td>' +
+                `<td class="cardio-ref-cell" id="rerp">${(references['rerp'] || '-')}</td>` +
+            '</tr>' +
+        '</tbody>' +
+    '</table>';
 }

@@ -1,292 +1,313 @@
+import Position from '@ckeditor/ckeditor5-engine/src/model/position';
+import TreeWalker from '@ckeditor/ckeditor5-engine/src/model/treewalker';
+
+/**
+ *
+ * @param editor CKEditor instance
+ * @param id string of element to set
+ * @param value number to set
+ * @returns {*}
+ */
+function setCkElementById(editor, id, value) {
+    const position = new Position(editor.model.document.getRoot(), [0]);
+    const walker = new TreeWalker({startPosition: position});
+    let item = undefined;
+    for (let element of walker) {
+        if ( element.type !== 'text' && element.item._attrs.get('id') === id ) {
+            item = element.item;
+            break;
+        }
+    }
+    if ( item ) {
+        editor.model.change(writer => {
+            item._children._nodes.forEach(function(child){
+                writer.remove(child);
+            });
+            writer.insertText(value, item);
+        });
+    }
+}
+
 // Efetua os cálculos de acordo com o elemento que foi alterado nos widgets Ecocardio e Ecocardio Complementar
 export function makeCalculations(elementId, editor) {
 
     let values = [];
     let result = 0;
 
-    if ( elementId === 'altura' || elementId === 'peso' ) { // Superfície Corporal (m²)
-
-        let sc = $('#sc');
+    // Superfície Corporal (m²)
+    if ( elementId === 'altura' || elementId === 'peso' ) {
         values = getFormattedValues('altura', 'peso');
+        let result;
         if ( checkNumeric(values) ) {
-            result = 0.007184 * (Math.pow(values[0], 0.725)) *
-                (Math.pow(values[1], 0.425));
-            const position = new Position(editor.model.document.getRoot(), [0]);
-            const walker = new TreeWalker({startPosition: position});
-
-            for (const element of walker) {
-                console.log(element);
-            }
-            // sc.text(truncate(result, 2));
-            // makeCalculations(sc);
+            result = truncate(0.007184 * (Math.pow(values[0], 0.725)) * (Math.pow(values[1], 0.425)), 2).toString();
         } else {
-            sc.text('-');
+            result = '-';
+        }
+        setCkElementById(editor, 'sc', result);
+        if(!isNaN(result)){
+            makeCalculations('sc', editor);
         }
     }
 
-    if ( elementId === 'vae' || elementId === 'cae' || elementId === 'sc' ) { // Volume do AE / Superfície Corporal
-        let vaesc = $('#vaesc');
+     // Volume do AE / Superfície Corporal
+    if ( elementId === 'vae' || elementId === 'cae' || elementId === 'sc' ) {
         values = getFormattedValues('vae', 'sc');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = values[0] / values[1];
-            vaesc.text(truncate(result, 1));
+            result = truncate(values[0] / values[1], 1).toString();
         } else {
-            vaesc.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'vaesc', result);
     }
 
-    if ( elementId === 'ddfve' ) { // Volume Diastólico Final
-        let vdf = $('#vdf');
+     // Volume Diastólico Final
+    if ( elementId === 'ddfve' ) {
         values = getFormattedValues('ddfve');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = (((7 * values[0] * values[0] * values[0]) /
-                (2.4 + (values[0] / 10))) / 1000);
-            vdf.text(truncate(result, 1));
+            result = truncate(((7 * values[0] * values[0] * values[0]) / (2.4 + (values[0] / 10))) / 1000, 1).toString();
         } else {
-            vdf.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'vdf', result);
     }
 
-    if ( elementId === 'dsfve' ) { // Volume Sistólico Final
-        let vsf = $('#vsf');
+    // Volume Sistólico Final
+    if ( elementId === 'dsfve' ) {
         values = getFormattedValues('dsfve');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = (((7 * values[0] * values[0] * values[0]) /
-                (2.4 + (values[0] / 10))) / 1000);
-            vsf.text(truncate(result, 1));
+            result = truncate(((7 * values[0] * values[0] * values[0]) / (2.4 + (values[0] / 10))) / 1000, 1).toString();
         } else {
-            vsf.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'vsf', result);
     }
 
-    if ( elementId === 'ddfve' || elementId === 'sc' ) { // Volume Diastólico Final /Superficie Corporal
-        let vdfsc = $('#vdfsc');
+    // Volume Diastólico Final / Superficie Corporal
+    if ( elementId === 'ddfve' || elementId === 'sc' ) {
         values = getFormattedValues('ddfve', 'sc');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = (((7 * values[0] * values[0] * values[0]) /
-                (2.4 + (values[0] / 10))) / 1000) / values[1];
-            vdfsc.text(truncate(result, 1));
+            result = truncate((((7 * values[0] * values[0] * values[0]) / (2.4 + (values[0] / 10))) / 1000) / values[1], 1).toString();
         } else {
-            vdfsc.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'vdfsc', result);
     }
 
-    if ( elementId === 'vdf' ) { // Volume Diastólico Final /Superficie Corporal (caso seja alterado o campo Volume Diastólico Final)
-        let vdfsc = $('#vdfsc');
+    // Volume Diastólico Final / Superficie Corporal (caso seja alterado o campo Volume Diastólico Final)
+    if ( elementId === 'vdf' ) {
         values = getFormattedValues('vdf', 'sc');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = values[0] / values[1];
-            vdfsc.text(truncate(result, 1));
+            result = truncate(values[0] / values[1], 1).toString();
         } else {
-            vdfsc.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'vdfsc', result);
     }
 
-    if ( elementId === 'dsfve' || elementId === 'sc' || elementId === 'vsf' ) { // Volume Sistólico Final / Superfície Corporal
-        let vsfsc = $('#vsfsc');
+    // Volume Sistólico Final / Superfície Corporal
+    if ( elementId === 'dsfve' || elementId === 'sc' || elementId === 'vsf' ) {
         values = getFormattedValues('dsfve', 'sc');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = (((7 * values[0] * values[0] * values[0]) /
-                (2.4 + (values[0] / 10))) / 1000) / values[1];
-            vsfsc.text(truncate(result, 1));
+            result = truncate((((7 * values[0] * values[0] * values[0]) / (2.4 + (values[0] / 10))) / 1000) / values[1], 1).toString();
         } else {
-            vsfsc.text('-');
+             result = '-';
         }
+        setCkElementById(editor, 'vdfsc', result);
     }
 
-    if ( elementId === 'vsf' ) { // Volume Sistólico Final /Superficie Corporal (caso seja alterado o campo Volume Sistólico Final)
-        let vsfsc = $('#vsfsc');
+    // Volume Sistólico Final / Superficie Corporal (caso seja alterado o campo Volume Sistólico Final)
+    if ( elementId === 'vsf' ) {
         values = getFormattedValues('vsf', 'sc');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = values[0] / values[1];
-            vsfsc.text(truncate(result, 1));
+            result = truncate(values[0] / values[1], 1).toString();
         } else {
-            vsfsc.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'vdfsc', result);
     }
 
-    if ( elementId === 'ddfve' || elementId === 'sc' ) { // Diâmetro Diastólico Final do VE / SC
-        let ddfvesc = $('#ddfvesc');
+    // Diâmetro Diastólico Final do VE / SC
+    if ( elementId === 'ddfve' || elementId === 'sc' ) {
         values = getFormattedValues('ddfve', 'sc');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = values[0] / values[1];
-            ddfvesc.text(truncate(result, 1));
+            result = truncate(values[0] / values[1], 1).toString();
         } else {
-            ddfvesc.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'ddfvesc', result);
     }
 
-    if ( elementId === 'dsfve' || elementId === 'sc' ) { // Diâmetro Sistólico Final do VE / SC
-        let dsfvesc = $('#dsfvesc');
+    // Diâmetro Sistólico Final do VE / SC
+    if ( elementId === 'dsfve' || elementId === 'sc' ) {
         values = getFormattedValues('dsfve', 'sc');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = values[0] / values[1];
-            dsfvesc.text(truncate(result, 1));
+            result = truncate(values[0] / values[1], 1).toString();
         } else {
-            dsfvesc.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'dsfvesc', result);
     }
 
-    if ( elementId === 'ddfve' || elementId === 'dsfve' ) { // Fração de Ejeção (Teicholz)
-        let fet = $('#fet');
+    // Fração de Ejeção (Teicholz)
+    if ( elementId === 'ddfve' || elementId === 'dsfve' ) {
         values = getFormattedValues('ddfve', 'dsfve');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = ((Math.pow(values[0], 2) - Math.pow(values[1], 2)) /
-                Math.pow(values[0], 2));
+            result = ((Math.pow(values[0], 2) - Math.pow(values[1], 2)) / Math.pow(values[0], 2));
             result = 100.0 * (result + (1 - result) * 0.15);
             result = Math.round(result);
-            fet.text(truncate(result, 1));
+            result = truncate(result, 1).toString();
         } else {
-            fet.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'fet', result);
     }
 
-    if ( elementId === 'vsf' || elementId === 'dsfve' || elementId ===
-        'ddfve' || elementId === 'vdf' ) { // Pecentual Encurtamento Cavidade
-        let pec = $('#pec');
+    // Pecentual Encurtamento Cavidade
+    if ( elementId === 'vsf' || elementId === 'dsfve' || elementId === 'ddfve' || elementId === 'vdf' ) {
         values = getFormattedValues('ddfve', 'dsfve');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = (values[0] - values[1]) * (100 / values[0]);
-            pec.text(truncate(result, 1));
+            result = truncate((values[0] - values[1]) * (100 / values[0]), 1).toString();
         } else {
-            pec.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'pec', result);
     }
 
-    if ( elementId === 'eds' || elementId === 'edppve' || elementId === 'sc' ||
-        elementId === 'ddfve' ) { // Massa do VE/superficie Corporal
-        let mvesc = $('#mvesc');
+    // Massa do VE/superficie Corporal
+    if ( elementId === 'eds' || elementId === 'edppve' || elementId === 'sc' || elementId === 'ddfve' ) {
         values = getFormattedValues('eds', 'edppve', 'ddfve', 'sc');
-
+        let result;
         if ( checkNumeric(values) ) {
             let temp = values[0] + values[1] + values[2];
-            result = ((0.8 *
-                (1.04 * (Math.pow(temp, 3) - Math.pow(values[2], 3)) + 0.6)) /
-                values[3]) / 1000;
-            mvesc.text(truncate(result, 1));
-
+            result = truncate(
+                ((0.8 * (1.04 * (Math.pow(temp, 3) - Math.pow(values[2], 3)) + 0.6)) / values[3]) / 1000, 1
+            ).toString();
         } else {
-            mvesc.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'mvesc', result);
     }
 
-    if ( elementId === 'edppve' || elementId === 'vsf' || elementId ===
-        'ddfve' ) { // Massa Ventricular Esquerda
-        let mve = $('#mve');
+    // Massa Ventricular Esquerda
+    if ( elementId === 'edppve' || elementId === 'vsf' || elementId === 'ddfve' ) {
         values = getFormattedValues('eds', 'edppve', 'ddfve');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = ((0.8 * (1.04 *
-                (Math.pow(values[0] + values[1] + values[2], 3) -
-                    Math.pow(values[2], 3)) + 0.6))) / 1000;
-            mve.text(truncate(result, 1));
+            result = truncate((
+                (0.8 * (1.04 * (Math.pow(values[0] + values[1] + values[2], 3) - Math.pow(values[2], 3)) + 0.6))) / 1000, 1
+            ).toString();
         } else {
-            mve.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'mve', result);
     }
 
-    if ( elementId === 'edppve' || elementId === 'ddfve' ) { // Espessura Relativa das Paredes do VE
-        let erpve = $('#erpve');
+    // Espessura Relativa das Paredes do VE
+    if ( elementId === 'edppve' || elementId === 'ddfve' ) {
         values = getFormattedValues('edppve', 'ddfve');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = (2 * values[0]) / values[1];
-            erpve.text(truncate(result, 2));
-            makeCalculations(erpve);
+            result = truncate((2 * values[0]) / values[1], 2).toString();
         } else {
-            erpve.text('-');
+            result = '-';
+        }
+        setCkElementById(editor, 'erpve', result);
+        if(!isNaN(result)){
+            makeCalculations('erpve', editor);
         }
     }
 
-    if ( elementId === 'erpve' || elementId === 'mvesc' || elementId ===
-        'eds' ) { // Relação ERP e Massa VE i
-        let rerp = $('#rerp');
+    // Relação ERP e Massa VE i
+    if ( elementId === 'erpve' || elementId === 'mvesc' || elementId === 'eds' ) {
         let patientGender = editor.config.get('patientGender');
-        let patientAge = editor.config.get('patientAge');
         values = getFormattedValues('erpve', 'mvesc');
-
+        let result;
         if ( checkNumeric(values) ) {
             if ( patientGender === 'M' ) {
                 if ( values[1] <= 115 ) {
                     if ( values[0] <= 0.42 ) {
-                        rerp.text('Geometria normal');
+                        result = 'Geometria normal';
                     } else if ( values[0] > 0.42 ) {
-                        rerp.text('Remodelamento Concêntrico');
+                        result = 'Remodelamento Concêntrico';
                     }
                 } else {
                     if ( values[0] <= 0.42 ) {
-                        rerp.text('Hipertrofia Excêntrica');
+                        result = 'Hipertrofia Excêntrica';
                     } else if ( values[0] > 0.42 ) {
-                        rerp.text('Hipertrofia Concêntrica');
+                        result = 'Hipertrofia Concêntrica';
                     }
                 }
             } else {
                 if ( values[1] <= 95 ) {
                     if ( values[0] <= 0.42 ) {
-                        rerp.text('Geometria normal');
+                        result = 'Geometria normal';
                     } else if ( values[0] > 0.42 ) {
-                        rerp.text('Remodelamento Concêntrico');
+                        result = 'Remodelamento Concêntrico';
                     }
                 } else {
                     if ( values[0] <= 0.42 ) {
-                        rerp.text('Hipertrofia Excêntrica');
+                        result = 'Hipertrofia Excêntrica';
                     } else if ( values[0] > 0.42 ) {
-                        rerp.text('Hipertrofia Concêntrica');
+                        result = 'Hipertrofia Concêntrica';
                     }
                 }
             }
         } else {
-            rerp.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'rerp', result);
     }
 
-    if ( elementId === 'fmoe' || elementId === 'fmoa' ) { // Relação E / A
-        rea = $('#rea');
+    // Relação E / A
+    if ( elementId === 'fmoe' || elementId === 'fmoa' ) {
         values = getFormattedValues('fmoe', 'fmoa');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = values[0] / values[1];
-            rea.text(truncate(result, 1));
+            result = truncate(values[0] / values[1], 1).toString();
         } else {
-            rea.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'rea', result);
     }
 
-    if ( elementId === 'fmoe' || elementId === 'es' || elementId === 'el' ) { // Média Rel E / e'
-        mree = $('#mree');
+    // Média Rel E / e'
+    if ( elementId === 'fmoe' || elementId === 'es' || elementId === 'el' ) {
         values = getFormattedValues('fmoe', 'es', 'el');
-
+        let result;
         if ( checkNumeric(values) ) {
-            result = values[0] / ((values[1] + values[2]) / 2);
-            mree.text(truncate(result, 1));
+            result = truncate(values[0] / ((values[1] + values[2]) / 2), 1).toString();
         } else {
-            mree.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'mree', result);
     }
 
-    if ( elementId === 'vci' || elementId === 'vcie' ) { // letiação da Veia Cava Inferior
-        vvci = $('#vvci');
+    // letiação da Veia Cava Inferior
+    if ( elementId === 'vci' || elementId === 'vcie' ) {
         values = getFormattedValues('vci', 'vcie');
-
+        let result;
         if ( checkNumeric(values) ) {
             result = (values[0] - values[1]) / values[1];
-            if ( result > 100 ) //Caso a divisão seja por 0, o resultado tende a infinito, então esse caso é tratado manualmente.
+
+            //Caso a divisão seja por 0, o resultado tende a infinito, então esse caso é tratado manualmente.
+            if ( result > 100 )
                 result = 100;
-            vvci.text(truncate(result, 1));
+            result = truncate(result, 1).toString();
         } else {
-            vvci.text('-');
+            result = '-';
         }
+        setCkElementById(editor, 'vvci', result);
     }
 }
 
@@ -294,11 +315,9 @@ export function makeCalculations(elementId, editor) {
 // Devem ser passados como argumentos todos os ids dos campos dos quais se quer os valores
 export function getFormattedValues() {
     let formattedValues = [];
-
     for (let i = 0; i < arguments.length; i++) {
         let value = $('#' + arguments[i]).text();
-        formattedValues[i] = value.match(/[a-z]/i) ? '' : parseFloat(
-            value.replace(',', '.'));
+        formattedValues[i] = value.match(/[a-z]/i) ? '' : parseFloat(value.replace(',', '.'));
     }
     return formattedValues;
 }
