@@ -1,174 +1,135 @@
 import Command from '@ckeditor/ckeditor5-core/src/command';
 
 export default class InsertCardioCompCommand extends Command {
+
     execute() {
-        this.editor.model.change(writer => {
-            this.editor.insertHtml(createCardioCompTable(writer, this.editor));
-        });
+        const editor = this.editor;
+        editor.model.change( () => {
+            const viewFragment = editor.data.processor.toView( createCardioCompTable() );
+            const modelFragment = editor.data.toModel( viewFragment );
+            editor.model.insertContent( modelFragment, editor.model.document.selection );
+        } );
     }
 
     refresh() {
         const model = this.editor.model;
         const selection = model.document.selection;
-        // const allowedIn = model.schema.findAllowedParent( selection.getFirstPosition(), 'cardio' );
-
-        this.isEnabled = true;
+        const allowedIn = model.schema.findAllowedParent( selection.getFirstPosition(), 'cardioComp' );
+        this.isEnabled = allowedIn !== null;
     }
 }
 
-function createCardioCompTable(writer, editor) {
+function createCardioCompTable() {
 
-    const patientGender = editor.config.get('patientGender');
-    const patientAge = parseInt(editor.config.get('patientAge'));
-    var references = {};
+    const references = {
+        reffmoe: '60 - 100 cm/s',
+        reffmoa: '30 - 70 cm/s',
+        refes: '< 6 cm/s',
+        refel: '< 8 cm/s',
+        refrea: '1,1 - 1,7',
+        refmree: '> 6',
+        reftdm: '180 +- 31 ms',
+        refpsap: '35 - 40 mmHg',
+        refpead: '< 5 mmHg',
+        refvci: '< 21 mm',
+        refvcie: 'colapso espontâneo = 0',
+        refvvci: '> 50 %',
+    };
 
-    if ( patientAge > 15 ) {
+    return '<table class="cardio-comp-table">' +
+        '<tbody class="cardio-comp-tbody">' +
 
-        if ( patientGender === 'M' ) {
-
-            references = {
-                reffmoe: '0,6 - 1,0 m/s',
-                reffmoa: '0,3 - 0,7 m/s',
-                refvsea: '< 0,5',
-                refes: '< 0,06',
-                refel: '< 0,08',
-                refrea: '1,1 - 1,7',
-                refmree: '> 6',
-                reftdm: '180 +/- 31 ms',
-                refpsap: '35 - 40 mmHg',
-                refpead: '<5 mmHg',
-                refvci: '< 21 mm',
-                refvcie: 'colapso espontâneo = 0',
-                refvvci: '> 50 %',
-
-            };
-
-        } else {
-
-            references = {
-                reffmoe: '0,6 - 1,0 m/s',
-                reffmoa: '0,3 - 0,7 m/s',
-                refvsea: '< 0,5',
-                refes: '< 0,06',
-                refel: '< 0,08',
-                refrea: '1,1 - 1,7',
-                refmree: '> 6',
-                reftdm: '180 +/- 31 ms',
-                refpsap: '35 - 40 mmHg',
-                refpead: '<5 mmHg',
-                refvci: '< 21 mm',
-                refvcie: 'colapso espontâneo = 0',
-                refvvci: '> 50 %',
-
-            };
-
-        }
-
-        return '<table class="cardio-comp-wrapper">' +
-            '<tr class="cardio-comp-row"->' +
-            '<td class="cardio-comp-cell"><b>Parâmetros: Função Diastólica do VE:</b></td>' +
+            '<tr class="cardio-comp-row">' +
+                '<td class="cardio-comp-section-cell">Parâmetros: Função Diastólica do VE:</td>' +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">Fluxo Mitral Onda E:</td>' +
-            '<td class="cardio-comp-editable-field edt" id="fmoe"></td> ' +
-            '<td class="cardio-comp-cell">cm/s</td>' +
-            '<td class="cardio-comp-editable-field" id="reffmoe">' +
-            (references['reffmoe'] || '-') + '</td> ' +
+                '<td class="cardio-comp-label-cell">Fluxo Mitral Onda E:</td>' +
+                '<td class="cardio-comp-input-cell" id="fmoe"></td>' +
+                '<td class="cardio-comp-unit-cell">cm/s</td>' +
+                `<td class="cardio-comp-ref-input-cell" id="reffmoe">${(references['reffmoe'] || '-')}</td>` +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">Fluxo Mitral Onda A:</td>' +
-            '<td class="cardio-comp-editable-field edt" id="fmoa"></td> ' +
-            '<td class="cardio-comp-cell">cm/s</td>' +
-            '<td class="cardio-comp-editable-field" id="reffmoa">' +
-            (references['reffmoa'] || '-') + '</td> ' +
+                '<td class="cardio-comp-label-cell">Fluxo Mitral Onda A:</td>' +
+                '<td class="cardio-comp-input-cell" id="fmoa"></td>' +
+                '<td class="cardio-comp-unit-cell">cm/s</td>' +
+                `<td class="cardio-comp-ref-input-cell" id="reffmoa">${(references['reffmoa'] || '-')}</td>` +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">e\' Septal:</td>' +
-            '<td class="cardio-comp-editable-field edt" id="es"></td> ' +
-            '<td class="cardio-comp-cell">cm/s</td>' +
-            '<td class="cardio-comp-editable-field" id="refes">' +
-            (references['refes'] || '-') + '</td> ' +
+                '<td class="cardio-comp-label-cell">e\' Septal:</td>' +
+                '<td class="cardio-comp-input-cell" id="es"></td>' +
+                '<td class="cardio-comp-unit-cell">cm/s</td>' +
+                `<td class="cardio-comp-ref-input-cell" id="refes">${(references['refes'] || '-')}</td>` +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">e\' Lateral:</td>' +
-            '<td class="cardio-comp-editable-field edt" id="esl"></td> ' +
-            '<td class="cardio-comp-cell">cm/s</td>' +
-            '<td class="cardio-comp-editable-field" id="refel">' +
-            (references['refel'] || '-') + '</td> ' +
+                '<td class="cardio-comp-label-cell">e\' Lateral:</td>' +
+                '<td class="cardio-comp-input-cell" id="el"></td>' +
+                '<td class="cardio-comp-unit-cell">cm/s</td>' +
+                `<td class="cardio-comp-ref-input-cell" id="refel">${(references['refel'] || '-')}</td>` +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">Relação E/A:</td>' +
-            '<td class="cardio-comp-editable-field edt" id="rea"></td> ' +
-            '<td class="cardio-comp-cell"> </td>' +
-            '<td class="cardio-comp-editable-field" id="refrea">' +
-            (references['refrea'] || '-') + '</td> ' +
+                '<td class="cardio-comp-label-cell">Relação E/A:</td>' +
+                `<td class="cardio-comp-auto-value-cell" id="rea">-</td>` +
+                '<td class="cardio-comp-unit-cell"></td>' +
+                `<td class="cardio-comp-ref-input-cell" id="refrea">${(references['refrea'] || '-')}</td>` +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">Média Rel E/e\':</td>' +
-            '<td class="cardio-comp-editable-field edt" id="mree"></td> ' +
-            '<td class="cardio-comp-cell"> </td>' +
-            '<td class="cardio-comp-editable-field" id="refmree">' +
-            (references['refmree'] || '-') + '</td> ' +
+                '<td class="cardio-comp-label-cell">Média Rel E/e\':</td>' +
+                `<td class="cardio-comp-auto-value-cell" id="mree">-</td>` +
+                '<td class="cardio-comp-unit-cell"></td>' +
+                `<td class="cardio-comp-ref-input-cell" id="refmree">${(references['refmree'] || '-')}</td>` +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">TD Mitral:</td>' +
-            '<td class="cardio-comp-editable-field edt" id="tdm"></td> ' +
-            '<td class="cardio-comp-cell">ms</td>' +
-            '<td class="cardio-comp-editable-field" id="reftdm">' +
-            (references['reftdm'] || '-') + '</td> ' +
-            '</tr>' +
-
-            '<tr class="cardio-comp-row"->' +
-            '<td class="cardio-comp-cell"><b>Pressão Sistólica da Artéria Pulmonar e Veia Cava:</b></td>' +
+                '<td class="cardio-comp-label-cell">TD Mitral:</td>' +
+                '<td class="cardio-comp-input-cell" id="tdm"></td>' +
+                '<td class="cardio-comp-unit-cell">ms</td>' +
+                `<td class="cardio-comp-ref-input-cell" id="reftdm">${(references['reftdm'] || '-')}</td>` +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">PSAP:</td>' +
-            '<td class="cardio-comp-editable-field edt" id="psap"></td> ' +
-            '<td class="cardio-comp-cell">mmHG</td>' +
-            '<td class="cardio-comp-editable-field" id="refpsap">' +
-            (references['refpsap'] || '-') + '</td> ' +
+                '<td class="cardio-comp-section-cell">Pressão Sistólica da Artéria Pulmonar e Veia Cava:</td>' +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">Pressão Estimada do Átrio Direito:</td>' +
-            '<td class="cardio-comp-editable-field edt" id="pead"></td> ' +
-            '<td class="cardio-comp-cell">mmHG</td>' +
-            '<td class="cardio-comp-editable-field" id="refpead">' +
-            (references['refpead'] || '-') + '</td> ' +
+                '<td class="cardio-comp-label-cell">PSAP:</td>' +
+                '<td class="cardio-comp-input-cell" id="psap"></td>' +
+                '<td class="cardio-comp-unit-cell">mmHg</td>' +
+                `<td class="cardio-comp-ref-input-cell" id="refpsap">${(references['refpsap'] || '-')}</td>` +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">Veia Cava Inferior:</td>' +
-            '<td class="cardio-comp-editable-field edt" id="vci"></td> ' +
-            '<td class="cardio-comp-cell">mm</td>' +
-            '<td class="cardio-comp-editable-field" id="refvci">' +
-            (references['refvci'] || '-') + '</td> ' +
+                '<td class="cardio-comp-label-cell">Pressão Estimada do Átrio Direito:</td>' +
+                '<td class="cardio-comp-input-cell" id="pead"></td>' +
+                '<td class="cardio-comp-unit-cell">mmHg</td>' +
+                `<td class="cardio-comp-ref-input-cell" id="refpead">${(references['refpead'] || '-')}</td>` +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">Veia Cava Inferior (Expiração):</td>' +
-            '<td class="cardio-comp-editable-field edt" id="vcie"></td> ' +
-            '<td class="cardio-comp-cell">mm</td>' +
-            '<td class="cardio-comp-editable-field" id="refvcie">' +
-            (references['refvcie'] || '-') + '</td> ' +
+                '<td class="cardio-comp-label-cell">Veia Cava Inferior:</td>' +
+                '<td class="cardio-comp-input-cell" id="vci"></td>' +
+                '<td class="cardio-comp-unit-cell">mm</td>' +
+                `<td class="cardio-comp-ref-input-cell" id="refvci">${(references['refvci'] || '-')}</td>` +
             '</tr>' +
 
             '<tr class="cardio-comp-row">' +
-            '<td class="cardio-comp-cell">Variação Veia Cava Inferior:</td>' +
-            '<td class="cardio-comp-editable-field edt" id="vvci"></td> ' +
-            '<td class="cardio-comp-cell">mm</td>' +
-            '<td class="cardio-comp-editable-field" id="refvvci">' +
-            (references['refvvci'] || '-') + '</td> ' +
+                '<td class="cardio-comp-label-cell">Veia Cava Inferior (Expiração):</td>' +
+                '<td class="cardio-comp-input-cell" id="vcie"></td>' +
+                '<td class="cardio-comp-unit-cell">mm</td>' +
+                `<td class="cardio-comp-ref-input-cell" id="refvcie">${(references['refvcie'] || '-')}</td>` +
             '</tr>' +
-            '</table>';
-    }
 
+            '<tr class="cardio-comp-row">' +
+                '<td class="cardio-comp-label-cell">Variação Veia Cava Inferior:</td>' +
+                '<td class="cardio-comp-auto-value-cell" id="vvci"></td>' +
+                '<td class="cardio-comp-unit-cell">%</td>' +
+                `<td class="cardio-comp-ref-input-cell" id="refvvci">${(references['refvvci'] || '-')}</td>` +
+            '</tr>' +
+        '</tbody>' +
+    '</table>';
 }

@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/img/stressHeader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom-plugins/cardio-ui/src/CardioUI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioComp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompEditing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompUI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertCardioCompCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertCardioCompCommand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStress.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressEditing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressUI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/InsertCardioStressCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/InsertCardioStressCommand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/icon/heart.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/Cardio.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioUI.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontFamilyUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontFamilyUI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ckeditor.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,116 +53,6 @@
     <expand />
     <select />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ckeditor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/Cardio.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/CardioUI.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="296" lean-forward="true" selection-start-line="296" selection-end-line="296" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="73" column="83" lean-forward="true" selection-start-line="73" selection-start-column="83" selection-end-line="73" selection-end-column="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="341" column="40" lean-forward="true" selection-start-line="341" selection-start-column="40" selection-end-line="341" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>var</find>
-      <find>==</find>
-      <find>create</find>
-      <find>inspec</find>
-      <find>console</find>
-      <find>cardioCell</find>
-      <find>toWidgetEditable</find>
-      <find>&lt;b&gt;</find>
-      <find>&lt;/b&gt;</find>
-      <find>cardio-section-cel</find>
-      <find>rerp</find>
-      <find>sao</find>
-      <find>cardio-cell</find>
-      <find>edt</find>
-      <find>cardio-editable-field edt</find>
-      <find>insertCardioComm</find>
-      <find>cardioedit</find>
-      <find>cardio-ref-field</find>
-      <find>wrapper</find>
-      <find>rel</find>
-      <find>editabl</find>
-      <find>editab</find>
-      <find>console.log</find>
-      <find>startPo</find>
-      <find>peso</find>
-      <find>edit</find>
-      <find>volume di</find>
-      <find>ws</find>
-      <find>vaesc</find>
-      <find>39,7</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>let</replace>
-      <replace>===</replace>
-      <replace>cardio-input-cell</replace>
-      <replace>cardio-ref-cell</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
@@ -155,118 +62,36 @@
     <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/customPlugins/custom-font-size-ui/src/customfontsizeui.js" />
-        <option value="$PROJECT_DIR$/customPlugins/custom-font-size-ui/src/CustomFontSizeUI.js" />
-        <option value="$PROJECT_DIR$/build/translations/af.js" />
-        <option value="$PROJECT_DIR$/customPlugins/ckeditor5-simple-upload/src/simpleupload.js" />
-        <option value="$PROJECT_DIR$/customPlugins/custom-font-ui/src/CustomFontFamilyUI.js" />
-        <option value="$PROJECT_DIR$/customPlugins/ckeditor5-simple-upload/package.json" />
-        <option value="$PROJECT_DIR$/customPlugins/pagebreak/src/pagebreak.js" />
-        <option value="$PROJECT_DIR$/customPlugins/cardiostress/cardiostress.js" />
-        <option value="$PROJECT_DIR$/webpack.config.js" />
-        <option value="$PROJECT_DIR$/customPlugins/custom-font-ui/src/CustomFontSizeUI.js" />
-        <option value="$PROJECT_DIR$/customPlugins/cardiocomp/insertcardiocompcommand.js" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio/css/cardio.css" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio/cardio.js" />
-        <option value="$PROJECT_DIR$/css/custom.css" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio/cardioui.js" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio/heart.svg" />
-        <option value="$PROJECT_DIR$/node_modules/.gitignore" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio-comp/cardiocompediting.js" />
-        <option value="$PROJECT_DIR$/src/ckeditor.js" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio/cardioediting.js" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio/insertcardiocommand.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio/src/CardioEditing.js" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio/src/utils.js" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio-comp/CardioCompEditing.js" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio-stress/CardioStress.js" />
-        <option value="$PROJECT_DIR$/customPlugins/cardio-stress/CardioStressEditing.js" />
-        <option value="$PROJECT_DIR$/custom-plugins/pagebreak/src/pagebreak.js" />
-        <option value="$PROJECT_DIR$/custom-plugins/pagebreak/src/PageBreak.js" />
-        <option value="$PROJECT_DIR$/custom-plugins/cardio/src/Cardio.js" />
-        <option value="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" />
-        <option value="$PROJECT_DIR$/custom-plugins/cardio/src/utils.js" />
-        <option value="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="170" />
-    <option name="y" value="425" />
-    <option name="width" value="1026" />
-    <option name="height" value="530" />
-  </component>
+  <component name="ProjectId" id="1OYHxTkLIPj5TseCDkOB7z145jD" />
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ckeditor5-build-decoupled-document" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ckeditor5-build-decoupled-document" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ckeditor5-build-decoupled-document" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ckeditor5-build-decoupled-document" type="462c0819:PsiDirectoryNode" />
-              <item name="custom-plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ckeditor5-build-decoupled-document" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ckeditor5-build-decoupled-document" type="462c0819:PsiDirectoryNode" />
-              <item name="custom-plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="cardio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ckeditor5-build-decoupled-document" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ckeditor5-build-decoupled-document" type="462c0819:PsiDirectoryNode" />
-              <item name="custom-plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="cardio" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/custom-plugins/cardio-utils" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/custom-plugins/cardio-utils" />
       <recent name="$PROJECT_DIR$/customPlugins/custom-font-ui/src" />
       <recent name="$PROJECT_DIR$/customPlugins/custom-font-size-ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/custom-plugins/cardio-utils" />
+      <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui/src" />
+      <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui" />
+      <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui/src/icon" />
       <recent name="$PROJECT_DIR$/custom-plugins/custom-simple-upload/src" />
-      <recent name="$PROJECT_DIR$/customPlugins/cardio-stress/src" />
-      <recent name="$PROJECT_DIR$/customPlugins/cardio-comp/src" />
-      <recent name="$PROJECT_DIR$/customPlugins/cardio/icons" />
-      <recent name="$PROJECT_DIR$/customPlugins/cardio/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -304,7 +129,16 @@
       <workItem from="1563452106536" duration="18847000" />
       <workItem from="1563537357467" duration="30760000" />
       <workItem from="1563796841095" duration="16721000" />
-      <workItem from="1563814669004" duration="4822000" />
+      <workItem from="1563814669004" duration="11775000" />
+      <workItem from="1563903805282" duration="11536000" />
+      <workItem from="1563919777388" duration="3400000" />
+      <workItem from="1563969432952" duration="14276000" />
+      <workItem from="1563990398148" duration="3207000" />
+      <workItem from="1564055198853" duration="3767000" />
+      <workItem from="1564147862102" duration="26329000" />
+      <workItem from="1564401740854" duration="10424000" />
+      <workItem from="1564421200065" duration="12414000" />
+      <workItem from="1564487526755" duration="8750000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -404,44 +238,31 @@
       <option name="project" value="LOCAL" />
       <updated>1563477724168</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Implementação do plugin de cardio">
+      <created>1563822342868</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1563822342868</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132522000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="308" width="1366" height="735" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2212991" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3284553" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32861635" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Migrations" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007553" side_tool="true" weight="0.5138211" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3284553" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49924472" weight="0.14634146" />
-      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.20813008" />
-      <window_info anchor="bottom" id="Messages" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32930514" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -459,259 +280,7 @@
     <MESSAGE value="Refatoração dos diretórios" />
     <MESSAGE value="v12.3.1 + Refatoração da estrutura de custom plugins" />
     <MESSAGE value="Re-add inspector.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Re-add inspector.js" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/manual/sample.jpg" />
-    <entry file="file://$PROJECT_DIR$/sample/index.html" />
-    <entry file="file://$PROJECT_DIR$/build/translations/pt-br.js" />
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@ckeditor/ckeditor5-image/node_modules/@ckeditor/ckeditor5-widget/src/widget.js" />
-    <entry file="file://$PROJECT_DIR$/customPlugins/ckeditor5-simple-upload/package.json" />
-    <entry file="file://$PROJECT_DIR$/build/ckeditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="4" column="952086" selection-start-line="4" selection-start-column="952067" selection-end-line="4" selection-end-column="952086" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio-stress/src/InsertCardioStressCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#style#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressUI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="12" column="67" lean-forward="true" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontFamilyUI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="23" column="50" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontSizeUI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/icon/heart.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@ckeditor/ckeditor5-core/src/command.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="37" column="49" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@ckeditor/ckeditor5-core/src/editor/editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1776">
-          <caret line="148" column="28" selection-start-line="148" selection-start-column="28" selection-end-line="148" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@ckeditor/ckeditor5-engine/src/model/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3024">
-          <caret line="252" column="78" selection-start-line="252" selection-start-column="68" selection-end-line="252" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioComp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompEditing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompUI.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertCardioCompCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStress.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressEditing.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/pagebreak/icon/pagebreak.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/pagebreak/src/PageBreak.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/custom-simple-upload/src/Adapter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-571" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/custom-simple-upload/src/CustomSimpleUpload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="1" column="51" selection-start-line="1" selection-start-column="51" selection-end-line="1" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yarn.lock">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.editorconfig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="1" column="70" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio-comp/src/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@ckeditor/ckeditor5-engine/src/model/position.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="50" column="59" lean-forward="true" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@ckeditor/ckeditor5-engine/src/model/treewalker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ckeditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/Cardio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/CardioUI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="296" lean-forward="true" selection-start-line="296" selection-end-line="296" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="73" column="83" lean-forward="true" selection-start-line="73" selection-start-column="83" selection-end-line="73" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-plugins/cardio/src/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="341" column="40" lean-forward="true" selection-start-line="341" selection-start-column="40" selection-end-line="341" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
+    <MESSAGE value="Implementação do plugin de cardio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementação do plugin de cardio" />
   </component>
 </project>

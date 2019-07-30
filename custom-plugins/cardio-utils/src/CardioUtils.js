@@ -1,16 +1,17 @@
-import Position from '@ckeditor/ckeditor5-engine/src/model/position';
-import TreeWalker from '@ckeditor/ckeditor5-engine/src/model/treewalker';
+import ModelPosition from '@ckeditor/ckeditor5-engine/src/model/position';
+import ModelTreeWalker from '@ckeditor/ckeditor5-engine/src/model/treewalker';
+import ViewPosition from '@ckeditor/ckeditor5-engine/src/view/position';
+import ViewTreeWalker from '@ckeditor/ckeditor5-engine/src/view/treewalker'
 
 /**
- *
  * @param editor CKEditor instance
  * @param id string of element to set
  * @param value number to set
  * @returns {*}
  */
 function setCkElementById(editor, id, value) {
-    const position = new Position(editor.model.document.getRoot(), [0]);
-    const walker = new TreeWalker({startPosition: position});
+    const position = new ModelPosition(editor.model.document.getRoot(), [0]);
+    const walker = new ModelTreeWalker({startPosition: position});
     let item = undefined;
     for (let element of walker) {
         if ( element.type !== 'text' && element.item._attrs.get('id') === id ) {
@@ -26,6 +27,23 @@ function setCkElementById(editor, id, value) {
             writer.insertText(value, item);
         });
     }
+}
+
+/**
+ *
+ * @param editor
+ */
+export function getAllCkViewEditableElements(editor) {
+	const position = new ViewPosition(editor.editing.view.document.getRoot(), 0);
+    const walker = new ViewTreeWalker({startPosition: position});
+    let elements = [];
+    for (let element of walker) {
+        if ( element.type === 'elementStart' && element.item._attrs.get('tabindex')) {
+            elements.push(element);
+        }
+    }
+    console.log(elements);
+    return elements;
 }
 
 // Efetua os cálculos de acordo com o elemento que foi alterado nos widgets Ecocardio e Ecocardio Complementar
@@ -310,6 +328,35 @@ export function makeCalculations(elementId, editor) {
         setCkElementById(editor, 'vvci', result);
     }
 }
+
+export function makeStressCalculations(editableElement, editor){
+
+	const cellClass = editableElement._classes.values().next().value;
+
+	let sum = 0;
+	const sectionCells = document.querySelectorAll(`.${cellClass}`);
+	sectionCells.forEach((cell) => {
+	   	sum = sum + parseInt(cell.textContent);
+	});
+
+	const cellsAvg = sum/sectionCells.length;
+	const cellsAvgFormatted = truncate(cellsAvg, 2).toString();
+
+	let result = '';
+	if(cellsAvg === 1){
+		result = `${cellsAvgFormatted} (Valor normal)`;
+	} else if (cellsAvg > 1 && cellsAvg <= 1.6) {
+		result = `${cellsAvgFormatted} (Disfunção discreta)`;
+	} else if (cellsAvg > 1.6 && cellsAvg <= 2) {
+		result = `${cellsAvgFormatted} (Disfunção moderada)`;
+	} else if (cellsAvg > 2) {
+		result = `${cellsAvgFormatted} (Disfunção importante)`;
+	}
+
+	const elemID = cellClass.split('-').pop();
+	setCkElementById(editor, elemID, result);
+}
+
 
 // Transforma o valor de determinado campo do CKEditor em um valor float válido
 // Devem ser passados como argumentos todos os ids dos campos dos quais se quer os valores

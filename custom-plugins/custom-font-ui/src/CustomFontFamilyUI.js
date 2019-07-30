@@ -15,7 +15,7 @@ export default class CustomFontFamilyUI extends Plugin {
 			dropdownView.buttonView.set( 'withText', true );
 
 			// To hide the icon uncomment below.
-			// dropdownView.buttonView.set( 'icon', false );
+			dropdownView.buttonView.set( 'icon', false );
 
 			// Bind dropdown's button label to fontFamily value.
 			dropdownView.buttonView.bind( 'label' ).to( command, 'value', value => {

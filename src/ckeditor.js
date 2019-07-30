@@ -34,9 +34,7 @@ import CustomSimpleUpload from '../custom-plugins/custom-simple-upload/src/Custo
 import PageBreak from '../custom-plugins/pagebreak/src/PageBreak';
 import CustomFontSizeUI from '../custom-plugins/custom-font-ui/src/CustomFontSizeUI';
 import CustomFontFamilyUI from '../custom-plugins/custom-font-ui/src/CustomFontFamilyUI';
-import Cardio from '../custom-plugins/cardio/src/Cardio';
-// import CardioComp from '../custom-plugins/cardio-comp/cardio-comp';
-// import CardioStress from '../custom-plugins/cardio-stress/cardio-stress';
+import Cardio from '../custom-plugins/cardio-ui/src/CardioUI';
 
 import '../css/custom.css';
 
@@ -72,8 +70,6 @@ DecoupledEditor.builtinPlugins = [
 	CustomFontSizeUI,
 	CustomFontFamilyUI,
 	Cardio
-	// CardioComp,
-	// CardioStress
 ];
 
 // Editor configuration.
@@ -82,8 +78,11 @@ DecoupledEditor.defaultConfig = {
 		items: [
 			'undo',
 			'redo',
+			'|',
 			'fontFamilyDropdown',
+			'|',
 			'fontSizeDropdown',
+			'|',
 			'fontColor',
 			'fontBackgroundColor',
 			'removeFormat',
@@ -98,9 +97,7 @@ DecoupledEditor.defaultConfig = {
 			'insertTable',
 			'pageBreak',
 			'link',
-			'cardio',
-			// 'cardio-comp',
-			// 'cardioStress'
+			'cardio'
 		]
 	},
 	image: {
