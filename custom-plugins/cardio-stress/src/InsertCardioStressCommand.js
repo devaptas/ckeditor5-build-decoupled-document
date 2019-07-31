@@ -17,105 +17,80 @@ export default class InsertCardioStressCommand extends Command {
         const selection = model.document.selection;
         const allowedIn = model.schema.findAllowedParent( selection.getFirstPosition(), 'cardioStress' );
         this.isEnabled = allowedIn !== null;
+
     }
 }
 
+
 function createCardioStressTable() {
-	return '<table class="cardio-stress-table">' +
-		'<tbody class="cardio-stress-tbody">' +
+	return '<div class="cardio-stress">' +
 
-			// Header img
-			'<tr class="cardio-stress-row">' +
-				'<td class="cardio-stress-cell">' +
-					`<img class="cardio-stress-img" src="${stressHeader()}" alt="header"/>` +
-				'</td>'+
-			'</tr>'+
+		// Header img
+		`<img class="cardio-stress-img" src="${stressHeader()}" alt="header"/>` +
 
-			// Repouso
-			'<tr class="cardio-stress-row">' +
-				'<td class="cardio-stress-cell">' +
-					'Repouso: Índice de Escore de contratilidade da Parede: <span class="cardio-stress-caption" id="rep">1.00 (Valor Normal)</span>' +
-				'</td>'+
-			'</tr>'+
-			'<tr class="cardio-stress-row">' +
-				'<td class="cardio-stress-cell">' +
-					renderStressInputTable('rep') +
-				'</td>'+
-			'</tr>'+
+		// Repouso
+		'<p class="cardio-stress-paragraph">' +
+			'Repouso: Índice de Escore de contratilidade da Parede: <span class="cardio-stress-caption" id="rep">1,00 (Valor Normal)</span>' +
+		'</p>'+
+		renderStressInputTable('rep') +
 
-			// Pico do esforço
-			'<tr class="cardio-stress-row">' +
-				'<td class="cardio-stress-cell">' +
-					'Pico do Esforço: Índice de Escore de contratilidade da Parede: <span class="cardio-stress-caption" id="esf">1.00 (Valor Normal)</span>' +
-				'</td>'+
-			'</tr>'+
-			'<tr class="cardio-stress-row">' +
-				'<td class="cardio-stress-cell">' +
-					renderStressInputTable('esf') +
-				'</td>'+
-			'</tr>'+
+		// Pico do esforço
+		'<p class="cardio-stress-paragraph">' +
+			'Pico do Esforço: Índice de Escore de contratilidade da Parede: <span class="cardio-stress-caption" id="esf">1,00 (Valor Normal)</span>' +
+		'</p>'+
+		renderStressInputTable('esf') +
 
-			// Recuperação
-			'<tr class="cardio-stress-row">' +
-				'<td class="cardio-stress-cell">' +
-					'Recuperação: Índice de Escore de contratilidade da Parede: <span class="cardio-stress-caption" id="rec">1.00 (Valor Normal)</span>' +
-				'</td>'+
-			'</tr>'+
-			'<tr class="cardio-stress-row">' +
-				'<td class="cardio-stress-cell">' +
-					renderStressInputTable('rec') +
-				'</td>'+
-			'</tr>'+
+		// Recuperação
+		'<p class="cardio-stress-paragraph">' +
+			'Recuperação: Índice de Escore de contratilidade da Parede: <span class="cardio-stress-caption" id="rec">1,00 (Valor Normal)</span>' +
+		'</p>'+
+		renderStressInputTable('rec') +
 
-			// Legenda
-			'<tr class="cardio-stress-row">' +
-				'<td class="cardio-stress-cell">' +
-					'<p class="cardio-stress-legend">' +
-						'<b>Índice de Contratilidade: </b>' +
-						'<span>0-Não Visualizada, 1-Contrat. Normal, 2-Hipocinesia, 3-Acinesia, 4-Dicinesia</span>'  +
-					'</p>' +
-					'<p class="cardio-stress-legend">' +
-						'<b>Escore de Contratilidade: </b>' +
-						'<span>1-Valor Normal, >1 e <1,6-Disfunção Discreta, >1,6 e <2,0-Disfunção Moderada, >2,0-Disfunção Importante</span>'  +
-					'</p>' +
-				'</td>'+
-			'</tr>'+
-		'</tbody>' +
-	'</table>';
+		// Legenda
+		'<p class="cardio-stress-legend">' +
+			'<b>Índice de Contratilidade: </b>' +
+			'<span>0-Não Visualizada, 1-Contrat. Normal, 2-Hipocinesia, 3-Acinesia, 4-Dicinesia</span>'  +
+		'</p>' +
+		'<p class="cardio-stress-legend">' +
+			'<b>Escore de Contratilidade: </b>' +
+			'<span>1-Valor Normal, >1 e <1,6-Disfunção Discreta, >1,6 e <2,0-Disfunção Moderada, >2,0-Disfunção Importante</span>'  +
+		'</p>' +
+	'</div>';
 }
 
 function renderStressInputTable(levelID){
+	let tabIndex = 0;
 	return '<div class="cardio-stress-input-content">' +
 		'<div class="cardio-stress-input-column">' +
 			'<table class="cardio-stress-input-table">'+
 				'<tbody class="cardio-stress-input-tbody">'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">2</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">8</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">14</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">17</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-yellow">16</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-yellow">11</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-yellow">5</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 				'</tbody>' +
 			'</table>'+
@@ -125,27 +100,27 @@ function renderStressInputTable(levelID){
 				'<tbody class="cardio-stress-input-tbody">'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">1</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">2</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-green">3</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-green">4</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-yellow">5</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-yellow">6</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 				'</tbody>' +
 			'</table>'+
@@ -155,31 +130,31 @@ function renderStressInputTable(levelID){
 				'<tbody class="cardio-stress-input-tbody">'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-green">3</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-green">9</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">14</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">17</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-yellow">16</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-yellow">12</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-yellow">6</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 				'</tbody>' +
 			'</table>'+
@@ -189,31 +164,31 @@ function renderStressInputTable(levelID){
 				'<tbody class="cardio-stress-input-tbody">'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-green">4</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-green">10</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-green">15</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">17</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">13</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">7</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 					'<tr class="cardio-stress-input-row">'+
 						'<td class="cardio-stress-cell-red">1</td>'+
-						`<td class="cardio-stress-cell-${levelID}">1</td>`+
+						`<td tabindex="${++tabIndex}" class="cardio-stress-cell cardio-stress-cell-${levelID}">1</td>`+
 					'</tr>'+
 				'</tbody>' +
 			'</table>'+

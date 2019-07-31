@@ -5,7 +5,7 @@ import {
 	toWidget,
 	toWidgetEditable,
 } from '@ckeditor/ckeditor5-widget/src/utils';
-import {makeCalculations} from '../../cardio-utils/src/CardioUtils';
+import {makeCalculations, selectAllOnFocus} from '../../cardio-utils/src/CardioUtils';
 
 export default class CardioEditing extends Plugin {
 
@@ -304,7 +304,7 @@ export default class CardioEditing extends Plugin {
 				makeCalculations(editableElement.getAttribute('id'), editor);
 			}
 		});
-
+		selectAllOnFocus('.cardio-input-cell, .cardio-ref-input-cell');
 	}
 }
 

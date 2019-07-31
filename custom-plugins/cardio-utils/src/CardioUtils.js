@@ -340,7 +340,7 @@ export function makeStressCalculations(editableElement, editor){
 	});
 
 	const cellsAvg = sum/sectionCells.length;
-	const cellsAvgFormatted = truncate(cellsAvg, 2).toString();
+	const cellsAvgFormatted = cellsAvg.toFixed(2).toString().replace('.', ',');
 
 	let result = '';
 	if(cellsAvg === 1){
@@ -391,4 +391,25 @@ export function checkNumeric(values) {
         }
     }
     return true;
+}
+
+// Add evento que seleciona o conteudo da celula no focus
+export function selectAllOnFocus(className) {
+	$(document).on('focus', className, function() {
+		const cell = this;
+		if(!cell.querySelector('br')){
+			let range, selection;
+			if ( document.body.createTextRange ) {
+				range = document.body.createTextRange();
+				range.moveToElementText(cell);
+				range.select();
+			} else if ( window.getSelection ) {
+				selection = window.getSelection();
+				range = document.createRange();
+				range.selectNodeContents(cell);
+				selection.removeAllRanges();
+				selection.addRange(range);
+			}
+		}
+	});
 }

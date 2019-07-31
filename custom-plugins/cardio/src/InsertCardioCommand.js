@@ -387,7 +387,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row">' +
 		'<td class="cardio-label-cell">Relação ERP e Massa VE i:</td>' +
-		`<td class="cardio-ref-input-cell" id="rerp">${(references['rerp'] || '-')}</td>` +
+		`<td class="cardio-auto-value-cell" id="rerp">${(references['rerp'] || '-')}</td>` +
 		'</tr>' +
 		'</tbody>' +
 		'</table>';
