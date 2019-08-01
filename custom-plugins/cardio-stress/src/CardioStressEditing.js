@@ -17,8 +17,8 @@ export default class CardioStressEditing extends Plugin {
 	init() {
 		this._defineSchema();
 		this._defineConverters();
-		this._initializeEditorEvents();
 		this.editor.commands.add('insertCardioStress', new InsertCardioStressCommand(this.editor));
+		this._initializeEditorEvents();
 	}
 
 
@@ -94,27 +94,30 @@ export default class CardioStressEditing extends Plugin {
 			allowContentOf: '$block',
 		});
 
-		schema.register('cardioStressCellRep', {
+		schema.register('cardioStressCell', {
 			allowIn: 'cardioStressInputRow',
+			allowAttributes: ['classes'],
 			allowContentOf: '$block',
 			isLimit: true,
 		});
 
-		schema.register('cardioStressCellEsf', {
-			allowIn: 'cardioStressInputRow',
-			allowContentOf: '$block',
-			isLimit: true,
-		});
-
-		schema.register('cardioStressCellRec', {
-			allowIn: 'cardioStressInputRow',
-			allowContentOf: '$block',
-			isLimit: true,
-		});
+		// schema.register('cardioStressCellEsf', {
+		// 	allowIn: 'cardioStressInputRow',
+		// 	allowContentOf: '$block',
+		// 	isLimit: true,
+		// });
+		//
+		// schema.register('cardioStressCellRec', {
+		// 	allowIn: 'cardioStressInputRow',
+		// 	allowContentOf: '$block',
+		// 	isLimit: true,
+		// });
 	}
 
 	_defineConverters() {
-		const conversion = this.editor.conversion;
+
+		const editor = this.editor;
+		const conversion = editor.conversion;
 
 		/***
 		 * cardioStress
@@ -386,68 +389,26 @@ export default class CardioStressEditing extends Plugin {
 		});
 
 		/***
-		 * cardioStressCellRep
+		 * cardioStressCell
 		 ***/
 		conversion.for('upcast').elementToElement({
 			converterPriority: 'highest',
-			model: 'cardioStressCellRep',
-			view: {
-				name: 'td',
-				classes: ['cardio-stress-cell', 'cardio-stress-cell-rep'],
-			},
-		});
-		conversion.for('downcast').elementToElement({
-			converterPriority: 'highest',
-			model: 'cardioStressCellRep',
-			view: (modelElement, viewWriter) => {
-				const td = viewWriter.createEditableElement('td', {
-					class: 'cardio-stress-cell cardio-stress-cell-rep',
-					style: 'text-align:center;  border:1px solid lightgray; width:25px;',
+			model: (viewElement, modelWriter) => {
+				return modelWriter.createElement('cardioStressCell', {
+					classes: Array.from(viewElement._classes.values()),
 				});
-				return toWidgetEditable(td, viewWriter);
 			},
-		});
-
-		/***
-		 * cardioStressCellEsf
-		 ***/
-		conversion.for('upcast').elementToElement({
-			converterPriority: 'highest',
-			model: 'cardioStressCellEsf',
 			view: {
 				name: 'td',
-				classes: ['cardio-stress-cell', 'cardio-stress-cell-esf'],
+				classes: ['cardio-stress-cell'],
 			},
 		});
 		conversion.for('downcast').elementToElement({
 			converterPriority: 'highest',
-			model: 'cardioStressCellEsf',
+			model: 'cardioStressCell',
 			view: (modelElement, viewWriter) => {
 				const td = viewWriter.createEditableElement('td', {
-					class: 'cardio-stress-cell cardio-stress-cell-esf',
-					style: 'text-align:center;  border:1px solid lightgray; width:25px;',
-				});
-				return toWidgetEditable(td, viewWriter);
-			},
-		});
-
-		/***
-		 * cardioStressCellRec
-		 ***/
-		conversion.for('upcast').elementToElement({
-			converterPriority: 'highest',
-			model: 'cardioStressCellRec',
-			view: {
-				name: 'td',
-				classes: ['cardio-stress-cell', 'cardio-stress-cell-rec'],
-			},
-		});
-		conversion.for('downcast').elementToElement({
-			converterPriority: 'highest',
-			model: 'cardioStressCellRec',
-			view: (modelElement, viewWriter) => {
-				const td = viewWriter.createEditableElement('td', {
-					class: 'cardio-stress-cell cardio-stress-cell-rec',
+					class: modelElement.getAttribute('classes').join(' '),
 					style: 'text-align:center;  border:1px solid lightgray; width:25px;',
 				});
 				return toWidgetEditable(td, viewWriter);
@@ -482,12 +443,14 @@ export default class CardioStressEditing extends Plugin {
 		let editor = this.editor;
 		editor.model.document.on('change:data', (evt, data) => {
 			let editableElement = editor.editing.view.document.selection.editableElement;
-			if ( editableElement ) {
-				makeStressCalculations(editableElement, editor);
+			if ( editableElement && editableElement.hasClass('cardio-stress-cell') ) {
+				makeStressCalculations(editor, editableElement);
 			}
-		});
-
+		} );
 		selectAllOnFocus('.cardio-stress-cell');
+
+
+
 	}
 }
 

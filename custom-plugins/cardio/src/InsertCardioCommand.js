@@ -1,9 +1,4 @@
 import Command from '@ckeditor/ckeditor5-core/src/command';
-import FocusTracker from '@ckeditor/ckeditor5-utils/src/focustracker';
-import KeystrokeHandler from '@ckeditor/ckeditor5-utils/src/keystrokehandler';
-import ViewCollection from '@ckeditor/ckeditor5-ui/src/viewcollection';
-import FocusCycler from '@ckeditor/ckeditor5-ui/src/focuscycler';
-import {getAllCkViewEditableElements} from '../../cardio-utils/src/CardioUtils';
 
 export default class InsertCardioCommand extends Command {
 
@@ -13,10 +8,6 @@ export default class InsertCardioCommand extends Command {
 			const viewFragment = editor.data.processor.toView(createCardioTable(editor));
 			const modelFragment = editor.data.toModel(viewFragment);
 			editor.model.insertContent(modelFragment, editor.model.document.selection);
-			// setTimeout(function() {
-			// 	initializeFocusCycling(editor, viewFragment);
-			// }, 2000);
-
 		});
 	}
 
@@ -26,37 +17,6 @@ export default class InsertCardioCommand extends Command {
 		const allowedIn = model.schema.findAllowedParent(selection.getFirstPosition(), 'cardio');
 		this.isEnabled = allowedIn !== null;
 	}
-}
-
-
-function initializeFocusCycling(editor, viewFragment) {
-
-	const focusables = new ViewCollection();
-	const focusTracker = new FocusTracker();
-	const keystrokeHandler = new KeystrokeHandler();
-
-	keystrokeHandler.listenTo( document );
-
-	const view = editor.ui.view.editable;
-
-	getAllCkViewEditableElements(editor).forEach( element => {
-		focusables.add(element);
-	} );
-
-	document.querySelectorAll('table.cardio-table td[tabindex]').forEach( view => {
-		focusTracker.add( view );
-	} );
-
-
-	const focusCycler = new FocusCycler({focusables, focusTracker, keystrokeHandler});
-	console.log(focusCycler);
-	focusCycler.focusFirst();
-
-	keystrokeHandler.set( 'z', ( evt, cancel ) => {
-		console.log('tab pressed');
-		focusCycler.focusNext();
-		cancel();
-	} );
 }
 
 function createCardioTable(editor) {

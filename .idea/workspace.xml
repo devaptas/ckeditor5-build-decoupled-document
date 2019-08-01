@@ -5,11 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompEditing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressEditing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/InsertCardioStressCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/InsertCardioStressCommand.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -124,7 +122,9 @@
       <workItem from="1564401740854" duration="10424000" />
       <workItem from="1564421200065" duration="12414000" />
       <workItem from="1564487526755" duration="24293000" />
-      <workItem from="1564570988998" duration="16275000" />
+      <workItem from="1564570988998" duration="16929000" />
+      <workItem from="1564662572478" duration="599000" />
+      <workItem from="1564663524137" duration="24811000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -238,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564496833212</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Implementação do cardioStress">
+      <created>1564603121461</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1564603121461</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +282,7 @@
     <MESSAGE value="Re-add inspector.js" />
     <MESSAGE value="Implementação do plugin de cardio" />
     <MESSAGE value="Inicio da implementação do cardioStress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicio da implementação do cardioStress" />
+    <MESSAGE value="Implementação do cardioStress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementação do cardioStress" />
   </component>
 </project>

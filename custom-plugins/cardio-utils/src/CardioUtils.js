@@ -1,12 +1,30 @@
 import ModelPosition from '@ckeditor/ckeditor5-engine/src/model/position';
 import ModelTreeWalker from '@ckeditor/ckeditor5-engine/src/model/treewalker';
-import ViewPosition from '@ckeditor/ckeditor5-engine/src/view/position';
-import ViewTreeWalker from '@ckeditor/ckeditor5-engine/src/view/treewalker'
+
+/**
+ *
+ * @param editor CKEditor instance
+ * @param value string to set
+ * @param item @ckeditor/ckeditor5-engine/src/model/item
+ */
+function setCkElement(editor, item, value){
+	if ( item ) {
+        editor.model.change(writer => {
+        	if(item._children._nodes[0] && item._children._nodes[0]._data === value){
+				return;
+			}
+            item._children._nodes.forEach(function(child){
+                writer.remove(child);
+            });
+            writer.insertText(value, item);
+        });
+    }
+}
 
 /**
  * @param editor CKEditor instance
  * @param id string of element to set
- * @param value number to set
+ * @param value string to set
  * @returns {*}
  */
 function setCkElementById(editor, id, value) {
@@ -19,31 +37,61 @@ function setCkElementById(editor, id, value) {
             break;
         }
     }
-    if ( item ) {
-        editor.model.change(writer => {
-            item._children._nodes.forEach(function(child){
-                writer.remove(child);
-            });
-            writer.insertText(value, item);
-        });
-    }
+	setCkElement(editor, item, value);
 }
 
 /**
- *
- * @param editor
+ * @param editor CKEditor instance
+ * @param className string class of element to set
+ * @param value string to set
+ * @returns {*}
  */
-export function getAllCkViewEditableElements(editor) {
-	const position = new ViewPosition(editor.editing.view.document.getRoot(), 0);
-    const walker = new ViewTreeWalker({startPosition: position});
-    let elements = [];
+function setCkElementByClass(editor, className, value) {
+    const position = new ModelPosition(editor.model.document.getRoot(), [0]);
+    const walker = new ModelTreeWalker({startPosition: position});
     for (let element of walker) {
-        if ( element.type === 'elementStart' && element.item._attrs.get('tabindex')) {
-            elements.push(element);
-        }
+        if (
+        	element.type !== 'text' &&
+			element.item._attrs.get('classes') &&
+			inArray(className, element.item._attrs.get('classes'))
+		) {
+			setCkElement(editor, element.item, value);
+		}
     }
-    console.log(elements);
-    return elements;
+}
+
+export function makeStressCalculations(editor, editableElement){
+
+	const cellClasses = Array.from(editableElement._classes.values());
+
+	setTimeout(function() {
+		if ( editableElement._children[0] ) {
+			setCkElementByClass(editor, cellClasses[1], editableElement._children[0]._textData);
+		}
+
+		let sum = 0;
+		const sectionCells = document.querySelectorAll(`.${cellClasses[0]}`);
+		sectionCells.forEach((cell) => {
+			sum = sum + parseInt(cell.textContent);
+		});
+
+		const cellsAvg = sum/sectionCells.length;
+		const cellsAvgFormatted = cellsAvg.toFixed(2).toString().replace('.', ',');
+
+		let result = '';
+		if(cellsAvg === 1){
+			result = `${cellsAvgFormatted} (Valor normal)`;
+		} else if (cellsAvg > 1 && cellsAvg <= 1.6) {
+			result = `${cellsAvgFormatted} (Disfunção discreta)`;
+		} else if (cellsAvg > 1.6 && cellsAvg <= 2) {
+			result = `${cellsAvgFormatted} (Disfunção moderada)`;
+		} else if (cellsAvg > 2) {
+			result = `${cellsAvgFormatted} (Disfunção importante)`;
+		}
+
+		const elemID = cellClasses[0].split('-').pop();
+		setCkElementById(editor, elemID, result);
+	}, 100);
 }
 
 // Efetua os cálculos de acordo com o elemento que foi alterado nos widgets Ecocardio e Ecocardio Complementar
@@ -329,34 +377,6 @@ export function makeCalculations(elementId, editor) {
     }
 }
 
-export function makeStressCalculations(editableElement, editor){
-
-	const cellClass = editableElement._classes.values().next().value;
-
-	let sum = 0;
-	const sectionCells = document.querySelectorAll(`.${cellClass}`);
-	sectionCells.forEach((cell) => {
-	   	sum = sum + parseInt(cell.textContent);
-	});
-
-	const cellsAvg = sum/sectionCells.length;
-	const cellsAvgFormatted = cellsAvg.toFixed(2).toString().replace('.', ',');
-
-	let result = '';
-	if(cellsAvg === 1){
-		result = `${cellsAvgFormatted} (Valor normal)`;
-	} else if (cellsAvg > 1 && cellsAvg <= 1.6) {
-		result = `${cellsAvgFormatted} (Disfunção discreta)`;
-	} else if (cellsAvg > 1.6 && cellsAvg <= 2) {
-		result = `${cellsAvgFormatted} (Disfunção moderada)`;
-	} else if (cellsAvg > 2) {
-		result = `${cellsAvgFormatted} (Disfunção importante)`;
-	}
-
-	const elemID = cellClass.split('-').pop();
-	setCkElementById(editor, elemID, result);
-}
-
 
 // Transforma o valor de determinado campo do CKEditor em um valor float válido
 // Devem ser passados como argumentos todos os ids dos campos dos quais se quer os valores
@@ -412,4 +432,12 @@ export function selectAllOnFocus(className) {
 			}
 		}
 	});
+}
+
+function inArray(needle, haystack) {
+    const length = haystack.length;
+    for(var i = 0; i < length; i++) {
+        if(haystack[i] === needle) return true;
+    }
+    return false;
 }
