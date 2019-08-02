@@ -1,15 +1,18 @@
 import Command from '@ckeditor/ckeditor5-core/src/command';
 import {stressHeader} from '../img/stressHeader';
+import {addCustomEvents} from '../../cardio-utils/src/CardioUtils';
 
 export default class InsertCardioStressCommand extends Command {
 
     execute() {
     	const editor = this.editor;
+
         editor.model.change( () => {
 			const viewFragment = editor.data.processor.toView( createCardioStressTable() );
             const modelFragment = editor.data.toModel( viewFragment );
             editor.model.insertContent( modelFragment, editor.model.document.selection );
         } );
+		addCustomEvents(editor);
     }
 
     refresh() {
@@ -17,10 +20,8 @@ export default class InsertCardioStressCommand extends Command {
         const selection = model.document.selection;
         const allowedIn = model.schema.findAllowedParent( selection.getFirstPosition(), 'cardioStress' );
         this.isEnabled = allowedIn !== null;
-
     }
 }
-
 
 function createCardioStressTable() {
 	return '<div class="cardio-stress">' +

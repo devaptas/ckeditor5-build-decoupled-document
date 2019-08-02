@@ -56,9 +56,20 @@ export default class CardioUI extends Plugin {
                 type: 'button',
                 model: new Model({
                     icon: cardioCompIcon,
-                    label: t('Ecocardio complementar'),
+                    label: t('Ecocardio - Função diastólica do VE'),
                     withText: true,
-                    action: 'insertCardioComp'
+                    action: 'insertLeftVentrDiastFunc'
+                }),
+            });
+
+            // CardioComp button
+            items.add({
+                type: 'button',
+                model: new Model({
+                    icon: cardioCompIcon,
+                    label: t('Ecocardio - Artéria pulmonar e VC'),
+                    withText: true,
+                    action: 'insertPulmArtAndVenCav'
                 }),
             });
 

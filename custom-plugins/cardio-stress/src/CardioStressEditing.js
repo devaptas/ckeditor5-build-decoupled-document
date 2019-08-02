@@ -96,22 +96,10 @@ export default class CardioStressEditing extends Plugin {
 
 		schema.register('cardioStressCell', {
 			allowIn: 'cardioStressInputRow',
-			allowAttributes: ['classes'],
+			allowAttributes: ['classes', 'tabindex'],
 			allowContentOf: '$block',
 			isLimit: true,
 		});
-
-		// schema.register('cardioStressCellEsf', {
-		// 	allowIn: 'cardioStressInputRow',
-		// 	allowContentOf: '$block',
-		// 	isLimit: true,
-		// });
-		//
-		// schema.register('cardioStressCellRec', {
-		// 	allowIn: 'cardioStressInputRow',
-		// 	allowContentOf: '$block',
-		// 	isLimit: true,
-		// });
 	}
 
 	_defineConverters() {
@@ -396,6 +384,7 @@ export default class CardioStressEditing extends Plugin {
 			model: (viewElement, modelWriter) => {
 				return modelWriter.createElement('cardioStressCell', {
 					classes: Array.from(viewElement._classes.values()),
+					tabindex: viewElement.getAttribute('tabindex')
 				});
 			},
 			view: {
@@ -408,6 +397,7 @@ export default class CardioStressEditing extends Plugin {
 			model: 'cardioStressCell',
 			view: (modelElement, viewWriter) => {
 				const td = viewWriter.createEditableElement('td', {
+					tabindex: modelElement.getAttribute('tabindex'),
 					class: modelElement.getAttribute('classes').join(' '),
 					style: 'text-align:center;  border:1px solid lightgray; width:25px;',
 				});
@@ -447,10 +437,6 @@ export default class CardioStressEditing extends Plugin {
 				makeStressCalculations(editor, editableElement);
 			}
 		} );
-		selectAllOnFocus('.cardio-stress-cell');
-
-
-
 	}
 }
 

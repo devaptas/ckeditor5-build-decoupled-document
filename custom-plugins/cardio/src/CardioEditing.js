@@ -69,6 +69,7 @@ export default class CardioEditing extends Plugin {
 
 		schema.register('cardioRefInputCell', {
 			allowIn: 'cardioRow',
+			isLimit: true,
 			allowAttributes: ['id'],
 			allowContentOf: '$block',
 		});
@@ -304,7 +305,6 @@ export default class CardioEditing extends Plugin {
 				makeCalculations(editableElement.getAttribute('id'), editor);
 			}
 		});
-		selectAllOnFocus('.cardio-input-cell, .cardio-ref-input-cell');
 	}
 }
 

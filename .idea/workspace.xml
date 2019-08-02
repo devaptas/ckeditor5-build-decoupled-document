@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertPulmArtAndVenCavCommand.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompEditing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertCardioCompCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertLeftVentrDiastFuncCommand.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressEditing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/InsertCardioStressCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/InsertCardioStressCommand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-ui/src/CardioUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-ui/src/CardioUI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,7 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/custom-plugins/cardio-utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/custom-plugins/cardio-comp/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -62,19 +67,21 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/custom-plugins/cardio-utils" />
-      <recent name="$PROJECT_DIR$/customPlugins/custom-font-ui/src" />
-      <recent name="$PROJECT_DIR$/customPlugins/custom-font-size-ui" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/custom-plugins/cardio-utils" />
       <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui/src" />
       <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui" />
       <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui/src/icon" />
       <recent name="$PROJECT_DIR$/custom-plugins/custom-simple-upload/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/custom-plugins/cardio-comp/src" />
+      <recent name="$PROJECT_DIR$/custom-plugins/cardio-utils" />
+      <recent name="$PROJECT_DIR$/customPlugins/custom-font-ui/src" />
+      <recent name="$PROJECT_DIR$/customPlugins/custom-font-size-ui" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -124,7 +131,8 @@
       <workItem from="1564487526755" duration="24293000" />
       <workItem from="1564570988998" duration="16929000" />
       <workItem from="1564662572478" duration="599000" />
-      <workItem from="1564663524137" duration="24811000" />
+      <workItem from="1564663524137" duration="25093000" />
+      <workItem from="1564746650204" duration="27610000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -245,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564603121461</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Melhoria no módulo de stress que copia valores de ref para celular com msm numero">
+      <created>1564692821909</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1564692821909</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +298,7 @@
     <MESSAGE value="Implementação do plugin de cardio" />
     <MESSAGE value="Inicio da implementação do cardioStress" />
     <MESSAGE value="Implementação do cardioStress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementação do cardioStress" />
+    <MESSAGE value="Melhoria no módulo de stress que copia valores de ref para celular com msm numero" />
+    <option name="LAST_COMMIT_MESSAGE" value="Melhoria no módulo de stress que copia valores de ref para celular com msm numero" />
   </component>
 </project>

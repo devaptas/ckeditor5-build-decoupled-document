@@ -1,11 +1,12 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import Widget from '@ckeditor/ckeditor5-widget/src/widget';
-import InsertCardioCompCommand from './InsertCardioCompCommand';
+import InsertLeftVentrDiastFuncCommand from './InsertLeftVentrDiastFuncCommand';
 import {
     toWidget,
     toWidgetEditable,
 } from '@ckeditor/ckeditor5-widget/src/utils';
-import {makeCalculations, selectAllOnFocus} from '../../cardio-utils/src/CardioUtils';
+import {makeCalculations} from '../../cardio-utils/src/CardioUtils';
+import InsertPulmArtAndVenCavCommand from './InsertPulmArtAndVenCavCommand';
 
 export default class CardioCompEditing extends Plugin {
 
@@ -17,7 +18,8 @@ export default class CardioCompEditing extends Plugin {
         this._defineSchema();
         this._defineConverters();
         this._initializeEditorEvents();
-        this.editor.commands.add('insertCardioComp', new InsertCardioCompCommand(this.editor));
+        this.editor.commands.add('insertLeftVentrDiastFunc', new InsertLeftVentrDiastFuncCommand(this.editor));
+        this.editor.commands.add('insertPulmArtAndVenCav', new InsertPulmArtAndVenCavCommand(this.editor));
     }
 
     _defineSchema() {
@@ -52,7 +54,7 @@ export default class CardioCompEditing extends Plugin {
             // Cannot be split or left by the caret.
             isLimit: true,
             allowIn: 'cardioCompRow',
-            allowAttributes: ['id'],
+            allowAttributes: ['id', 'tabindex'],
             allowContentOf: '$block',
         });
 
@@ -68,6 +70,7 @@ export default class CardioCompEditing extends Plugin {
         });
 
         schema.register('cardioCompRefInputCell', {
+        	isLimit: true,
             allowIn: 'cardioCompRow',
             allowAttributes: ['id'],
             allowContentOf: '$block',
@@ -194,6 +197,7 @@ export default class CardioCompEditing extends Plugin {
             model: (viewElement, modelWriter) => {
                 return modelWriter.createElement('cardioCompInputCell', {
                     id: viewElement.getAttribute('id'),
+					tabindex: viewElement.getAttribute('tabindex')
                 });
             },
             view: {
@@ -208,6 +212,7 @@ export default class CardioCompEditing extends Plugin {
                 const td = viewWriter.createEditableElement('td', {
                     id: modelElement.getAttribute('id'),
                     class: 'cardio-comp-input-cell',
+					tabindex: modelElement.getAttribute('tabindex'),
                     style: 'border:1px solid black; padding:2px; width:80px; text-align:right; white-space:nowrap;',
                 });
                 return toWidgetEditable(td, viewWriter);
@@ -301,7 +306,6 @@ export default class CardioCompEditing extends Plugin {
                 makeCalculations(editableElement.getAttribute('id'), editor);
             }
         });
-        selectAllOnFocus('.cardio-comp-input-cell, .cardio-comp-ref-input-cell');
     }
 }
 

@@ -1,4 +1,5 @@
 import Command from '@ckeditor/ckeditor5-core/src/command';
+import {addCustomEvents} from '../../cardio-utils/src/CardioUtils';
 
 export default class InsertCardioCommand extends Command {
 
@@ -9,6 +10,7 @@ export default class InsertCardioCommand extends Command {
 			const modelFragment = editor.data.toModel(viewFragment);
 			editor.model.insertContent(modelFragment, editor.model.document.selection);
 		});
+		addCustomEvents(editor);
 	}
 
 	refresh() {
@@ -209,17 +211,17 @@ function createCardioTable(editor) {
 		'</tr>' +
 
 		'<tr class="cardio-row">' +
-		'<td class="cardio-label-cell">Diâmetro Basal do Ventrículo Direito:</td>' +
-		'<td class="cardio-input-cell" id="dbvd"></td>' +
-		'<td class="cardio-unit-cell">mm</td>' +
-		`<td class="cardio-ref-input-cell" id="refdbvd">${(references['refdbvd'] || '-')}</td>` +
-		'</tr>' +
-
-		'<tr class="cardio-row">' +
 		'<td class="cardio-label-cell">Diâmetro Proximal da Via de Saída do VD:</td>' +
 		'<td class="cardio-input-cell" id="dpvsvd"></td>' +
 		'<td class="cardio-unit-cell">mm</td>' +
 		`<td class="cardio-ref-input-cell" id="refdpvsvd">${(references['refdpvsvd'] || '-')}</td>` +
+		'</tr>' +
+
+		'<tr class="cardio-row">' +
+		'<td class="cardio-label-cell">Diâmetro Basal do Ventrículo Direito:</td>' +
+		'<td class="cardio-input-cell" id="dbvd"></td>' +
+		'<td class="cardio-unit-cell">mm</td>' +
+		`<td class="cardio-ref-input-cell" id="refdbvd">${(references['refdbvd'] || '-')}</td>` +
 		'</tr>' +
 
 		'<tr class="cardio-row">' +
