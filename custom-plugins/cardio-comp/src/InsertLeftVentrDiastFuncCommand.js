@@ -43,60 +43,84 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-section-cell">Parâmetros: Função Diastólica do VE:</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-fmoe">' +
                 '<td class="cardio-comp-label-cell">Fluxo Mitral Onda E:</td>' +
                 `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="fmoe"></td>` +
                 '<td class="cardio-comp-unit-cell">cm/s</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="reffmoe">${(references['reffmoe'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-fmoe">x</button>' +
+				'</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-fmoa">' +
                 '<td class="cardio-comp-label-cell">Fluxo Mitral Onda A:</td>' +
                 `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="fmoa"></td>` +
                 '<td class="cardio-comp-unit-cell">cm/s</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="reffmoa">${(references['reffmoa'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-fmoa">x</button>' +
+				'</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-es">' +
                 '<td class="cardio-comp-label-cell">e\' Septal:</td>' +
                 `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="es"></td>` +
                 '<td class="cardio-comp-unit-cell">cm/s</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refes">${(references['refes'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-es">x</button>' +
+				'</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-el">' +
                 '<td class="cardio-comp-label-cell">e\' Lateral:</td>' +
                 `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="el"></td>` +
                 '<td class="cardio-comp-unit-cell">cm/s</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refel">${(references['refel'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-el">x</button>' +
+				'</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-rea">' +
                 '<td class="cardio-comp-label-cell">Relação E/A:</td>' +
                 `<td class="cardio-comp-auto-value-cell" id="rea">-</td>` +
                 '<td class="cardio-comp-unit-cell"></td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refrea">${(references['refrea'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-rea">x</button>' +
+				'</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-mree">' +
                 '<td class="cardio-comp-label-cell">Média Rel E/e\':</td>' +
                 `<td class="cardio-comp-auto-value-cell" id="mree">-</td>` +
                 '<td class="cardio-comp-unit-cell"></td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refmree">${(references['refmree'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-mree">x</button>' +
+				'</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+           	'<tr class="cardio-comp-row" id="tr-tdm">' +
                 '<td class="cardio-comp-label-cell">TD Mitral:</td>' +
                 `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="tdm"></td>` +
                 '<td class="cardio-comp-unit-cell">ms</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="reftdm">${(references['reftdm'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-tdm">x</button>' +
+				'</td>' +
             '</tr>' +
 
-			'<tr class="cardio-comp-row">' +
+			'<tr class="cardio-comp-row" id="tr-vit">' +
                 '<td class="cardio-comp-label-cell">Veloc. Da Insuf. Tricúspide:</td>' +
-                `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="tdm"></td>` +
+                `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="vit"></td>` +
                 '<td class="cardio-comp-unit-cell">ms</td>' +
-                `<td class="cardio-comp-ref-input-cell" id="reftdm">${(references['refvit'] || '-')}</td>` +
+                `<td class="cardio-comp-ref-input-cell" id="refvit">${(references['refvit'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vit">x</button>' +
+				'</td>' +
             '</tr>' +
 
         '</tbody>' +

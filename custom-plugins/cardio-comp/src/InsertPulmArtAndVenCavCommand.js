@@ -40,39 +40,54 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-section-cell">Pressão Sistólica da Artéria Pulmonar e Veia Cava:</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-psap">' +
                 '<td class="cardio-comp-label-cell">PSAP:</td>' +
                 `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="psap"></td>` +
                 '<td class="cardio-comp-unit-cell">mmHg</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refpsap">${(references['refpsap'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-psap">x</button>' +
+				'</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-pead">' +
                 '<td class="cardio-comp-label-cell">Pressão Estimada do Átrio Direito:</td>' +
                 `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="pead"></td>` +
                 '<td class="cardio-comp-unit-cell">mmHg</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refpead">${(references['refpead'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-pead">x</button>' +
+				'</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-vci">' +
                 '<td class="cardio-comp-label-cell">Veia Cava Inferior:</td>' +
                 `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="vci"></td>` +
                 '<td class="cardio-comp-unit-cell">mm</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refvci">${(references['refvci'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vci">x</button>' +
+				'</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-vcie">' +
                 '<td class="cardio-comp-label-cell">Veia Cava Inferior (Expiração):</td>' +
                 `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="vcie"></td>` +
                 '<td class="cardio-comp-unit-cell">mm</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refvcie">${(references['refvcie'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vcie">x</button>' +
+				'</td>' +
             '</tr>' +
 
-            '<tr class="cardio-comp-row">' +
+            '<tr class="cardio-comp-row" id="tr-vvci">' +
                 '<td class="cardio-comp-label-cell">Variação Veia Cava Inferior:</td>' +
                 '<td class="cardio-comp-auto-value-cell" id="vvci"></td>' +
                 '<td class="cardio-comp-unit-cell">%</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refvvci">${(references['refvvci'] || '-')}</td>` +
+				'<td class="cardio-comp-cell">' +
+					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vvci">x</button>' +
+				'</td>' +
             '</tr>' +
         '</tbody>' +
     '</table>';

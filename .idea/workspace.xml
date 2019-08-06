@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertPulmArtAndVenCavCommand.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/CardioCompEditing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertCardioCompCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertLeftVentrDiastFuncCommand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertLeftVentrDiastFuncCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertLeftVentrDiastFuncCommand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertPulmArtAndVenCavCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertPulmArtAndVenCavCommand.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/CardioStressEditing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/InsertCardioStressCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-stress/src/InsertCardioStressCommand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-ui/src/CardioUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-ui/src/CardioUI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontFamilyUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontFamilyUI.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +132,11 @@
       <workItem from="1564570988998" duration="16929000" />
       <workItem from="1564662572478" duration="599000" />
       <workItem from="1564663524137" duration="25093000" />
-      <workItem from="1564746650204" duration="27610000" />
+      <workItem from="1564746650204" duration="27814000" />
+      <workItem from="1564842696136" duration="1210000" />
+      <workItem from="1565009522744" duration="11376000" />
+      <workItem from="1565023784668" duration="14638000" />
+      <workItem from="1565093002349" duration="2917000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -260,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564692821909</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Melhorias no preechimento dos campos">
+      <created>1564779319768</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1564779319768</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,6 +310,7 @@
     <MESSAGE value="Inicio da implementação do cardioStress" />
     <MESSAGE value="Implementação do cardioStress" />
     <MESSAGE value="Melhoria no módulo de stress que copia valores de ref para celular com msm numero" />
-    <option name="LAST_COMMIT_MESSAGE" value="Melhoria no módulo de stress que copia valores de ref para celular com msm numero" />
+    <MESSAGE value="Melhorias no preechimento dos campos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Melhorias no preechimento dos campos" />
   </component>
 </project>

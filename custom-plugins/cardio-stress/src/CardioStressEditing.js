@@ -171,6 +171,7 @@ export default class CardioStressEditing extends Plugin {
 			view: (modelElement, viewWriter) => {
 				return viewWriter.createContainerElement('p', {
 					class: 'cardio-stress-paragraph',
+					style: 'font-size:10pt; margin: 10px 0 5px 0 !important;',
 				});
 			},
 		});
@@ -318,7 +319,7 @@ export default class CardioStressEditing extends Plugin {
 			model: 'cardioStressCellGreen',
 			view: {
 				name: 'td',
-				classes: 'cardio-stress-cell-green',
+				classes: ['cardio-stress-cell-green', 'cardio-stress-cell-color'],
 			},
 		});
 		conversion.for('downcast').elementToElement({
@@ -326,7 +327,7 @@ export default class CardioStressEditing extends Plugin {
 			model: 'cardioStressCellGreen',
 			view: (modelElement, viewWriter) => {
 				return viewWriter.createContainerElement('td', {
-					class: 'cardio-stress-cell-green',
+					class: 'cardio-stress-cell-green cardio-stress-cell-color',
 					style: 'text-align:center; background-color:#4e9900; border:1px solid lightgray; width:25px;',
 				});
 			},
@@ -340,7 +341,7 @@ export default class CardioStressEditing extends Plugin {
 			model: 'cardioStressCellYellow',
 			view: {
 				name: 'td',
-				classes: 'cardio-stress-cell-yellow',
+				classes: ['cardio-stress-cell-yellow', 'cardio-stress-cell-color'],
 			},
 		});
 		conversion.for('downcast').elementToElement({
@@ -348,7 +349,7 @@ export default class CardioStressEditing extends Plugin {
 			model: 'cardioStressCellYellow',
 			view: (modelElement, viewWriter) => {
 				return viewWriter.createContainerElement('td', {
-					class: 'cardio-stress-cell-yellow',
+					class: 'cardio-stress-cell-yellow cardio-stress-cell-color',
 					style: 'text-align:center; background-color:#f7ba36; border:1px solid lightgray; width:25px;',
 				});
 			},
@@ -362,7 +363,7 @@ export default class CardioStressEditing extends Plugin {
 			model: 'cardioStressCellRed',
 			view: {
 				name: 'td',
-				classes: 'cardio-stress-cell-red',
+				classes: ['cardio-stress-cell-red', 'cardio-stress-cell-color'],
 			},
 		});
 		conversion.for('downcast').elementToElement({
@@ -370,7 +371,7 @@ export default class CardioStressEditing extends Plugin {
 			model: 'cardioStressCellRed',
 			view: (modelElement, viewWriter) => {
 				return viewWriter.createContainerElement('td', {
-					class: 'cardio-stress-cell-red',
+					class: 'cardio-stress-cell-red cardio-stress-cell-color',
 					style: 'text-align:center; background-color:#db323e; border:1px solid lightgray; width:25px;',
 				});
 			},
@@ -399,7 +400,7 @@ export default class CardioStressEditing extends Plugin {
 				const td = viewWriter.createEditableElement('td', {
 					tabindex: modelElement.getAttribute('tabindex'),
 					class: modelElement.getAttribute('classes').join(' '),
-					style: 'text-align:center;  border:1px solid lightgray; width:25px;',
+					style: 'text-align:center; border:1px solid lightgray; width:25px; height:20px;',
 				});
 				return toWidgetEditable(td, viewWriter);
 			},

@@ -1,11 +1,11 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import Widget from '@ckeditor/ckeditor5-widget/src/widget';
-import InsertLeftVentrDiastFuncCommand from './InsertLeftVentrDiastFuncCommand';
 import {
     toWidget,
     toWidgetEditable,
 } from '@ckeditor/ckeditor5-widget/src/utils';
 import {makeCalculations} from '../../cardio-utils/src/CardioUtils';
+import InsertLeftVentrDiastFuncCommand from './InsertLeftVentrDiastFuncCommand';
 import InsertPulmArtAndVenCavCommand from './InsertPulmArtAndVenCavCommand';
 
 export default class CardioCompEditing extends Plugin {
@@ -38,7 +38,19 @@ export default class CardioCompEditing extends Plugin {
         schema.register('cardioCompRow', {
             allowIn: 'cardioCompTBody',
             allowContentOf: '$block',
-        });
+			allowAttributes: ['id'],
+		});
+
+		schema.register('cardioCompCell', {
+			allowIn: 'cardioCompRow',
+			allowContentOf: '$block',
+		});
+
+		schema.register('cardioCompBtnRemove', {
+			allowIn: 'cardioCompCell',
+			allowContentOf: '$block',
+			allowAttributes: ['data-trid'],
+		});
 
         schema.register('cardioCompSectionCell', {
             allowIn: 'cardioCompRow',
@@ -124,25 +136,80 @@ export default class CardioCompEditing extends Plugin {
             },
         });
 
-        /***
-         * cardioCompRow
-         ***/
-        conversion.for('upcast').elementToElement({
-            converterPriority: 'highest',
-            model: 'cardioCompRow',
-            view: {
-                name: 'tr',
-                classes: 'cardio-comp-row',
-            },
-        });
-        conversion.for('downcast').elementToElement({
-            converterPriority: 'highest',
-            model: 'cardioCompRow',
-            view: (modelElement, viewWriter) => {
-                return viewWriter.createContainerElement('tr',
-                    {class: 'cardio-comp-row'});
-            },
-        });
+		/***
+		 * cardioCompRow
+		 ***/
+		conversion.for('upcast').elementToElement({
+			converterPriority: 'highest',
+			model: (viewElement, modelWriter) => {
+				return modelWriter.createElement('cardioCompRow', {
+					id: viewElement.getAttribute('id'),
+				});
+			},
+			view: {
+				name: 'tr',
+				classes: 'cardio-comp-row',
+			},
+		});
+		conversion.for('downcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioCompRow',
+			view: (modelElement, viewWriter) => {
+				return viewWriter.createContainerElement('tr', {
+					class: 'cardio-comp-row',
+					id: modelElement.getAttribute('id'),
+				});
+			},
+		});
+
+		/***
+		 * cardioCompCell
+		 ***/
+		conversion.for('upcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioCompCell',
+			view: {
+				name: 'td',
+				classes: 'cardio-comp-cell',
+			},
+		});
+		conversion.for('downcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioCompCell',
+			view: (modelElement, viewWriter) => {
+				return viewWriter.createContainerElement('td', {
+					class: 'cardio-comp-cell',
+					style: 'text-align:center',
+				});
+			},
+		});
+
+		/***
+		 * cardioCompBtnRemove
+		 ***/
+		conversion.for('upcast').elementToElement({
+			converterPriority: 'highest',
+			model: (viewElement, modelWriter) => {
+				return modelWriter.createElement('cardioCompBtnRemove', {
+					'data-trid': viewElement.getAttribute('data-trid'),
+				});
+			},
+			view: {
+				name: 'button',
+				classes: 'btn-remove',
+			},
+		});
+		conversion.for('downcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioCompBtnRemove',
+			view: (modelElement, viewWriter) => {
+				return viewWriter.createContainerElement('button', {
+					'data-trid': modelElement.getAttribute('data-trid'),
+					class: 'btn btn-xs btn-danger btn-remove',
+					style: 'white-space:nowrap;',
+				});
+			},
+		});
 
         /***
          * cardioCompSectionCell
@@ -162,7 +229,7 @@ export default class CardioCompEditing extends Plugin {
                 return viewWriter.createContainerElement('td', {
                     class: 'cardio-comp-section-cell',
                     style: 'font-weight:bold; padding-top:10px;',
-                    colspan: 4
+                    colspan: 5
                 });
             },
         });
@@ -213,7 +280,7 @@ export default class CardioCompEditing extends Plugin {
                     id: modelElement.getAttribute('id'),
                     class: 'cardio-comp-input-cell',
 					tabindex: modelElement.getAttribute('tabindex'),
-                    style: 'border:1px solid black; padding:2px; width:80px; text-align:right; white-space:nowrap;',
+                    style: 'border:1px solid black; padding:2px; width:120px; text-align:right; white-space:nowrap;',
                 });
                 return toWidgetEditable(td, viewWriter);
             },

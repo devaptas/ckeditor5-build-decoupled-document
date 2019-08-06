@@ -36,6 +36,18 @@ export default class CardioEditing extends Plugin {
 		schema.register('cardioRow', {
 			allowIn: 'cardioTBody',
 			allowContentOf: '$block',
+			allowAttributes: ['id'],
+		});
+
+		schema.register('cardioCell', {
+			allowIn: 'cardioRow',
+			allowContentOf: '$block',
+		});
+
+		schema.register('cardioBtnRemove', {
+			allowIn: 'cardioCell',
+			allowContentOf: '$block',
+			allowAttributes: ['data-trid'],
 		});
 
 		schema.register('cardioSectionCell', {
@@ -127,7 +139,11 @@ export default class CardioEditing extends Plugin {
 		 ***/
 		conversion.for('upcast').elementToElement({
 			converterPriority: 'highest',
-			model: 'cardioRow',
+			model: (viewElement, modelWriter) => {
+				return modelWriter.createElement('cardioRow', {
+					id: viewElement.getAttribute('id'),
+				});
+			},
 			view: {
 				name: 'tr',
 				classes: 'cardio-row',
@@ -137,8 +153,59 @@ export default class CardioEditing extends Plugin {
 			converterPriority: 'highest',
 			model: 'cardioRow',
 			view: (modelElement, viewWriter) => {
-				return viewWriter.createContainerElement('tr',
-					{class: 'cardio-row'});
+				return viewWriter.createContainerElement('tr', {
+					class: 'cardio-row',
+					id: modelElement.getAttribute('id'),
+				});
+			},
+		});
+
+		/***
+		 * cardioCell
+		 ***/
+		conversion.for('upcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioCell',
+			view: {
+				name: 'td',
+				classes: 'cardio-cell',
+			},
+		});
+		conversion.for('downcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioCell',
+			view: (modelElement, viewWriter) => {
+				return viewWriter.createContainerElement('td', {
+					class: 'cardio-cell',
+					style: 'text-align:center',
+				});
+			},
+		});
+
+		/***
+		 * cardioBtnRemove
+		 ***/
+		conversion.for('upcast').elementToElement({
+			converterPriority: 'highest',
+			model: (viewElement, modelWriter) => {
+				return modelWriter.createElement('cardioBtnRemove', {
+					'data-trid': viewElement.getAttribute('data-trid'),
+				});
+			},
+			view: {
+				name: 'button',
+				classes: 'btn-remove',
+			},
+		});
+		conversion.for('downcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioBtnRemove',
+			view: (modelElement, viewWriter) => {
+				return viewWriter.createContainerElement('button', {
+					'data-trid': modelElement.getAttribute('data-trid'),
+					class: 'btn btn-xs btn-danger btn-remove',
+					style: 'white-space:nowrap;',
+				});
 			},
 		});
 
@@ -160,7 +227,7 @@ export default class CardioEditing extends Plugin {
 				return viewWriter.createContainerElement('td', {
 					class: 'cardio-section-cell',
 					style: 'font-weight:bold; padding-top:8px; ',
-					colspan: 4,
+					colspan: 5,
 
 				});
 			},
@@ -212,7 +279,7 @@ export default class CardioEditing extends Plugin {
 					id: modelElement.getAttribute('id'),
 					tabindex: modelElement.getAttribute('tabindex'),
 					class: 'cardio-input-cell',
-					style: 'border:1px solid black; padding:2px; width:80px; text-align:right; white-space:nowrap;',
+					style: 'border:1px solid black; padding:2px; width:120px; text-align:right; white-space:nowrap;',
 				});
 				return toWidgetEditable(td, viewWriter);
 			},
@@ -299,7 +366,7 @@ export default class CardioEditing extends Plugin {
 
 	_initializeEditorEvents() {
 		const editor = this.editor;
-		editor.model.document.on('change:data', (evt) => {
+		editor.model.document.on('change', (evt) => {
 			let editableElement = editor.editing.view.document.selection.editableElement;
 			if ( editableElement && editableElement.hasClass('cardio-input-cell') ) {
 				makeCalculations(editableElement.getAttribute('id'), editor);

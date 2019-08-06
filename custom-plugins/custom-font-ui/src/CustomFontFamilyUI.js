@@ -21,7 +21,7 @@ export default class CustomFontFamilyUI extends Plugin {
 			dropdownView.buttonView.bind( 'label' ).to( command, 'value', value => {
 				// If no value is set on the command show 'Default' text.
 				// Use t() method to make that string translatable.
-				return value ? value : t( 'Default' );
+				return value ? value : 'Arial';
 			} );
 
 			return dropdownView;
