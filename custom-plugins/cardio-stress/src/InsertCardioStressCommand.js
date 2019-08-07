@@ -16,10 +16,12 @@ export default class InsertCardioStressCommand extends Command {
     }
 
     refresh() {
-        const model = this.editor.model;
-        const selection = model.document.selection;
-        const allowedIn = model.schema.findAllowedParent( selection.getFirstPosition(), 'cardioStress' );
-        this.isEnabled = allowedIn !== null;
+        const editor = this.editor;
+		const model = editor.model;
+		const selection = model.document.selection;
+		const allowedIn = model.schema.findAllowedParent(selection.getFirstPosition(), 'cardioStress');
+		this.isEnabled = allowedIn !== null;
+		addCustomEvents(editor);
     }
 }
 
@@ -33,19 +35,19 @@ function createCardioStressTable() {
 		'<p class="cardio-stress-paragraph">' +
 			'Repouso: Índice de Escore de contratilidade da Parede: <span class="cardio-stress-caption" id="rep">1,00 (Valor Normal)</span>' +
 		'</p>'+
-		renderStressInputTable('rep') +
+		renderStressInputTable('rep', 0) +
 
 		// Pico do esforço
 		'<p class="cardio-stress-paragraph">' +
 			'Pico do Esforço: Índice de Escore de contratilidade da Parede: <span class="cardio-stress-caption" id="esf">1,00 (Valor Normal)</span>' +
 		'</p>'+
-		renderStressInputTable('esf') +
+		renderStressInputTable('esf', 100) +
 
 		// Recuperação
 		'<p class="cardio-stress-paragraph">' +
 			'Recuperação: Índice de Escore de contratilidade da Parede: <span class="cardio-stress-caption" id="rec">1,00 (Valor Normal)</span>' +
 		'</p>'+
-		renderStressInputTable('rec') +
+		renderStressInputTable('rec', 200) +
 
 		// Legenda
 		'<p class="cardio-stress-legend">' +
@@ -59,8 +61,7 @@ function createCardioStressTable() {
 	'</div>';
 }
 
-function renderStressInputTable(levelID){
-	let tabIndex = 0;
+function renderStressInputTable(levelID, tabIndex){
 	return '<div class="cardio-stress-input-content">' +
 		'<div class="cardio-stress-input-column">' +
 			'<table class="cardio-stress-input-table">'+

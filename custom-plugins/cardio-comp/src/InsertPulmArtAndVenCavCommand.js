@@ -3,22 +3,24 @@ import {addCustomEvents} from '../../cardio-utils/src/CardioUtils';
 
 export default class InsertLeftVentrDiastFuncCommand extends Command {
 
-    execute() {
-        const editor = this.editor;
-        editor.model.change( () => {
-            const viewFragment = editor.data.processor.toView( createCardioCompTable() );
-            const modelFragment = editor.data.toModel( viewFragment );
-            editor.model.insertContent( modelFragment, editor.model.document.selection );
-        } );
-        addCustomEvents(editor);
-    }
+	execute() {
+		const editor = this.editor;
+		editor.model.change(() => {
+			const viewFragment = editor.data.processor.toView(createCardioCompTable());
+			const modelFragment = editor.data.toModel(viewFragment);
+			editor.model.insertContent(modelFragment, editor.model.document.selection);
+		});
+		addCustomEvents(editor);
+	}
 
-    refresh() {
-        const model = this.editor.model;
-        const selection = model.document.selection;
-        const allowedIn = model.schema.findAllowedParent( selection.getFirstPosition(), 'cardioComp' );
-        this.isEnabled = allowedIn !== null;
-    }
+	refresh() {
+		const editor = this.editor;
+		const model = editor.model;
+		const selection = model.document.selection;
+		const allowedIn = model.schema.findAllowedParent(selection.getFirstPosition(), 'cardioComp');
+		this.isEnabled = allowedIn !== null;
+		addCustomEvents(editor);
+	}
 }
 
 function createCardioCompTable() {
@@ -37,7 +39,8 @@ function createCardioCompTable() {
         '<tbody class="cardio-comp-tbody">' +
 
             '<tr class="cardio-comp-row">' +
-                '<td class="cardio-comp-section-cell">Pressão Sistólica da Artéria Pulmonar e Veia Cava:</td>' +
+                '<td class="cardio-comp-section-cell" colspan="3">Pressão Sistólica da Artéria Pulmonar e Veia Cava</td>' +
+				'<td class="cardio-comp-section-cell" colspan="2">Referência</td>' +
             '</tr>' +
 
             '<tr class="cardio-comp-row" id="tr-psap">' +
@@ -46,7 +49,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">mmHg</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refpsap">${(references['refpsap'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-psap">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-psap">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -56,7 +59,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">mmHg</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refpead">${(references['refpead'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-pead">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-pead">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -66,7 +69,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">mm</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refvci">${(references['refvci'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vci">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vci">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -76,7 +79,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">mm</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refvcie">${(references['refvcie'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vcie">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vcie">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -86,7 +89,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">%</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refvvci">${(references['refvvci'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vvci">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vvci">x</button></div>' +
 				'</td>' +
             '</tr>' +
         '</tbody>' +

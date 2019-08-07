@@ -44,8 +44,13 @@ export default class CardioEditing extends Plugin {
 			allowContentOf: '$block',
 		});
 
-		schema.register('cardioBtnRemove', {
+		schema.register('cardioHidden', {
 			allowIn: 'cardioCell',
+			allowContentOf: '$block',
+		});
+
+		schema.register('cardioBtnRemove', {
+			allowIn: 'cardioHidden',
 			allowContentOf: '$block',
 			allowAttributes: ['data-trid'],
 		});
@@ -53,6 +58,7 @@ export default class CardioEditing extends Plugin {
 		schema.register('cardioSectionCell', {
 			allowIn: 'cardioRow',
 			allowContentOf: '$block',
+			allowAttributes: ['colspan'],
 		});
 
 		schema.register('cardioLabelCell', {
@@ -183,6 +189,27 @@ export default class CardioEditing extends Plugin {
 		});
 
 		/***
+		 * cardioHidden
+		 ***/
+		conversion.for('upcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioHidden',
+			view: {
+				name: 'div',
+				classes: 'cardio-hidden',
+			},
+		});
+		conversion.for('downcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioHidden',
+			view: (modelElement, viewWriter) => {
+				return viewWriter.createContainerElement('div', {
+					class: 'cardio-hidden',
+				});
+			},
+		});
+
+		/***
 		 * cardioBtnRemove
 		 ***/
 		conversion.for('upcast').elementToElement({
@@ -214,7 +241,11 @@ export default class CardioEditing extends Plugin {
 		 ***/
 		conversion.for('upcast').elementToElement({
 			converterPriority: 'highest',
-			model: 'cardioSectionCell',
+			model: (viewElement, modelWriter) => {
+				return modelWriter.createElement('cardioSectionCell', {
+					'colspan': viewElement.getAttribute('colspan'),
+				});
+			},
 			view: {
 				name: 'td',
 				classes: 'cardio-section-cell',
@@ -227,8 +258,7 @@ export default class CardioEditing extends Plugin {
 				return viewWriter.createContainerElement('td', {
 					class: 'cardio-section-cell',
 					style: 'font-weight:bold; padding-top:8px; ',
-					colspan: 5,
-
+					colspan: modelElement.getAttribute('colspan')
 				});
 			},
 		});
@@ -366,7 +396,7 @@ export default class CardioEditing extends Plugin {
 
 	_initializeEditorEvents() {
 		const editor = this.editor;
-		editor.model.document.on('change', (evt) => {
+		editor.model.document.on('change:data', (evt, batch) => {
 			let editableElement = editor.editing.view.document.selection.editableElement;
 			if ( editableElement && editableElement.hasClass('cardio-input-cell') ) {
 				makeCalculations(editableElement.getAttribute('id'), editor);

@@ -6,7 +6,7 @@ import {
 	toWidgetEditable,
 } from '@ckeditor/ckeditor5-widget/src/utils';
 import {stressHeader} from '../img/stressHeader';
-import {makeStressCalculations, selectAllOnFocus} from '../../cardio-utils/src/CardioUtils';
+import {makeCalculations, makeStressCalculations, selectAllOnFocus} from '../../cardio-utils/src/CardioUtils';
 
 export default class CardioStressEditing extends Plugin {
 
@@ -17,11 +17,9 @@ export default class CardioStressEditing extends Plugin {
 	init() {
 		this._defineSchema();
 		this._defineConverters();
-		this.editor.commands.add('insertCardioStress', new InsertCardioStressCommand(this.editor));
 		this._initializeEditorEvents();
+		this.editor.commands.add('insertCardioStress', new InsertCardioStressCommand(this.editor));
 	}
-
-
 
 	_defineSchema() {
 		const schema = this.editor.model.schema;
@@ -149,7 +147,7 @@ export default class CardioStressEditing extends Plugin {
 				return viewWriter.createContainerElement('img', {
 					src: stressHeader(),
 					class: 'cardio-stress-img',
-					style: 'width:100%; margin-bottom:20px;',
+					style: 'width:100%; margin-bottom:10px;',
 				});
 			},
 		});
@@ -171,7 +169,7 @@ export default class CardioStressEditing extends Plugin {
 			view: (modelElement, viewWriter) => {
 				return viewWriter.createContainerElement('p', {
 					class: 'cardio-stress-paragraph',
-					style: 'font-size:10pt; margin: 10px 0 5px 0 !important;',
+					style: 'font-size:10pt; margin: 5px 0 !important;',
 				});
 			},
 		});
@@ -264,7 +262,7 @@ export default class CardioStressEditing extends Plugin {
 			view: (modelElement, viewWriter) => {
 				return viewWriter.createContainerElement('table', {
 					class: 'cardio-stress-input-table',
-					style: 'margin:0 auto;',
+					style: 'margin:0 auto; border-collapse:collapse;',
 				});
 			},
 		});
@@ -384,8 +382,8 @@ export default class CardioStressEditing extends Plugin {
 			converterPriority: 'highest',
 			model: (viewElement, modelWriter) => {
 				return modelWriter.createElement('cardioStressCell', {
-					classes: Array.from(viewElement._classes.values()),
-					tabindex: viewElement.getAttribute('tabindex')
+					classes: Array.from(viewElement.getClassNames()),
+					tabindex: viewElement.getAttribute('tabindex'),
 				});
 			},
 			view: {
@@ -431,13 +429,19 @@ export default class CardioStressEditing extends Plugin {
 	}
 
 	_initializeEditorEvents() {
-		let editor = this.editor;
-		editor.model.document.on('change:data', (evt, data) => {
+		const editor = this.editor;
+		editor.model.document.on('change:data', (evt, batch) => {
 			let editableElement = editor.editing.view.document.selection.editableElement;
-			if ( editableElement && editableElement.hasClass('cardio-stress-cell') ) {
-				makeStressCalculations(editor, editableElement);
+			if ( editableElement ) {
+				if ( editableElement.hasClass('cardio-stress-cell-rep') ) {
+					makeStressCalculations(editor, editableElement, 'rep');
+				} else if ( editableElement.hasClass('cardio-stress-cell-esf') ) {
+					makeStressCalculations(editor, editableElement, 'esf');
+				} else if ( editableElement.hasClass('cardio-stress-cell-rec') ) {
+					makeStressCalculations(editor, editableElement, 'rec');
+				}
 			}
-		} );
+		});
 	}
 }
 

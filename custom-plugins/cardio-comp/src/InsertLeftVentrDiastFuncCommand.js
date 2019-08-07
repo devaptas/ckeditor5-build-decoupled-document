@@ -3,22 +3,24 @@ import {addCustomEvents} from '../../cardio-utils/src/CardioUtils';
 
 export default class InsertLeftVentrDiastFuncCommand extends Command {
 
-    execute() {
-        const editor = this.editor;
-        editor.model.change( () => {
-            const viewFragment = editor.data.processor.toView( createCardioCompTable() );
-            const modelFragment = editor.data.toModel( viewFragment );
-            const range = editor.model.insertContent( modelFragment, editor.model.document.selection );
-        } );
+	execute() {
+		const editor = this.editor;
+		editor.model.change(() => {
+			const viewFragment = editor.data.processor.toView(createCardioCompTable());
+			const modelFragment = editor.data.toModel(viewFragment);
+			editor.model.insertContent(modelFragment, editor.model.document.selection);
+		});
 		addCustomEvents(editor);
-    }
+	}
 
-    refresh() {
-        const model = this.editor.model;
-        const selection = model.document.selection;
-        const allowedIn = model.schema.findAllowedParent( selection.getFirstPosition(), 'cardioComp' );
-        this.isEnabled = allowedIn !== null;
-    }
+	refresh() {
+		const editor = this.editor;
+		const model = editor.model;
+		const selection = model.document.selection;
+		const allowedIn = model.schema.findAllowedParent(selection.getFirstPosition(), 'cardioComp');
+		this.isEnabled = allowedIn !== null;
+		addCustomEvents(editor);
+	}
 }
 
 function createCardioCompTable() {
@@ -40,7 +42,8 @@ function createCardioCompTable() {
         '<tbody class="cardio-comp-tbody">' +
 
             '<tr class="cardio-comp-row">' +
-                '<td class="cardio-comp-section-cell">Parâmetros: Função Diastólica do VE:</td>' +
+                '<td class="cardio-comp-section-cell" colspan="3">Parâmetros: Função Diastólica do VE</td>' +
+				'<td class="cardio-comp-section-cell" colspan="2">Referência</td>' +
             '</tr>' +
 
             '<tr class="cardio-comp-row" id="tr-fmoe">' +
@@ -49,7 +52,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">cm/s</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="reffmoe">${(references['reffmoe'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-fmoe">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-fmoe">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -59,7 +62,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">cm/s</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="reffmoa">${(references['reffmoa'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-fmoa">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-fmoa">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -69,7 +72,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">cm/s</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refes">${(references['refes'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-es">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-es">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -79,7 +82,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">cm/s</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refel">${(references['refel'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-el">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-el">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -89,7 +92,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell"></td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refrea">${(references['refrea'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-rea">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-rea">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -99,7 +102,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell"></td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refmree">${(references['refmree'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-mree">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-mree">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -109,7 +112,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">ms</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="reftdm">${(references['reftdm'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-tdm">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-tdm">x</button></div>' +
 				'</td>' +
             '</tr>' +
 
@@ -119,7 +122,7 @@ function createCardioCompTable() {
                 '<td class="cardio-comp-unit-cell">ms</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refvit">${(references['refvit'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
-					'<button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vit">x</button>' +
+					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vit">x</button></div>' +
 				'</td>' +
             '</tr>' +
 

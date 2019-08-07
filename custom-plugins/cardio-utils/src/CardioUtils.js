@@ -7,17 +7,17 @@ import ViewTreeWalker from '@ckeditor/ckeditor5-engine/src/view/treewalker';
 // Add eventos
 export function addCustomEvents(editor) {
 
-	selectFirstEditableCell(editor);
+	// selectFirstEditableCell(editor);
 
 	const ckDocument = editor.editing.view.document;
 
-	// Seleciona conteudo da celular no focus
+	// Seleciona conteudo da celula no focus
 	ckDocument.on('selectionChange', (evt, data) => {
 		evt.stop();
-		const current = ckDocument.selection.getFirstRange().start;
-		if ( current.parent && current.parent.parent && current.parent.parent.name === 'td' ) {
+		const editableElement = data.newSelection.editableElement;
+		if (editableElement && editableElement.name === 'td' ) {
 			editor.editing.view.change(writer => {
-				writer.setSelection(current.parent.parent, 'in');
+				writer.setSelection(editableElement, 'in');
 			});
 		}
 	});
@@ -25,7 +25,7 @@ export function addCustomEvents(editor) {
 	// Utiliza enter para avançar celulas
 	ckDocument.on('keydown', (evt, data) => {
 		evt.stop();
-		if ( data.keyCode === keyCodes.enter ) {
+		if (data.keyCode === keyCodes.enter && data.target.getAttribute('tabindex')) {
 			let current = ckDocument.selection.getFirstRange();
 			let position = new ViewPosition(current.start.parent);
 			let walker = new ViewTreeWalker({startPosition: position});
@@ -51,22 +51,29 @@ export function addCustomEvents(editor) {
 	});
 }
 
-export function makeStressCalculations(editor, editableElement) {
+export function makeStressCalculations(editor, editableElement, elemID) {
 
-	const cellClasses = Array.from(editableElement._classes.values());
+	const cellClasses = Array.from(editableElement.getClassNames());
 
 	setTimeout(function() {
-		if ( editableElement._children[0] ) {
-			setCkElement(editor, getCkElementByClass(cellClasses[1]), editableElement._children[0]._textData);
+
+		// Atualiza elementos de mesmo nro de ref.
+		let textNode = editableElement.getChild(0);
+		if ( textNode ) {
+			const elementsToUpdate = getCkElementsByClass(editor, cellClasses[1]);
+			for(let elem of elementsToUpdate){
+				setCkElement(editor, elem, textNode.data);
+			}
 		}
 
+		// Calcula a média
 		let sum = 0;
-		const sectionCells = document.querySelectorAll(`.${cellClasses[0]}`);
-		sectionCells.forEach((cell) => {
-			sum = sum + parseInt(cell.textContent);
-		});
-
-		const cellsAvg = sum / sectionCells.length;
+		const elementsToCalc = getCkElementsByClass(editor, cellClasses[0]);
+		for(let elem of elementsToCalc){
+			textNode = elem.getChild(0);
+			sum = sum + (textNode ? parseInt( textNode.data) : 0);
+		}
+		const cellsAvg = sum / elementsToCalc.length;
 		const cellsAvgFormatted = cellsAvg.toFixed(2).toString().replace('.', ',');
 
 		let result = '';
@@ -80,7 +87,6 @@ export function makeStressCalculations(editor, editableElement) {
 			result = `${cellsAvgFormatted} (Disfunção importante)`;
 		}
 
-		const elemID = cellClasses[0].split('-').pop();
 		setCkElement(editor, getCkElementById(editor, elemID), result);
 	}, 50);
 }
@@ -303,7 +309,7 @@ export function makeCalculations(elementId, editor) {
 		setCkElement(editor, getCkElementById(editor, 'mree'), result);
 	}
 
-	// letiação da Veia Cava Inferior
+	// Variação da Veia Cava Inferior
 	if ( elementId === 'vci' || elementId === 'vcie' ) {
 		values = getFormattedValues(editor, 'vci', 'vcie');
 		if ( checkNumeric(values) ) {
@@ -324,8 +330,9 @@ function getFormattedValues() {
 	const editor = arguments[0];
 	let formattedValues = [];
 	for (let i = 1; i < arguments.length; i++) {
-		const textElem = getCkElementById(editor, arguments[i]).getChild(0);
-		let value = textElem ? getCkElementById(editor, arguments[i]).getChild(0).data : '';
+		const tdElem = getCkElementById(editor, arguments[i]);
+		const textElem = tdElem ? tdElem.getChild(0) : undefined;
+		let value = textElem ? textElem.data : '';
 		formattedValues[arguments[i]] = value.match(/[a-z]/i) ? '' : parseFloat(value.replace(',', '.'));
 	}
 	return formattedValues;
@@ -417,17 +424,30 @@ function getCkElementById(editor, id) {
 /**
  * @param editor CKEditor instance
  * @param className string class of element to set
- * @param value string to set
  * @returns {*}
  */
-function getCkElementByClass(editor, className, value) {
+function getCkElementsByClass(editor, className) {
 	if ( editor.model ) {
 		const position = new ModelPosition(editor.model.document.getRoot(), [0]);
 		const walker = new ModelTreeWalker({startPosition: position});
+		let elements = [];
 		for (let element of walker) {
-			if ( element.type !== 'text' && element.item.hasClass(className) ) {
-				return element.item;
+			if ( element.type !== 'text' && inArray(className, element.item.getAttribute('classes')) ) {
+				elements.push(element.item);
 			}
 		}
+		return elements;
 	}
 }
+
+function inArray(needle, haystack) {
+	if(haystack){
+		const length = haystack.length;
+		for (let i = 0; i < length; i++) {
+			if ( haystack[i] === needle )
+				return true;
+		}
+	}
+	return false;
+}
+

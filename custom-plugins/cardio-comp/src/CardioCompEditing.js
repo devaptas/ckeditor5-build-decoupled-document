@@ -46,8 +46,13 @@ export default class CardioCompEditing extends Plugin {
 			allowContentOf: '$block',
 		});
 
-		schema.register('cardioCompBtnRemove', {
+		schema.register('cardioCompHidden', {
 			allowIn: 'cardioCompCell',
+			allowContentOf: '$block',
+		});
+
+		schema.register('cardioCompBtnRemove', {
+			allowIn: 'cardioCompHidden',
 			allowContentOf: '$block',
 			allowAttributes: ['data-trid'],
 		});
@@ -55,6 +60,7 @@ export default class CardioCompEditing extends Plugin {
         schema.register('cardioCompSectionCell', {
             allowIn: 'cardioCompRow',
             allowContentOf: '$block',
+			allowAttributes: ['colspan']
         });
 
         schema.register('cardioCompLabelCell', {
@@ -185,6 +191,27 @@ export default class CardioCompEditing extends Plugin {
 		});
 
 		/***
+		 * cardioCompHidden
+		 ***/
+		conversion.for('upcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioCompHidden',
+			view: {
+				name: 'div',
+				classes: 'cardio-comp-hidden',
+			},
+		});
+		conversion.for('downcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioCompHidden',
+			view: (modelElement, viewWriter) => {
+				return viewWriter.createContainerElement('div', {
+					class: 'cardio-comp-hidden',
+				});
+			},
+		});
+
+		/***
 		 * cardioCompBtnRemove
 		 ***/
 		conversion.for('upcast').elementToElement({
@@ -214,25 +241,29 @@ export default class CardioCompEditing extends Plugin {
         /***
          * cardioCompSectionCell
          ***/
-        conversion.for('upcast').elementToElement({
-            converterPriority: 'highest',
-            model: 'cardioCompSectionCell',
-            view: {
-                name: 'td',
-                classes: 'cardio-comp-section-cell',
-            },
-        });
-        conversion.for('downcast').elementToElement({
-            converterPriority: 'highest',
-            model: 'cardioCompSectionCell',
-            view: (modelElement, viewWriter) => {
-                return viewWriter.createContainerElement('td', {
-                    class: 'cardio-comp-section-cell',
-                    style: 'font-weight:bold; padding-top:10px;',
-                    colspan: 5
-                });
-            },
-        });
+		conversion.for('upcast').elementToElement({
+			converterPriority: 'highest',
+			model: (viewElement, modelWriter) => {
+				return modelWriter.createElement('cardioCompSectionCell', {
+					colspan: viewElement.getAttribute('colspan'),
+				});
+			},
+			view: {
+				name: 'td',
+				classes: 'cardio-comp-section-cell',
+			},
+		});
+		conversion.for('downcast').elementToElement({
+			converterPriority: 'highest',
+			model: 'cardioCompSectionCell',
+			view: (modelElement, viewWriter) => {
+				return viewWriter.createContainerElement('td', {
+					class: 'cardio-comp-section-cell',
+					style: 'font-weight:bold; padding-top:8px; ',
+					colspan: modelElement.getAttribute('colspan')
+				});
+			},
+		});
 
         /***
          * cardioCompLabelCell
@@ -362,12 +393,11 @@ export default class CardioCompEditing extends Plugin {
                 return toWidgetEditable(td, viewWriter);
             },
         });
-
     }
 
     _initializeEditorEvents() {
-        this.editor.model.document.on('change:data', (evt, data) => {
-            let editor = this.editor;
+    	const editor = this.editor;
+        editor.model.document.on('change:data', (evt, batch) => {
             let editableElement = editor.editing.view.document.selection.editableElement;
             if ( editableElement && editableElement.hasClass('cardio-comp-input-cell') ) {
                 makeCalculations(editableElement.getAttribute('id'), editor);
