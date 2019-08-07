@@ -6,7 +6,7 @@ export default class InsertLeftVentrDiastFuncCommand extends Command {
 	execute() {
 		const editor = this.editor;
 		editor.model.change(() => {
-			const viewFragment = editor.data.processor.toView(createCardioCompTable());
+			const viewFragment = editor.data.processor.toView(createCardioCompTable(editor));
 			const modelFragment = editor.data.toModel(viewFragment);
 			editor.model.insertContent(modelFragment, editor.model.document.selection);
 		});
@@ -23,18 +23,25 @@ export default class InsertLeftVentrDiastFuncCommand extends Command {
 	}
 }
 
-function createCardioCompTable() {
+function createCardioCompTable(editor) {
 
-    const references = {
-        // reffmoe: '60 - 100 cm/s',
-        // reffmoa: '30 - 70 cm/s',
-        refes: '> 7 cm/s',
-        refel: '> 10 cm/s',
-        // refrea: '1,1 - 1,7',
-        refmree: '< 14',
-        // reftdm: '180 +- 31 ms',
-		refvit: '< 280 cm/s'
-    };
+	const patientAgeYears = parseInt(editor.config.get('patientAgeYears'));
+	let references;
+	if ( patientAgeYears > 15 ) {
+		references = {
+			// reffmoe: '60 - 100 cm/s',
+			// reffmoa: '30 - 70 cm/s',
+			refes: '> 7 cm/s',
+			refel: '> 10 cm/s',
+			// refrea: '1,1 - 1,7',
+			refmree: '< 14',
+			// reftdm: '180 +- 31 ms',
+			refvit: '< 280 cm/s'
+		};
+	} else {
+		references = {};
+	}
+
 
     let tabIndex = 0;
 

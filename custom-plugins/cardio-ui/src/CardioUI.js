@@ -32,6 +32,9 @@ export default class CardioUI extends Plugin {
 
             const dropdownView = createDropdown(locale);
 
+            // Drop menu para esquerda
+            dropdownView.panelPosition = 'sw';
+
             dropdownView.buttonView.set({
                 icon: cardioIcon,
                 label: t('Cardio'),

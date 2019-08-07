@@ -15,7 +15,7 @@ export function addCustomEvents(editor) {
 	ckDocument.on('selectionChange', (evt, data) => {
 		evt.stop();
 		const editableElement = data.newSelection.editableElement;
-		if (editableElement && editableElement.name === 'td' ) {
+		if (editableElement && editableElement.name === 'td' && editableElement.getAttribute('tabindex')) {
 			editor.editing.view.change(writer => {
 				writer.setSelection(editableElement, 'in');
 			});
@@ -362,6 +362,10 @@ function checkNumeric(values) {
 	return true;
 }
 
+/**
+ * Selects first editable item
+ * @param editor CKEditor instance
+ */
 function selectFirstEditableCell(editor) {
 	const position = new ViewPosition(editor.editing.view.document.getRoot(), [0]);
 	if ( position.parent.childCount ) {
@@ -378,6 +382,7 @@ function selectFirstEditableCell(editor) {
 }
 
 /**
+ * Changes value of item
  * @param editor CKEditor instance
  * @param value string to set
  * @param item @ckeditor/ckeditor5-engine/src/model/item
@@ -385,17 +390,26 @@ function selectFirstEditableCell(editor) {
 function setCkElement(editor, item, value) {
 	if ( item ) {
 		editor.model.change(writer => {
-			if ( item._children._nodes[0] && item._children._nodes[0]._data === value ) {
+			const childElem = item.getChild(0);
+			if ( childElem && childElem.data === value ) {
 				return;
 			}
-			item._children._nodes.forEach(function(child) {
+			for (let child of item.getChildren()) {
 				writer.remove(child);
-			});
+			}
+			if(!isNaN(value)){
+				value = value.replace('.', ',');
+			}
 			writer.insertText(value, item);
 		});
 	}
 }
 
+/**
+ * Removes item from editor
+ * @param editor CKEditor instance
+ * @param item
+ */
 function removeCkElement(editor, item) {
 	if ( item ) {
 		editor.model.change(writer => {
@@ -405,9 +419,10 @@ function removeCkElement(editor, item) {
 }
 
 /**
+ * Gets item by ID
  * @param editor CKEditor instance
  * @param id string of element to set
- * @returns Element
+ * @returns Item
  */
 function getCkElementById(editor, id) {
 	if ( editor.model ) {
@@ -422,6 +437,7 @@ function getCkElementById(editor, id) {
 }
 
 /**
+ * Gets item by class
  * @param editor CKEditor instance
  * @param className string class of element to set
  * @returns {*}
