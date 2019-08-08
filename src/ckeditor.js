@@ -132,8 +132,15 @@ DecoupledEditor.defaultConfig = {
 	},
 	fontFamily: {
 		options: [
-			'Arial', 'Courier New', 'Lucida Sans Unicode', 'Tahoma', 'Times New Roman', 'Trebuchet', 'Verdana', 'Georgia'
-		]
+			'Arial',
+			'Courier New',
+			'Georgia',
+			'Lucida Sans Unicode',
+			'Tahoma',
+			'Times New Roman',
+			'Trebuchet MS',
+			'Verdana'
+		],
 	},
 	autosave: {
 		save( editor ) {

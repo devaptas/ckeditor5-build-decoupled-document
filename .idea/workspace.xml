@@ -5,9 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertLeftVentrDiastFuncCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertLeftVentrDiastFuncCommand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-ui/src/CardioUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-ui/src/CardioUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontFamilyUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontFamilyUI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontSizeUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontSizeUI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ckeditor.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +131,8 @@
       <workItem from="1565009522744" duration="11376000" />
       <workItem from="1565023784668" duration="14638000" />
       <workItem from="1565093002349" duration="19898000" />
-      <workItem from="1565180076843" duration="19709000" />
+      <workItem from="1565180076843" duration="21950000" />
+      <workItem from="1565265909893" duration="6179000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -280,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565193381453</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Correções">
+      <created>1565203862458</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1565203862458</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
