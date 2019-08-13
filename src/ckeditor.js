@@ -35,6 +35,7 @@ import PageBreak from '../custom-plugins/pagebreak/src/PageBreak';
 import CustomFontSizeUI from '../custom-plugins/custom-font-ui/src/CustomFontSizeUI';
 import CustomFontFamilyUI from '../custom-plugins/custom-font-ui/src/CustomFontFamilyUI';
 import Cardio from '../custom-plugins/cardio-ui/src/CardioUI';
+import CustomTable from '../custom-plugins/custom-table/src/CustomTable';
 
 import '../css/custom.css';
 
@@ -69,7 +70,8 @@ DecoupledEditor.builtinPlugins = [
 	RemoveFormat,
 	CustomFontSizeUI,
 	CustomFontFamilyUI,
-	Cardio
+	Cardio,
+	CustomTable,
 ];
 
 // Editor configuration.

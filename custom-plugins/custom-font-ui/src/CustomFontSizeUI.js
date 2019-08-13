@@ -23,8 +23,12 @@ export default class CustomFontSizeUI extends Plugin {
 			dropdownView.buttonView.bind( 'label' ).to( command, 'value', value => {
 				// If no value is set on the command show 'Default' text.
 				// Use t() method to make that string translatable.
-				const defaultFontSize = editor.config.get('defaultFontSize');
-				return defaultFontSize ? defaultFontSize : '12'; // The Default size is '12'
+				if(value){
+					return value;
+				} else {
+					const defaultFontSize = editor.config.get('defaultFontSize');
+					return defaultFontSize ? defaultFontSize : '12'; // The Default size is '12'
+				}
 			} );
 
 			return dropdownView;

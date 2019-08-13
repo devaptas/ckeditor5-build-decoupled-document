@@ -22,8 +22,13 @@ export default class CustomFontFamilyUI extends Plugin {
 
 				// If no value is set on the command show 'Default' text.
 				// Use t() method to make that string translatable.
-				const defaultFontFamily = editor.config.get('defaultFontFamily');
-				return defaultFontFamily ? defaultFontFamily : 'Arial';
+				if(value){
+					return value;
+				} else {
+					const defaultFontFamily = editor.config.get('defaultFontFamily');
+					return defaultFontFamily ? defaultFontFamily : 'Arial';
+				}
+
 			} );
 
 			return dropdownView;

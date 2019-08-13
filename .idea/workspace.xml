@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/custom-plugins/custom-table/src/CustomTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
@@ -34,6 +35,13 @@
     </option>
     <expand />
     <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -132,7 +140,9 @@
       <workItem from="1565023784668" duration="14638000" />
       <workItem from="1565093002349" duration="19898000" />
       <workItem from="1565180076843" duration="21950000" />
-      <workItem from="1565265909893" duration="6179000" />
+      <workItem from="1565265909893" duration="15447000" />
+      <workItem from="1565302359656" duration="1242000" />
+      <workItem from="1565698921866" duration="1952000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -288,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565203862458</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Melhorias na estilização de fonte">
+      <created>1565277354608</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1565277354608</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,6 +347,8 @@
     <MESSAGE value="Melhorias no preechimento dos campos" />
     <MESSAGE value="Add do botão de remover linha" />
     <MESSAGE value="Correções" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correções" />
+    <MESSAGE value="Melhorias na estilização de fonte" />
+    <MESSAGE value="Add nova classe para estilizar cores de fundo nas tabelas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add nova classe para estilizar cores de fundo nas tabelas" />
   </component>
 </project>
