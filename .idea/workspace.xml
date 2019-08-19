@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/custom-plugins/custom-table/src/CustomTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontFamilyUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontFamilyUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontSizeUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/custom-font-ui/src/CustomFontSizeUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ckeditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertLeftVentrDiastFuncCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-comp/src/InsertLeftVentrDiastFuncCommand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/InsertCardioCommand.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +141,8 @@
       <workItem from="1565180076843" duration="21950000" />
       <workItem from="1565265909893" duration="15447000" />
       <workItem from="1565302359656" duration="1242000" />
-      <workItem from="1565698921866" duration="1952000" />
+      <workItem from="1565698921866" duration="3158000" />
+      <workItem from="1566217641637" duration="11284000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -305,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565277354608</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add nova classe para estilizar cores de fundo nas tabelas">
+      <created>1565702465259</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1565702465259</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,6 +356,7 @@
     <MESSAGE value="Correções" />
     <MESSAGE value="Melhorias na estilização de fonte" />
     <MESSAGE value="Add nova classe para estilizar cores de fundo nas tabelas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add nova classe para estilizar cores de fundo nas tabelas" />
+    <MESSAGE value="Correções e melhorias pós utilização na especializada" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correções e melhorias pós utilização na especializada" />
   </component>
 </project>

@@ -126,7 +126,7 @@ function createCardioCompTable(editor) {
 			'<tr class="cardio-comp-row" id="tr-vit">' +
                 '<td class="cardio-comp-label-cell">Veloc. Da Insuf. Tricúspide:</td>' +
                 `<td class="cardio-comp-input-cell" tabindex="${++tabIndex}" id="vit"></td>` +
-                '<td class="cardio-comp-unit-cell">ms</td>' +
+                '<td class="cardio-comp-unit-cell">cm/s</td>' +
                 `<td class="cardio-comp-ref-input-cell" id="refvit">${(references['refvit'] || '-')}</td>` +
 				'<td class="cardio-comp-cell">' +
 					'<div class="cardio-comp-hidden"><button class="btn btn-xs btn-danger btn-remove" data-trid="tr-vit">x</button></div>' +

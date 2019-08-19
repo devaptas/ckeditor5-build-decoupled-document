@@ -189,7 +189,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-sao">' +
 			'<td class="cardio-label-cell">Seios Aórticos:</td>' +
-			'<td class="cardio-input-cell" id="sao"></td>' +
+			`<td class="cardio-input-cell" id="sao" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">mm</td>' +
 			`<td class="cardio-ref-input-cell" id="refsao">${(references['refsao'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -199,7 +199,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-aasc">' +
 			'<td class="cardio-label-cell">Aorta Ascendente:</td>' +
-			'<td class="cardio-input-cell" id="aasc"></td>' +
+			`<td class="cardio-input-cell" id="aasc" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">mm</td>' +
 			`<td class="cardio-ref-input-cell" id="refaa">${(references['refaa'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -209,7 +209,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-jsn">' +
 			'<td class="cardio-label-cell">Arco Aórtico (Aorta Transversa):</td>' +
-			'<td class="cardio-input-cell" id="jsn"></td>' +
+			`<td class="cardio-input-cell" id="jsn" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">mm</td>' +
 			`<td class="cardio-ref-input-cell" id="refjsn">${(references['refjsn'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -219,7 +219,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-aesq">' +
 			'<td class="cardio-label-cell">Átrio Esquerdo:</td>' +
-			'<td class="cardio-input-cell" id="aesq"></td>' +
+			`<td class="cardio-input-cell" id="aesq" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">mm</td>' +
 			`<td class="cardio-ref-input-cell" id="refaesq">${(references['refaesq'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -229,7 +229,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-vae">' +
 			'<td class="cardio-label-cell">Volume do Átrio Esquerdo:</td>' +
-			'<td class="cardio-input-cell" id="vae"></td>' +
+			`<td class="cardio-input-cell" id="vae" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">ml</td>' +
 			'<td class="cardio-ref-input-cell"></td>' +
 			'<td class="cardio-cell">' +
@@ -239,7 +239,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-dpvsvd">' +
 			'<td class="cardio-label-cell">Diâmetro Proximal da Via de Saída do VD:</td>' +
-			'<td class="cardio-input-cell" id="dpvsvd"></td>' +
+			`<td class="cardio-input-cell" id="dpvsvd" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">mm</td>' +
 			`<td class="cardio-ref-input-cell" id="refdpvsvd">${(references['refdpvsvd'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -249,7 +249,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-dbvd">' +
 			'<td class="cardio-label-cell">Diâmetro Basal do Ventrículo Direito:</td>' +
-			'<td class="cardio-input-cell" id="dbvd"></td>' +
+			`<td class="cardio-input-cell" id="dbvd" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">mm</td>' +
 			`<td class="cardio-ref-input-cell" id="refdbvd">${(references['refdbvd'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -259,7 +259,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-ddfve">' +
 			'<td class="cardio-label-cell">Diâmetro Diastólico Final do VE:</td>' +
-			'<td class="cardio-input-cell" id="ddfve"></td>' +
+			`<td class="cardio-input-cell" id="ddfve" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">mm</td>' +
 			`<td class="cardio-ref-input-cell" id="refddfve">${(references['refddfve'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -269,7 +269,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-dsfve">' +
 			'<td class="cardio-label-cell">Diâmetro Sistólico Final do VE:</td>' +
-			'<td class="cardio-input-cell" id="dsfve"></td>' +
+			`<td class="cardio-input-cell" id="dsfve" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">mm</td>' +
 			`<td class="cardio-ref-input-cell" id="refdsfve">${(references['refdsfve'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -279,7 +279,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-eds">' +
 			'<td class="cardio-label-cell">Espessura Diastólica do Septo:</td>' +
-			'<td class="cardio-input-cell" id="eds"></td>' +
+			`<td class="cardio-input-cell" id="eds" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">mm</td>' +
 			`<td class="cardio-ref-input-cell" id="refeds">${(references['refeds'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -289,7 +289,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-edppve">' +
 			'<td class="cardio-label-cell">Espessura Diastólica da PPVE:</td>' +
-			'<td class="cardio-input-cell" id="edppve"></td>' +
+			`<td class="cardio-input-cell" id="edppve" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">mm</td>' +
 			`<td class="cardio-ref-input-cell" id="refedppve">${(references['refedppve'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -313,7 +313,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-vdf">' +
 			'<td class="cardio-label-cell">Volume Diastólico Final:</td>' +
-			'<td class="cardio-input-cell" id="vdf"></td>' +
+			`<td class="cardio-input-cell" id="vdf" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">ml</td>' +
 			`<td class="cardio-ref-input-cell" id="refvdf">${(references['refvdf'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -323,7 +323,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-vsf">' +
 			'<td class="cardio-label-cell">Volume Sistólico Final:</td>' +
-			'<td class="cardio-input-cell" id="vsf"></td>' +
+			`<td class="cardio-input-cell" id="vsf" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">ml</td>' +
 			`<td class="cardio-ref-input-cell" id="refvsf">${(references['refvsf'] || '-')}</td>` +
 			'<td class="cardio-cell">' +
@@ -373,7 +373,7 @@ function createCardioTable(editor) {
 
 		'<tr class="cardio-row" id="tr-fes">' +
 			'<td class="cardio-label-cell">Fração de Ejeção (Simpson):</td>' +
-			'<td class="cardio-input-cell" id="fes"></td>' +
+			`<td class="cardio-input-cell" id="fes" tabindex="${++tabIndex}"></td>` +
 			'<td class="cardio-unit-cell">%</</td>' +
 			`<td class="cardio-ref-input-cell" id="reffes">${(references['reffes'] || '-')}</td>` +
 			'<td class="cardio-cell">' +

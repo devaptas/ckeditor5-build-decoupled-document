@@ -12,7 +12,7 @@ export function addCustomEvents(editor) {
 	const ckDocument = editor.editing.view.document;
 
 	// Seleciona conteudo da celula no focus
-	ckDocument.on('selectionChange', (evt, data) => {
+	ckDocument.on('selectionChangeDone', (evt, data) => {
 		evt.stop();
 		const editableElement = data.newSelection.editableElement;
 		if (editableElement && editableElement.name === 'td' && editableElement.getAttribute('tabindex')) {
@@ -22,22 +22,36 @@ export function addCustomEvents(editor) {
 		}
 	});
 
+	// Corrije problema no arrastar para selecionar conteudo da celula
+	ckDocument.on('drop', (evt, data) => {
+		evt.stop();
+		data.preventDefault();
+		data.stopPropagation();
+	});
+
 	// Utiliza enter para avançar celulas
 	ckDocument.on('keydown', (evt, data) => {
 		evt.stop();
-		if (data.keyCode === keyCodes.enter && data.target.getAttribute('tabindex')) {
+		if ((data.keyCode === keyCodes.enter || data.keyCode === keyCodes.arrowdown || data.keyCode === keyCodes.arrowup) && data.target.getAttribute('tabindex')) {
+			data.preventDefault();
+			data.stopPropagation();
 			let current = ckDocument.selection.getFirstRange();
-			let position = new ViewPosition(current.start.parent);
-			let walker = new ViewTreeWalker({startPosition: position});
+			let position = new ViewPosition(current.start.parent, 0);
+			let walker = new ViewTreeWalker({
+				startPosition: position,
+				ignoreElementEnd: true,
+				direction: (data.keyCode === keyCodes.arrowup ? 'backward' : 'forward')
+			});
 			for (let element of walker) {
-				if ( element.type === 'elementStart' && element.item.getAttribute('tabindex') ) {
+				if (element.type === 'elementStart' && element.item.getAttribute('tabindex') && (data.target.getAttribute('id') !== element.item.getAttribute('id'))) {
 					editor.editing.view.change(writer => {
 						writer.setSelection(element.item, 'in');
 					});
 					return;
 				}
 			}
-			selectFirstEditableCell(editor);
+			if(data.keyCode !== keyCodes.arrowup)
+				selectFirstEditableCell(editor);
 		}
 	});
 
