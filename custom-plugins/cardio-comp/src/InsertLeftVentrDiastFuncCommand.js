@@ -34,7 +34,7 @@ function createCardioCompTable(editor) {
 			refes: '> 7 cm/s',
 			refel: '> 10 cm/s',
 			// refrea: '1,1 - 1,7',
-			refmree: '< 14',
+			// refmree: '< 14',
 			// reftdm: '180 +- 31 ms',
 			refvit: '< 280 cm/s'
 		};

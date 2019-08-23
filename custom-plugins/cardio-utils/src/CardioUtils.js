@@ -43,7 +43,7 @@ export function addCustomEvents(editor) {
 				direction: (data.keyCode === keyCodes.arrowup ? 'backward' : 'forward')
 			});
 			for (let element of walker) {
-				if (element.type === 'elementStart' && element.item.getAttribute('tabindex') && (data.target.getAttribute('id') !== element.item.getAttribute('id'))) {
+				if (element.type === 'elementStart' && element.item.getAttribute('tabindex') && (data.target.getAttribute('tabindex') !== element.item.getAttribute('tabindex'))) {
 					editor.editing.view.change(writer => {
 						writer.setSelection(element.item, 'in');
 					});
