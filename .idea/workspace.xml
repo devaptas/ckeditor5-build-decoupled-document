@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/build/translations/en-gb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/translations/ms.js" afterDir="false" />
+    <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="merge v12.4.0&#10;&#10;# Conflicts:&#10;#&#9;build/ckeditor.js&#10;#&#9;build/ckeditor.js.map&#10;#&#9;build/translations/af.js&#10;#&#9;build/translations/ar.js&#10;#&#9;build/translations/ast.js&#10;#&#9;build/translations/az.js&#10;#&#9;build/translations/bg.js&#10;#&#9;build/translations/ca.js&#10;#&#9;build/translations/cs.js&#10;#&#9;build/translations/da.js&#10;#&#9;build/translations/de-ch.js&#10;#&#9;build/translations/de.js&#10;#&#9;build/translations/el.js&#10;#&#9;build/translations/en-au.js&#10;#&#9;build/translations/eo.js&#10;#&#9;build/translations/es.js&#10;#&#9;build/translations/et.js&#10;#&#9;build/translations/eu.js&#10;#&#9;build/translations/fa.js&#10;#&#9;build/translations/fi.js&#10;#&#9;build/translations/fr.js&#10;#&#9;build/translations/gl.js&#10;#&#9;build/translations/gu.js&#10;#&#9;build/translations/he.js&#10;#&#9;build/translations/hr.js&#10;#&#9;build/translations/hu.js&#10;#&#9;build/translations/id.js&#10;#&#9;build/translations/it.js&#10;#&#9;build/translations/ja.js&#10;#&#9;build/translations/km.js&#10;#&#9;build/translations/kn.js&#10;#&#9;build/translations/ko.js&#10;#&#9;build/translations/ku.js&#10;#&#9;build/translations/lt.js&#10;#&#9;build/translations/lv.js&#10;#&#9;build/translations/nb.js&#10;#&#9;build/translations/ne.js&#10;#&#9;build/translations/nl.js&#10;#&#9;build/translations/no.js&#10;#&#9;build/translations/oc.js&#10;#&#9;build/translations/pl.js&#10;#&#9;build/translations/pt-br.js&#10;#&#9;build/translations/pt.js&#10;#&#9;build/translations/ro.js&#10;#&#9;build/translations/ru.js&#10;#&#9;build/translations/si.js&#10;#&#9;build/translations/sk.js&#10;#&#9;build/translations/sq.js&#10;#&#9;build/translations/sr-latn.js&#10;#&#9;build/translations/sr.js&#10;#&#9;build/translations/sv.js&#10;#&#9;build/translations/tr.js&#10;#&#9;build/translations/tt.js&#10;#&#9;build/translations/ug.js&#10;#&#9;build/translations/uk.js&#10;#&#9;build/translations/vi.js&#10;#&#9;build/translations/zh-cn.js&#10;#&#9;build/translations/zh.js&#10;#&#9;package.json&#10;#&#9;tests/ckeditor.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/translations/en-gb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/translations/ms.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ckeditor.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +68,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -149,7 +149,10 @@
       <workItem from="1566387843993" duration="2085000" />
       <workItem from="1566475285614" duration="1832000" />
       <workItem from="1566562355827" duration="147000" />
-      <workItem from="1566918689644" duration="872000" />
+      <workItem from="1566918689644" duration="9708000" />
+      <workItem from="1566938726374" duration="703000" />
+      <workItem from="1566993651151" duration="1220000" />
+      <workItem from="1567080378781" duration="717000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -333,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566562378993</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="merge v12.4.0&#10;&#10;# Conflicts:&#10;#&#9;build/ckeditor.js&#10;#&#9;build/ckeditor.js.map&#10;#&#9;build/translations/af.js&#10;#&#9;build/translations/ar.js&#10;#&#9;build/translations/ast.js&#10;#&#9;build/translations/az.js&#10;#&#9;build/translations/bg.js&#10;#&#9;build/translations/ca.js&#10;#&#9;build/translations/cs.js&#10;#&#9;build/translations/da.js&#10;#&#9;build/translations/de-ch.js&#10;#&#9;build/translations/de.js&#10;#&#9;build/translations/el.js&#10;#&#9;build/translations/en-au.js&#10;#&#9;build/translations/eo.js&#10;#&#9;build/translations/es.js&#10;#&#9;build/translations/et.js&#10;#&#9;build/translations/eu.js&#10;#&#9;build/translations/fa.js&#10;#&#9;build/translations/fi.js&#10;#&#9;build/translations/fr.js&#10;#&#9;build/translations/gl.js&#10;#&#9;build/translations/gu.js&#10;#&#9;build/translations/he.js&#10;#&#9;build/translations/hr.js&#10;#&#9;build/translations/hu.js&#10;#&#9;build/translations/id.js&#10;#&#9;build/translations/it.js&#10;#&#9;build/translations/ja.js&#10;#&#9;build/translations/km.js&#10;#&#9;build/translations/kn.js&#10;#&#9;build/translations/ko.js&#10;#&#9;build/translations/ku.js&#10;#&#9;build/translations/lt.js&#10;#&#9;build/translations/lv.js&#10;#&#9;build/translations/nb.js&#10;#&#9;build/translations/ne.js&#10;#&#9;build/translations/nl.js&#10;#&#9;build/translations/no.js&#10;#&#9;build/translations/oc.js&#10;#&#9;build/translations/pl.js&#10;#&#9;build/translations/pt-br.js&#10;#&#9;build/translations/pt.js&#10;#&#9;build/translations/ro.js&#10;#&#9;build/translations/ru.js&#10;#&#9;build/translations/si.js&#10;#&#9;build/translations/sk.js&#10;#&#9;build/translations/sq.js&#10;#&#9;build/translations/sr-latn.js&#10;#&#9;build/translations/sr.js&#10;#&#9;build/translations/sv.js&#10;#&#9;build/translations/tr.js&#10;#&#9;build/translations/tt.js&#10;#&#9;build/translations/ug.js&#10;#&#9;build/translations/uk.js&#10;#&#9;build/translations/vi.js&#10;#&#9;build/translations/zh-cn.js&#10;#&#9;build/translations/zh.js&#10;#&#9;package.json&#10;#&#9;tests/ckeditor.js">
+      <created>1566919615345</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1566919615345</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +389,8 @@
     <MESSAGE value="Add nova classe para estilizar cores de fundo nas tabelas" />
     <MESSAGE value="Correções e melhorias pós utilização na especializada" />
     <MESSAGE value="Correções e melhorias pós utilização na provato" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correções e melhorias pós utilização na provato" />
+    <MESSAGE value="merge v12.4.0&#10;&#10;# Conflicts:&#10;#&#9;build/ckeditor.js&#10;#&#9;build/ckeditor.js.map&#10;#&#9;build/translations/af.js&#10;#&#9;build/translations/ar.js&#10;#&#9;build/translations/ast.js&#10;#&#9;build/translations/az.js&#10;#&#9;build/translations/bg.js&#10;#&#9;build/translations/ca.js&#10;#&#9;build/translations/cs.js&#10;#&#9;build/translations/da.js&#10;#&#9;build/translations/de-ch.js&#10;#&#9;build/translations/de.js&#10;#&#9;build/translations/el.js&#10;#&#9;build/translations/en-au.js&#10;#&#9;build/translations/eo.js&#10;#&#9;build/translations/es.js&#10;#&#9;build/translations/et.js&#10;#&#9;build/translations/eu.js&#10;#&#9;build/translations/fa.js&#10;#&#9;build/translations/fi.js&#10;#&#9;build/translations/fr.js&#10;#&#9;build/translations/gl.js&#10;#&#9;build/translations/gu.js&#10;#&#9;build/translations/he.js&#10;#&#9;build/translations/hr.js&#10;#&#9;build/translations/hu.js&#10;#&#9;build/translations/id.js&#10;#&#9;build/translations/it.js&#10;#&#9;build/translations/ja.js&#10;#&#9;build/translations/km.js&#10;#&#9;build/translations/kn.js&#10;#&#9;build/translations/ko.js&#10;#&#9;build/translations/ku.js&#10;#&#9;build/translations/lt.js&#10;#&#9;build/translations/lv.js&#10;#&#9;build/translations/nb.js&#10;#&#9;build/translations/ne.js&#10;#&#9;build/translations/nl.js&#10;#&#9;build/translations/no.js&#10;#&#9;build/translations/oc.js&#10;#&#9;build/translations/pl.js&#10;#&#9;build/translations/pt-br.js&#10;#&#9;build/translations/pt.js&#10;#&#9;build/translations/ro.js&#10;#&#9;build/translations/ru.js&#10;#&#9;build/translations/si.js&#10;#&#9;build/translations/sk.js&#10;#&#9;build/translations/sq.js&#10;#&#9;build/translations/sr-latn.js&#10;#&#9;build/translations/sr.js&#10;#&#9;build/translations/sv.js&#10;#&#9;build/translations/tr.js&#10;#&#9;build/translations/tt.js&#10;#&#9;build/translations/ug.js&#10;#&#9;build/translations/uk.js&#10;#&#9;build/translations/vi.js&#10;#&#9;build/translations/zh-cn.js&#10;#&#9;build/translations/zh.js&#10;#&#9;package.json&#10;#&#9;tests/ckeditor.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge v12.4.0&#10;&#10;# Conflicts:&#10;#&#9;build/ckeditor.js&#10;#&#9;build/ckeditor.js.map&#10;#&#9;build/translations/af.js&#10;#&#9;build/translations/ar.js&#10;#&#9;build/translations/ast.js&#10;#&#9;build/translations/az.js&#10;#&#9;build/translations/bg.js&#10;#&#9;build/translations/ca.js&#10;#&#9;build/translations/cs.js&#10;#&#9;build/translations/da.js&#10;#&#9;build/translations/de-ch.js&#10;#&#9;build/translations/de.js&#10;#&#9;build/translations/el.js&#10;#&#9;build/translations/en-au.js&#10;#&#9;build/translations/eo.js&#10;#&#9;build/translations/es.js&#10;#&#9;build/translations/et.js&#10;#&#9;build/translations/eu.js&#10;#&#9;build/translations/fa.js&#10;#&#9;build/translations/fi.js&#10;#&#9;build/translations/fr.js&#10;#&#9;build/translations/gl.js&#10;#&#9;build/translations/gu.js&#10;#&#9;build/translations/he.js&#10;#&#9;build/translations/hr.js&#10;#&#9;build/translations/hu.js&#10;#&#9;build/translations/id.js&#10;#&#9;build/translations/it.js&#10;#&#9;build/translations/ja.js&#10;#&#9;build/translations/km.js&#10;#&#9;build/translations/kn.js&#10;#&#9;build/translations/ko.js&#10;#&#9;build/translations/ku.js&#10;#&#9;build/translations/lt.js&#10;#&#9;build/translations/lv.js&#10;#&#9;build/translations/nb.js&#10;#&#9;build/translations/ne.js&#10;#&#9;build/translations/nl.js&#10;#&#9;build/translations/no.js&#10;#&#9;build/translations/oc.js&#10;#&#9;build/translations/pl.js&#10;#&#9;build/translations/pt-br.js&#10;#&#9;build/translations/pt.js&#10;#&#9;build/translations/ro.js&#10;#&#9;build/translations/ru.js&#10;#&#9;build/translations/si.js&#10;#&#9;build/translations/sk.js&#10;#&#9;build/translations/sq.js&#10;#&#9;build/translations/sr-latn.js&#10;#&#9;build/translations/sr.js&#10;#&#9;build/translations/sv.js&#10;#&#9;build/translations/tr.js&#10;#&#9;build/translations/tt.js&#10;#&#9;build/translations/ug.js&#10;#&#9;build/translations/uk.js&#10;#&#9;build/translations/vi.js&#10;#&#9;build/translations/zh-cn.js&#10;#&#9;build/translations/zh.js&#10;#&#9;package.json&#10;#&#9;tests/ckeditor.js" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>

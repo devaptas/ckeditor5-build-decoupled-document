@@ -20,7 +20,10 @@ import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import List from '@ckeditor/ckeditor5-list/src/list';
+import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
+
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
@@ -58,7 +61,9 @@ DecoupledEditor.builtinPlugins = [
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
+	ImageResize,
 	List,
+	TodoList,
 	Paragraph,
 	PasteFromOffice,
 	Table,
@@ -95,6 +100,7 @@ DecoupledEditor.defaultConfig = {
 			'|',
 			'bulletedList',
 			'numberedList',
+			'todoList',
 			'imageUpload',
 			'insertTable',
 			'pageBreak',
@@ -103,7 +109,7 @@ DecoupledEditor.defaultConfig = {
 		]
 	},
 	image: {
-		toolbar: [ 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
+		toolbar: [ 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight'],
 
 		styles: [
 			'full',
