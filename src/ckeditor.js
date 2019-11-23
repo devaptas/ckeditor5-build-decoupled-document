@@ -5,7 +5,6 @@
 
 // The editor creator to use.
 import DecoupledEditorBase from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor';
-
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import Font from '@ckeditor/ckeditor5-font/src/font';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
@@ -23,7 +22,6 @@ import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import List from '@ckeditor/ckeditor5-list/src/list';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
-
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
@@ -31,14 +29,20 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
+import Indent from '@ckeditor/ckeditor5-indent/src/indent';
+import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
+
+import {scrollViewportToShowTarget} from '@ckeditor/ckeditor5-utils/src/dom/scroll';
 
 // Custom Plugins
 import CustomSimpleUpload from '../custom-plugins/custom-simple-upload/src/CustomSimpleUpload';
-import PageBreak from '../custom-plugins/pagebreak/src/PageBreak';
 import CustomFontSizeUI from '../custom-plugins/custom-font-ui/src/CustomFontSizeUI';
 import CustomFontFamilyUI from '../custom-plugins/custom-font-ui/src/CustomFontFamilyUI';
 import Cardio from '../custom-plugins/cardio-ui/src/CardioUI';
 import CustomTable from '../custom-plugins/custom-table/src/CustomTable';
+import VariableUI from "../custom-plugins/varibles/src/VariableUI";
 
 import '../css/custom.css';
 
@@ -62,6 +66,10 @@ DecoupledEditor.builtinPlugins = [
 	ImageToolbar,
 	ImageUpload,
 	ImageResize,
+	Indent,
+	IndentBlock,
+	HorizontalLine,
+	PageBreak,
 	List,
 	TodoList,
 	Paragraph,
@@ -77,6 +85,7 @@ DecoupledEditor.builtinPlugins = [
 	CustomFontFamilyUI,
 	Cardio,
 	CustomTable,
+	VariableUI
 ];
 
 // Editor configuration.
@@ -101,16 +110,21 @@ DecoupledEditor.defaultConfig = {
 			'bulletedList',
 			'numberedList',
 			'todoList',
+			'|',
 			'imageUpload',
 			'insertTable',
+			'horizontalLine',
+			'outdent',
+			'indent',
 			'pageBreak',
 			'link',
-			'cardio'
+			'|',
+			'cardio',
+			'variable'
 		]
 	},
 	image: {
-		toolbar: [ 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight'],
-
+		toolbar: ['imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight'],
 		styles: [
 			'full',
 			'alignLeft',
@@ -127,16 +141,16 @@ DecoupledEditor.defaultConfig = {
 	fontSize: {
 		options: [
 			8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 36, 48
-		].map( val => ( {
+		].map(val => ({
 			model: val,
 			title: val,
 			view: {
 				name: 'span',
 				styles: {
-					'font-size': `${ val }pt`
+					'font-size': `${val}pt`
 				}
 			}
-		} ) )
+		}))
 	},
 	fontFamily: {
 		options: [
@@ -151,9 +165,9 @@ DecoupledEditor.defaultConfig = {
 		],
 	},
 	autosave: {
-		save( editor ) {
-			if ( editor.config.get( 'autosaveEnabled' ) ) {
-				return saveData( editor.getData() );
+		save(editor) {
+			if (editor.config.get('autosaveEnabled')) {
+				return saveData(editor.getData());
 			} else {
 				return false;
 			}
@@ -177,10 +191,28 @@ DecoupledEditor.prototype.insertHtml = function( html ) {
 
 };
 
+// // Criação da função  "insertHtml" em todas as instâncias criadas do editor.
+// DecoupledEditor.prototype.insertHtml = function (html) {
+// 	console.log(html);
+// 	const editor = this;
+// 	const editing = editor.editing;
+// 	const viewFragment = editor.data.processor.toView(html);
+// 	const modelFragment = editor.data.toModel(viewFragment);
+// 	$( '.ck-editor__editable' ).focus();
+// 	editor.model.change(writer => {
+// 		let modelRange = editor.model.insertContent(modelFragment);
+// 		writer.setSelectionFocus(modelRange.end, 'end');
+// 		scrollViewportToShowTarget({
+// 			target: editing.view.domConverter.viewRangeToDom(editing.mapper.toViewRange(modelRange)),
+// 			viewportOffset: 20
+// 		});
+// 	});
+// };
+
 let sidebarReloaded = false;
 
 // Autosave
-function saveData( data ) {
+function saveData(data) {
 	if (!workflowEditor.isReadOnly) {
 		displayStatus();
 		$( '#customfilledform-filled_form_content' ).val( workflowEditor.getData() );
@@ -191,50 +223,50 @@ function saveData( data ) {
 			autosaveAlert = $( '.workflow-autosave' ),
 			autosaveText = autosaveAlert.children( 'span' );
 
-		return new Promise( resolve => {
+		return new Promise(resolve => {
 			displayStatus();
-			$.ajax( {
-				url: form.attr( 'action' ),
+			$.ajax({
+				url: form.attr('action'),
 				data: form.serialize(),
 				type: 'post',
-				success: function( data ) {
-					circleLoader.addClass( 'load-complete' );
+				success: function (data) {
+					circleLoader.addClass('load-complete');
 					checkMark.show();
-					checkMark.fadeIn( 500 );
-					autosaveAlert.removeClass( 'alert-warning' ).addClass( 'alert-success' );
-					autosaveText.text( 'Todas as alterações foram salvas' );
+					checkMark.fadeIn(500);
+					autosaveAlert.removeClass('alert-warning').addClass('alert-success');
+					autosaveText.text('Todas as alterações foram salvas');
 
 					if (!sidebarReloaded) {
-						$( '#treatment-health-professionals' ).load( $( '#treatment-health-professionals' ).data( 'url' ) );
+						$('#treatment-health-professionals').load($('#treatment-health-professionals').data('url'));
 					}
 					sidebarReloaded = true;
 				}
-			} );
+			});
 			resolve();
-		} );
+		});
 	}
 }
 
 // Atualização do status de salvamento
 function displayStatus() {
-	const pendingActions = workflowEditor.plugins.get( 'PendingActions' ),
-		statusIndicator = $( '.checkmark-wrapper' ),
-		circleLoader = $( '.circle-loader' ),
-		checkMark = $( '.checkmark' ),
-		autosaveAlert = $( '.workflow-autosave' ),
-		autosaveText = autosaveAlert.children( 'span' );
+	const pendingActions = workflowEditor.plugins.get('PendingActions'),
+		statusIndicator = $('.checkmark-wrapper'),
+		circleLoader = $('.circle-loader'),
+		checkMark = $('.checkmark'),
+		autosaveAlert = $('.workflow-autosave'),
+		autosaveText = autosaveAlert.children('span');
 
-	pendingActions.off( 'change:hasAny' );
-	pendingActions.on( 'change:hasAny', ( evt, propertyName, newValue ) => {
-		autosaveAlert.css( 'opacity', 1 );
+	pendingActions.off('change:hasAny');
+	pendingActions.on('change:hasAny', (evt, propertyName, newValue) => {
+		autosaveAlert.css('opacity', 1);
 		if (newValue) {
-			if (statusIndicator.is( ':animated' )) {
+			if (statusIndicator.is(':animated')) {
 				statusIndicator.stop().show();
 			}
-			circleLoader.removeClass( 'load-complete' );
-			checkMark.fadeOut( 500 );
-			autosaveAlert.removeClass( 'alert-success' ).addClass( 'alert-warning' );
-			autosaveText.text( 'Salvando...' );
+			circleLoader.removeClass('load-complete');
+			checkMark.fadeOut(500);
+			autosaveAlert.removeClass('alert-success').addClass('alert-warning');
+			autosaveText.text('Salvando...');
 		}
-	} );
+	});
 }
