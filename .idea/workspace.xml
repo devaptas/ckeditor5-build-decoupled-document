@@ -2,23 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/custom-plugins/varibles/src/InsertVariableCommand.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/custom-plugins/varibles/src/VariableEditing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/custom-plugins/varibles/src/VariableUI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/custom-plugins/varibles/src/VariableUtils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom-plugins/placeholder/css/placeholder.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/Placeholder.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderCommand.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderEditing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderOptionsView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/pagebreak/icon/pagebreak.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/pagebreak/src/PageBreak.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/pagebreak/src/PageBreakCommand.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/pagebreak/src/PageBreakEditing.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/pagebreak/src/PageBreakUI.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-ui/src/CardioUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-ui/src/CardioUI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/varibles/icon/fixed.svg" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/icon/fixed.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/varibles/icon/list.svg" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/icon/list.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/varibles/icon/variable.svg" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/icon/placeholder.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/varibles/src/InsertVariableCommand.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/varibles/src/VariableEditing.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/varibles/src/VariableUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderUI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/varibles/src/VariableUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderUtils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ckeditor.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +50,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -64,46 +68,53 @@
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/custom-plugins/varibles/src" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/custom-plugins/placeholder/src" />
+      <recent name="$PROJECT_DIR$/custom-plugins/placeholder" />
+      <recent name="$PROJECT_DIR$/custom-plugins/varibles/src" />
+      <recent name="$PROJECT_DIR$/custom-plugins/varibles" />
+      <recent name="$PROJECT_DIR$/custom-plugins/cardio-comp/src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/custom-plugins" />
       <recent name="$PROJECT_DIR$/custom-plugins/varibles/icon" />
       <recent name="$PROJECT_DIR$/custom-plugins/cardio-utils" />
       <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui/src" />
       <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui" />
-      <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui/src/icon" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/custom-plugins/varibles/src" />
-      <recent name="$PROJECT_DIR$/custom-plugins/varibles" />
-      <recent name="$PROJECT_DIR$/custom-plugins/cardio-comp/src" />
-      <recent name="$PROJECT_DIR$/custom-plugins/cardio-utils" />
-      <recent name="$PROJECT_DIR$/customPlugins/custom-font-ui/src" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -174,6 +185,24 @@
       <workItem from="1574370330895" duration="1775000" />
       <workItem from="1574423020823" duration="10330000" />
       <workItem from="1574456415359" duration="3468000" />
+      <workItem from="1574682687212" duration="21314000" />
+      <workItem from="1574773089281" duration="25691000" />
+      <workItem from="1574856967621" duration="21599000" />
+      <workItem from="1574944288665" duration="11522000" />
+      <workItem from="1574989199913" duration="21000" />
+      <workItem from="1575028857270" duration="15414000" />
+      <workItem from="1575294754627" duration="14324000" />
+      <workItem from="1575380454438" duration="84000" />
+      <workItem from="1575380581175" duration="599000" />
+      <workItem from="1575396566025" duration="623000" />
+      <workItem from="1575465771465" duration="8048000" />
+      <workItem from="1575485186025" duration="6077000" />
+      <workItem from="1575545333456" duration="28385000" />
+      <workItem from="1575633435873" duration="25145000" />
+      <workItem from="1575891242510" duration="30132000" />
+      <workItem from="1575977775137" duration="30667000" />
+      <workItem from="1576064667363" duration="6569000" />
+      <workItem from="1576071271339" duration="5075000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -427,5 +456,62 @@
     <MESSAGE value="Add scroll.js no projeto" />
     <option name="LAST_COMMIT_MESSAGE" value="Add scroll.js no projeto" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="366" y="1175" width="624" height="534" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575380486271">
+      <screen x="0" y="1080" width="1366" height="768" />
+    </state>
+    <state x="366" y="1175" width="624" height="534" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.1080.1366.768/0.0.1920.1080@0.1080.1366.768" timestamp="1575380486271" />
+    <state x="259" y="337" width="838" height="707" key="CommitChangelistDialog2" timestamp="1576085826524">
+      <screen x="0" y="337" width="1366" height="708" />
+    </state>
+    <state x="259" y="337" width="838" height="707" key="CommitChangelistDialog2/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576085826524" />
+    <state x="441" y="594" width="306" height="332" key="FileChooserDialogImpl" timestamp="1575662466252">
+      <screen x="0" y="337" width="1366" height="743" />
+    </state>
+    <state x="1986" y="373" width="424" height="483" key="FileChooserDialogImpl/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1575637421708" />
+    <state x="441" y="594" width="306" height="332" key="FileChooserDialogImpl/0.337.1366.743/1366.0.1920.1080@0.337.1366.743" timestamp="1575662466252" />
+    <state width="1324" height="187" key="GridCell.Tab.0.bottom" timestamp="1575665959617">
+      <screen x="0" y="337" width="1366" height="743" />
+    </state>
+    <state width="1324" height="187" key="GridCell.Tab.0.bottom/0.337.1366.743/1366.0.1920.1080@0.337.1366.743" timestamp="1575665959617" />
+    <state width="1324" height="187" key="GridCell.Tab.0.center" timestamp="1575665959617">
+      <screen x="0" y="337" width="1366" height="743" />
+    </state>
+    <state width="1324" height="187" key="GridCell.Tab.0.center/0.337.1366.743/1366.0.1920.1080@0.337.1366.743" timestamp="1575665959617" />
+    <state width="1324" height="187" key="GridCell.Tab.0.left" timestamp="1575665959616">
+      <screen x="0" y="337" width="1366" height="743" />
+    </state>
+    <state width="1324" height="187" key="GridCell.Tab.0.left/0.337.1366.743/1366.0.1920.1080@0.337.1366.743" timestamp="1575665959616" />
+    <state width="1324" height="187" key="GridCell.Tab.0.right" timestamp="1575665959617">
+      <screen x="0" y="337" width="1366" height="743" />
+    </state>
+    <state width="1324" height="187" key="GridCell.Tab.0.right/0.337.1366.743/1366.0.1920.1080@0.337.1366.743" timestamp="1575665959617" />
+    <state x="194" y="337" width="967" height="704" key="SettingsEditor" timestamp="1575662500942">
+      <screen x="0" y="337" width="1366" height="743" />
+    </state>
+    <state x="194" y="337" width="967" height="704" key="SettingsEditor/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1574944843953" />
+    <state x="194" y="337" key="SettingsEditor/0.337.1366.743/1366.0.1920.1080@0.337.1366.743" timestamp="1575662500942" />
+    <state x="383" y="337" width="590" height="707" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1575902666693">
+      <screen x="0" y="337" width="1366" height="708" />
+    </state>
+    <state x="383" y="337" width="590" height="707" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1575902666693" />
+    <state x="291" y="492" width="619" height="504" key="find.popup" timestamp="1576071080009">
+      <screen x="0" y="337" width="1366" height="708" />
+    </state>
+    <state x="1775" y="237" width="856" height="756" key="find.popup/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1575063083579" />
+    <state x="291" y="492" width="619" height="504" key="find.popup/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576071080009" />
+    <state x="579" y="422" width="196" height="532" key="ftp.server.browser" timestamp="1574944825699">
+      <screen x="0" y="337" width="1366" height="704" />
+    </state>
+    <state x="579" y="422" width="196" height="532" key="ftp.server.browser/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1574944825699" />
+    <state x="347" y="315" key="run.anything.popup" timestamp="1575914116486">
+      <screen x="0" y="337" width="1366" height="708" />
+    </state>
+    <state x="347" y="315" key="run.anything.popup/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1575914116486" />
+    <state x="346" y="362" width="672" height="678" key="search.everywhere.popup" timestamp="1574945700958">
+      <screen x="0" y="337" width="1366" height="704" />
+    </state>
+    <state x="346" y="362" width="672" height="678" key="search.everywhere.popup/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1574945700958" />
   </component>
 </project>

@@ -40,6 +40,10 @@ export default class CardioUI extends Plugin {
                 label: t('Cardio'),
             });
 
+			// Utilizado para desabilitar widget no modo readOnly
+			const command = editor.commands.get( 'insertCardio' );
+			dropdownView.bind( 'isEnabled' ).to( command );
+
             // The collection of the list items.
             const items = new Collection();
 

@@ -34,24 +34,24 @@ import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
 
-import {scrollViewportToShowTarget} from '@ckeditor/ckeditor5-utils/src/dom/scroll';
-
 // Custom Plugins
 import CustomSimpleUpload from '../custom-plugins/custom-simple-upload/src/CustomSimpleUpload';
 import CustomFontSizeUI from '../custom-plugins/custom-font-ui/src/CustomFontSizeUI';
 import CustomFontFamilyUI from '../custom-plugins/custom-font-ui/src/CustomFontFamilyUI';
 import Cardio from '../custom-plugins/cardio-ui/src/CardioUI';
 import CustomTable from '../custom-plugins/custom-table/src/CustomTable';
-import VariableUI from "../custom-plugins/varibles/src/VariableUI";
+import Placeholder from "../custom-plugins/placeholder/src/Placeholder";
 
 import '../css/custom.css';
+import {nextPlaceholder} from "../custom-plugins/placeholder/src/PlaceholderUtils";
+import {scrollViewportToShowTarget} from "@ckeditor/ckeditor5-utils/src/dom/scroll";
 
-export default class DecoupledEditor extends DecoupledEditorBase {}
+export default class DecoupledEditor extends DecoupledEditorBase {
+}
 
 // Plugins to include in the build.
 DecoupledEditor.builtinPlugins = [
 	Essentials,
-	// Autoformat,
 	Font,
 	Bold,
 	Italic,
@@ -85,7 +85,7 @@ DecoupledEditor.builtinPlugins = [
 	CustomFontFamilyUI,
 	Cardio,
 	CustomTable,
-	VariableUI
+	Placeholder
 ];
 
 // Editor configuration.
@@ -120,7 +120,7 @@ DecoupledEditor.defaultConfig = {
 			'link',
 			'|',
 			'cardio',
-			'variable'
+			'placeholder'
 		]
 	},
 	image: {
@@ -177,37 +177,25 @@ DecoupledEditor.defaultConfig = {
 	language: 'pt-br'
 };
 
-// Criação da função  "insertHtml" em todas as instâncias criadas do editor.
-DecoupledEditor.prototype.insertHtml = function( html ) {
-	const viewFragment = this.data.processor.toView( html );
-	const modelFragment = this.data.toModel( viewFragment );
-	// eslint-disable-next-line consistent-this
+// Criação da função "insertHtml" em todas as instâncias criadas do editor.
+DecoupledEditor.prototype.insertHtml = function (html) {
 	const editor = this;
+	const editing = editor.editing;
+	const viewFragment = this.data.processor.toView(html);
+	const modelFragment = this.data.toModel(viewFragment);
+	editor.model.change(writer => {
 
-	$( '.ck-editor__editable' ).focus();
-	editor.model.change( writer => {
-		writer.setSelectionFocus( editor.model.insertContent( modelFragment ).end, 'end' );
-	} );
+		const insertRange = editor.model.insertContent(modelFragment);
+		writer.setSelection(insertRange.end, 'after');
+		editor.editing.view.focus();
 
+		// Abre opções de variaveis caso exista alguma no texto inserido, senão cursor vai para o fim do texto
+		setTimeout(function(){
+			nextPlaceholder(editor);
+		}, 250);
+
+	});
 };
-
-// // Criação da função  "insertHtml" em todas as instâncias criadas do editor.
-// DecoupledEditor.prototype.insertHtml = function (html) {
-// 	console.log(html);
-// 	const editor = this;
-// 	const editing = editor.editing;
-// 	const viewFragment = editor.data.processor.toView(html);
-// 	const modelFragment = editor.data.toModel(viewFragment);
-// 	$( '.ck-editor__editable' ).focus();
-// 	editor.model.change(writer => {
-// 		let modelRange = editor.model.insertContent(modelFragment);
-// 		writer.setSelectionFocus(modelRange.end, 'end');
-// 		scrollViewportToShowTarget({
-// 			target: editing.view.domConverter.viewRangeToDom(editing.mapper.toViewRange(modelRange)),
-// 			viewportOffset: 20
-// 		});
-// 	});
-// };
 
 let sidebarReloaded = false;
 
@@ -215,13 +203,13 @@ let sidebarReloaded = false;
 function saveData(data) {
 	if (!workflowEditor.isReadOnly) {
 		displayStatus();
-		$( '#customfilledform-filled_form_content' ).val( workflowEditor.getData() );
-		const form = $( '#step-form' ),
-			circleLoader = $( '.circle-loader' ),
-			checkMark = $( '.checkmark' ),
-			statusIndicator = $( '.checkmark-wrapper' ),
-			autosaveAlert = $( '.workflow-autosave' ),
-			autosaveText = autosaveAlert.children( 'span' );
+		$('#customfilledform-filled_form_content').val(workflowEditor.getData());
+		const form = $('#step-form'),
+			circleLoader = $('.circle-loader'),
+			checkMark = $('.checkmark'),
+			statusIndicator = $('.checkmark-wrapper'),
+			autosaveAlert = $('.workflow-autosave'),
+			autosaveText = autosaveAlert.children('span');
 
 		return new Promise(resolve => {
 			displayStatus();
