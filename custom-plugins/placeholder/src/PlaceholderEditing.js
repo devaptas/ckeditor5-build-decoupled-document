@@ -1,7 +1,7 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import Widget from "@ckeditor/ckeditor5-widget/src/widget";
 import PlaceholderCommand from "./PlaceholderCommand";
-import {toWidget, toWidgetEditable, viewToModelPositionOutsideModelElement} from "@ckeditor/ckeditor5-widget/src/utils";
+import {toWidget, viewToModelPositionOutsideModelElement} from "@ckeditor/ckeditor5-widget/src/utils";
 import ContextualBalloon from "@ckeditor/ckeditor5-ui/src/panel/balloon/contextualballoon";
 import PlaceholderOptionsView from "./PlaceholderOptionsView";
 
@@ -32,15 +32,6 @@ export default class PlaceholderEditing extends Plugin {
 			}
 		});
 
-		// Close the panel on esc key press when the **actions have focus**.
-		this.editor.keystrokes.set('Esc', (data, cancel) => {
-			this.closeBalloon();
-			cancel();
-		});
-	}
-
-	get _areOptionsVisible() {
-		return this._balloon.visibleView === this.placeholderOptions;
 	}
 
 	_openBalloon(data) {
@@ -63,6 +54,12 @@ export default class PlaceholderEditing extends Plugin {
 			});
 
 			this.placeholderOptions.focus();
+
+			// Close the panel on esc key press when the **actions have focus**.
+			this.placeholderOptions.keystrokes.set('Esc', (data, cancel) => {
+				this.closeBalloon();
+				cancel();
+			});
 		}
 	}
 
@@ -74,7 +71,7 @@ export default class PlaceholderEditing extends Plugin {
 
 	_setplaceholderOptions(data) {
 		const editor = this.editor;
-		return new PlaceholderOptionsView(editor, data, this.closeBalloon());
+		return new PlaceholderOptionsView(editor, data, this);
 	}
 
 	_defineSchema() {

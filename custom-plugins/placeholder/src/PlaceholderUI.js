@@ -16,11 +16,10 @@ export default class PlaceholderUI extends Plugin {
 		// to be displayed in the toolbar.
 		editor.ui.componentFactory.add('placeholder', locale => {
 
+			const dropdownView = createDropdown(locale);
+
 			const variables = editor.config.get('variables');
 			if (variables) {
-
-				const dropdownView = createDropdown(locale);
-
 				dropdownView.buttonView.set({
 					icon: placeholderIcon,
 					label: t('Variaveis')
@@ -42,9 +41,8 @@ export default class PlaceholderUI extends Plugin {
 					editor.execute('placeholder', evt.source.commandParam);
 					editor.editing.view.focus();
 				});
-
-				return dropdownView;
 			}
+			return dropdownView;
 		});
 	}
 }

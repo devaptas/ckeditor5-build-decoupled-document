@@ -21,13 +21,13 @@ export default class PlaceholderOptionsView extends ListView {
 	/**
 	 * @inheritDoc
 	 */
-	constructor(editor, data, closeBalloon) {
+	constructor(editor, data, placeholder) {
 		super(editor);
 
 		const t = editor.locale.t;
 
 		this._btnOptions = [];
-		this.options = this._createOptions(editor, data, closeBalloon);
+		this.options = this._createOptions(editor, data, placeholder);
 
 		/**
 		 * Tracks information about DOM focus in the actions.
@@ -111,7 +111,7 @@ export default class PlaceholderOptionsView extends ListView {
 		this._focusCycler.focusFirst();
 	}
 
-	_createOptions(editor, data, closeBalloon) {
+	_createOptions(editor, data, placeholder) {
 		const element = data.domTarget;
 		const target = data.target;
 		let liOptions = [];
@@ -135,7 +135,7 @@ export default class PlaceholderOptionsView extends ListView {
 
 					// Encontra proxima variavel
 					if (!nextPlaceholder(editor)) {
-						closeBalloon();
+						placeholder.closeBalloon();
 					}
 				});
 			});
