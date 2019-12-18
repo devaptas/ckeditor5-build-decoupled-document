@@ -123,11 +123,20 @@ DecoupledEditor.defaultConfig = {
         ]
     },
     image: {
-        toolbar: ['imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight'],
+        upload: {
+            types: ['png', 'jpg', 'jpeg']
+        },
+        toolbar: [
+            'imageStyle:alignLeft',
+            'imageStyle:alignCenter',
+            'imageStyle:alignRight',
+            'imageStyle:full'
+        ],
         styles: [
-            'full',
             'alignLeft',
-            'alignRight'
+            'alignCenter',
+            'alignRight',
+            'full'
         ]
     },
     table: {
