@@ -38,4 +38,15 @@ export function nextPlaceholder(editor){
 	return false;
 }
 
+/**
+ * @return {boolean}
+ */
+export function IsJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
 

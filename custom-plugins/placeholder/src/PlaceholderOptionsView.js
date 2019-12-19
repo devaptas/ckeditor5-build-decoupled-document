@@ -5,7 +5,7 @@ import FocusTracker from '@ckeditor/ckeditor5-utils/src/focustracker';
 import FocusCycler from '@ckeditor/ckeditor5-ui/src/focuscycler';
 import KeystrokeHandler from '@ckeditor/ckeditor5-utils/src/keystrokehandler';
 
-import {nextPlaceholder} from "./PlaceholderUtils";
+import {IsJsonString, nextPlaceholder} from "./PlaceholderUtils";
 import ButtonView from "@ckeditor/ckeditor5-ui/src/button/buttonview";
 import ListItemView from "@ckeditor/ckeditor5-ui/src/list/listitemview";
 import ListView from "@ckeditor/ckeditor5-ui/src/list/listview";
@@ -18,135 +18,121 @@ import ListView from "@ckeditor/ckeditor5-ui/src/list/listview";
  */
 export default class PlaceholderOptionsView extends ListView {
 
-	/**
-	 * @inheritDoc
-	 */
-	constructor(editor, data, placeholder) {
-		super(editor);
+    /**
+     * @inheritDoc
+     */
+    constructor(editor, data, placeholder) {
+        super(editor.locale);
 
-		const t = editor.locale.t;
+        // Load options
+        this.options = this._createOptions(editor, data, placeholder);
 
-		this._btnOptions = [];
-		this.options = this._createOptions(editor, data, placeholder);
+        /**
+         * Tracks information about DOM focus in the actions.
+         * @readonly
+         * @member {FocusTracker}
+         */
+        this.focusTracker = new FocusTracker();
 
-		/**
-		 * Tracks information about DOM focus in the actions.
-		 *
-		 * @readonly
-		 * @member {FocusTracker}
-		 */
-		this.focusTracker = new FocusTracker();
+        /**
+         * An instance of the {KeystrokeHandler}.
+         * @readonly
+         * @member {KeystrokeHandler}
+         */
+        this.keystrokes = new KeystrokeHandler();
 
-		/**
-		 * An instance of the {KeystrokeHandler}.
-		 *
-		 * @readonly
-		 * @member {KeystrokeHandler}
-		 */
-		this.keystrokes = new KeystrokeHandler();
+        /**
+         * A collection of views that can be focused in the view.
+         * @readonly
+         * @protected
+         * @member {ViewCollection}
+         */
+        this._focusables = new ViewCollection();
 
-		/**
-		 * A collection of views that can be focused in the view.
-		 *
-		 * @readonly
-		 * @protected
-		 * @member {ViewCollection}
-		 */
-		this._focusables = new ViewCollection();
+        /**
+         * Helps cycling over {@link #_focusables} in the view.
+         * @readonly
+         * @protected
+         * @member {FocusCycler}
+         */
+        this.focusCycler = new FocusCycler({
+            focusables: this._focusables,
+            focusTracker: this.focusTracker,
+            keystrokeHandler: this.keystrokes,
+            actions: {
+                focusPrevious: 'arrowup',
+                focusNext: 'arrowdown'
+            }
+        });
 
-		/**
-		 * Helps cycling over {@link #_focusables} in the view.
-		 *
-		 * @readonly
-		 * @protected
-		 * @member {FocusCycler}
-		 */
+        this.setTemplate({
+            tag: 'ul',
+            attributes: {
+                class: 'ck-list placeholder-option-ul',
+                // tabindex: '-1'
+            },
+            children: this.options
+        });
+    }
 
-		this._focusCycler = new FocusCycler({
-			focusables: this._focusables,
-			focusTracker: this.focusTracker,
-			keystrokeHandler: this.keystrokes,
-			actions: {
-				// Navigate fields backwards using the arrowUp keystroke.
-				focusPrevious: 'arrowdown',
-				// Navigate fields forwards using the arrowDown key.
-				focusNext: 'arrowup'
-			}
-		});
+    /**
+     * @inheritDoc
+     */
+    render() {
+        super.render();
 
-		this.setTemplate({
-			tag: 'ul',
-			attributes: {
-				class: 'ck-list placeholder-option-ul',
-				tabindex: '-1'
-			},
-			children: this.options
-		});
+        this.options.forEach(v => {
 
-	}
+            // Register the view as focusable.
+            this._focusables.add(v);
 
-	/**
-	 * @inheritDoc
-	 */
-	render() {
-		super.render();
+            // Register the view in the focus tracker.
+            this.focusTracker.add(v.element);
+        });
+    }
 
-		this._btnOptions.forEach(v => {
+    /**
+     * Focuses the fist {@link #_focusables} in the actions.
+     */
+    focus() {
+        this.focusCycler.focusFirst();
+    }
 
-			// Register the view as focusable.
-			this._focusables.add(v);
+    _createOptions(editor, data, placeholder) {
+        const element = data.domTarget;
+        const target = data.target;
+        let liOptions = [];
+        if (IsJsonString(element.dataset.options)) {
+            JSON.parse(element.dataset.options).forEach((option) => {
 
-			// Register the view in the focus tracker.
-			this.focusTracker.add(v.element);
-		});
+                const btnView = new ButtonView(editor.locale);
+                btnView.set({
+                    label: option,
+                    withText: true,
+                    class: 'placeholder-option-btn',
+                    tooltip: false
+                });
+                btnView.on('execute', () => {
+                    const modelElement = editor.editing.mapper.toModelElement(target);
+                    editor.model.change(writer => {
+                        writer.setAttributes({
+                            isSolved: 1,
+                            value: option
+                        }, modelElement);
+                        editor.editing.view.focus();
 
-		// Start listening for the keystrokes coming from #element.
-		this.keystrokes.listenTo(this.element);
-	}
+                        // Encontra proxima variavel
+                        if (!nextPlaceholder(editor)) {
+                            placeholder.closeBalloon();
+                        }
+                    });
+                });
 
-	/**
-	 * Focuses the fist {@link #_focusables} in the actions.
-	 */
-	focus() {
-		this._focusCycler.focusFirst();
-	}
-
-	_createOptions(editor, data, placeholder) {
-		const element = data.domTarget;
-		const target = data.target;
-		let liOptions = [];
-		JSON.parse(element.dataset.options).forEach((option) => {
-
-			const btnView = new ButtonView(editor.locale);
-			btnView.set( {
-				label: option,
-				withText: true,
-				class: 'placeholder-option-btn',
-				tooltip: false
-			});
-			btnView.on('execute', () => {
-				const modelElement = editor.editing.mapper.toModelElement(target);
-				editor.model.change(writer => {
-					writer.setAttributes({
-						isSolved: 1,
-						value: option
-					}, modelElement);
-					editor.editing.view.focus();
-
-					// Encontra proxima variavel
-					if (!nextPlaceholder(editor)) {
-						placeholder.closeBalloon();
-					}
-				});
-			});
-
-			const liView = new ListItemView(editor.locale);
-			liView.children.add( btnView );
-
-			this._btnOptions.push(btnView);
-			liOptions.push(liView);
-		});
-
-		return liOptions;
-	}
+                const liView = new ListItemView(editor.locale);
+                liView.children.add(btnView);
+                liOptions.push(liView);
+            });
+        }
+        return liOptions;
+    }
 }
