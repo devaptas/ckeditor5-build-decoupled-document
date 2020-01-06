@@ -57,9 +57,9 @@ export function addCustomEvents(editor) {
 
 	// Evento de remover linha
 	ckDocument.on('click', (evt, data) => {
-		evt.stop();
 		const element = data.target;
-		if ( element && element.hasClass('btn-remove') ) {
+		if ( element && element.hasClass('btn-remove')) {
+			evt.stop();
 			removeCkElement(editor, getCkElementById(editor, element.getAttribute('data-trid')));
 		}
 	});

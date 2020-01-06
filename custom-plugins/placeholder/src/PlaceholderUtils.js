@@ -1,6 +1,7 @@
 // Add eventos
 import ViewPosition from "@ckeditor/ckeditor5-engine/src/view/position";
 import ViewTreeWalker from "@ckeditor/ckeditor5-engine/src/view/treewalker";
+import ModelPosition from "@ckeditor/ckeditor5-engine/src/model/position";
 
 export function addCustomEvents(editor) {
 
@@ -14,22 +15,22 @@ export function addCustomEvents(editor) {
 }
 
 export function nextPlaceholder(editor){
-	const ckDocument = editor.editing.view.document;
-	const current = ckDocument.selection.getLastRange();
-	const position = new ViewPosition(current.end.parent, 0);
+	const ckView = editor.editing.view;
+	const ckDocument = ckView.document;
+
+	const position = new ViewPosition(ckDocument.getRoot(), 0);
 	const walker = new ViewTreeWalker({
-		startPosition: position,
-		ignoreElementEnd: true,
+		startPosition: position
 	});
 	for (let element of walker) {
 		if (element.type === 'elementStart') {
 			const item = element.item;
-			if (item.hasClass('placeholder') && item.hasAttribute('data-is-fixed') && !item.getAttribute('data-is-fixed')) {
+			if (item.hasClass('placeholder') && item.hasAttribute('data-is-fixed') && !item.getAttribute('data-is-fixed') && !item.getAttribute('data-is-solved')) {
 				const modelElement = editor.editing.mapper.toModelElement(item);
 				editor.model.change(writer => {
 					writer.setSelection(modelElement, 'in');
 				});
-				const domConverter = editor.editing.view.domConverter;
+				const domConverter = ckView.domConverter;
 				domConverter.viewToDom(item, ckDocument).click();
 				return true;
 			}

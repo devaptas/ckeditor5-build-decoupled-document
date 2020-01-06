@@ -5,9 +5,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/css/placeholder.css" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/css/placeholder.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderEditing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderOptionsView.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderOptionsView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ckeditor.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +63,12 @@
       </set>
     </option>
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1OYHxTkLIPj5TseCDkOB7z145jD" />
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
@@ -74,8 +84,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../curso-react/backend" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.15.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -83,7 +93,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JSON" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -203,7 +213,12 @@
       <workItem from="1576150086239" duration="13335000" />
       <workItem from="1576679536494" duration="4251000" />
       <workItem from="1576694444790" duration="6140000" />
-      <workItem from="1576756621590" duration="13196000" />
+      <workItem from="1576756621590" duration="13873000" />
+      <workItem from="1577110993810" duration="23891000" />
+      <workItem from="1577368651309" duration="1419000" />
+      <workItem from="1577374422495" duration="3000" />
+      <workItem from="1577448178857" duration="3237000" />
+      <workItem from="1578322468004" duration="3194000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -436,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576684316361</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Correção na navegação pelas variaveis">
+      <created>1576774842546</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1576774842570</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +480,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Merge with official repository" />
     <MESSAGE value="Rebuild" />
     <MESSAGE value="Rebuild p/ aptasSaude 1.4.6.4" />
     <MESSAGE value="Add inspector para criar plugin de cardio" />
@@ -483,7 +504,8 @@
     <MESSAGE value="merge v16.0.0&#10;&#10;# Conflicts:&#10;#&#9;build/ckeditor.js&#10;#&#9;build/ckeditor.js.map&#10;#&#9;build/translations/af.js&#10;#&#9;build/translations/ar.js&#10;#&#9;build/translations/ast.js&#10;#&#9;build/translations/az.js&#10;#&#9;build/translations/bg.js&#10;#&#9;build/translations/ca.js&#10;#&#9;build/translations/cs.js&#10;#&#9;build/translations/da.js&#10;#&#9;build/translations/de-ch.js&#10;#&#9;build/translations/de.js&#10;#&#9;build/translations/el.js&#10;#&#9;build/translations/en-au.js&#10;#&#9;build/translations/en-gb.js&#10;#&#9;build/translations/eo.js&#10;#&#9;build/translations/es.js&#10;#&#9;build/translations/et.js&#10;#&#9;build/translations/eu.js&#10;#&#9;build/translations/fa.js&#10;#&#9;build/translations/fi.js&#10;#&#9;build/translations/fr.js&#10;#&#9;build/translations/gl.js&#10;#&#9;build/translations/gu.js&#10;#&#9;build/translations/he.js&#10;#&#9;build/translations/hr.js&#10;#&#9;build/translations/hu.js&#10;#&#9;build/translations/id.js&#10;#&#9;build/translations/it.js&#10;#&#9;build/translations/ja.js&#10;#&#9;build/translations/km.js&#10;#&#9;build/translations/kn.js&#10;#&#9;build/translations/ko.js&#10;#&#9;build/translations/ku.js&#10;#&#9;build/translations/lt.js&#10;#&#9;build/translations/lv.js&#10;#&#9;build/translations/ms.js&#10;#&#9;build/translations/nb.js&#10;#&#9;build/translations/ne.js&#10;#&#9;build/translations/nl.js&#10;#&#9;build/translations/no.js&#10;#&#9;build/translations/oc.js&#10;#&#9;build/translations/pl.js&#10;#&#9;build/translations/pt-br.js&#10;#&#9;build/translations/pt.js&#10;#&#9;build/translations/ro.js&#10;#&#9;build/translations/ru.js&#10;#&#9;build/translations/si.js&#10;#&#9;build/translations/sk.js&#10;#&#9;build/translations/sq.js&#10;#&#9;build/translations/sr-latn.js&#10;#&#9;build/translations/sr.js&#10;#&#9;build/translations/sv.js&#10;#&#9;build/translations/tr.js&#10;#&#9;build/translations/tt.js&#10;#&#9;build/translations/ug.js&#10;#&#9;build/translations/uk.js&#10;#&#9;build/translations/vi.js&#10;#&#9;build/translations/zh-cn.js&#10;#&#9;build/translations/zh.js&#10;#&#9;package.json&#10;#&#9;sample/index.html&#10;#&#9;tests/manual/ckeditor-cjs-version.js&#10;#&#9;tests/manual/ckeditor.js" />
     <MESSAGE value="Melhorias nas variáveis" />
     <MESSAGE value="Correção e melhoria no upload de imagens" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correção e melhoria no upload de imagens" />
+    <MESSAGE value="Correção na navegação pelas variaveis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correção na navegação pelas variaveis" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -529,23 +551,30 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1647" y="62" width="1394" height="964" key="MultipleFileMergeDialog/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576087080295" />
-    <state x="194" y="337" width="937" height="708" key="SettingsEditor" timestamp="1576153766194">
-      <screen x="0" y="337" width="1366" height="708" />
+    <state x="194" y="310" width="982" height="707" key="SettingsEditor" timestamp="1577369583462">
+      <screen x="0" y="339" width="1366" height="707" />
     </state>
+    <state x="194" y="27" width="982" height="707" key="SettingsEditor/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1577113088580" />
     <state x="194" y="337" width="967" height="704" key="SettingsEditor/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1574944843953" />
     <state x="194" y="337" width="937" height="708" key="SettingsEditor/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576153766194" />
     <state x="194" y="337" key="SettingsEditor/0.337.1366.743/1366.0.1920.1080@0.337.1366.743" timestamp="1575662500942" />
-    <state x="278" y="412" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1576684327952">
+    <state x="194" y="310" key="SettingsEditor/0.339.1366.707/1366.0.1920.1080@0.339.1366.707" timestamp="1577369583462" />
+    <state x="100" y="439" width="1166" height="507" key="VCS.FileHistoryDialog" timestamp="1578322772545">
+      <screen x="0" y="339" width="1366" height="707" />
+    </state>
+    <state x="100" y="439" width="1166" height="507" key="VCS.FileHistoryDialog/0.339.1366.707/1366.0.1920.1080@0.339.1366.707" timestamp="1578322772545" />
+    <state x="278" y="412" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1576774853378">
       <screen x="0" y="337" width="1366" height="708" />
     </state>
-    <state x="278" y="412" width="800" height="527" key="Vcs.Push.Dialog.v2/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576684327952" />
+    <state x="278" y="412" width="800" height="527" key="Vcs.Push.Dialog.v2/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576774853378" />
     <state x="383" y="337" width="590" height="707" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1575902666693">
       <screen x="0" y="337" width="1366" height="708" />
     </state>
     <state x="383" y="337" width="590" height="707" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1575902666693" />
-    <state x="291" y="492" width="1038" height="504" key="find.popup" timestamp="1576771199185">
-      <screen x="0" y="337" width="1366" height="708" />
+    <state x="291" y="182" width="1038" height="528" key="find.popup" timestamp="1577137256868">
+      <screen x="0" y="27" width="1366" height="707" />
     </state>
+    <state x="291" y="182" width="1038" height="528" key="find.popup/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1577137256868" />
     <state x="1775" y="237" width="856" height="756" key="find.popup/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1575063083579" />
     <state x="291" y="492" width="1038" height="504" key="find.popup/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576771199185" />
     <state x="579" y="422" width="196" height="532" key="ftp.server.browser" timestamp="1574944825699">
@@ -560,9 +589,10 @@
       <screen x="0" y="337" width="1366" height="708" />
     </state>
     <state x="347" y="315" key="run.anything.popup/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1575914116486" />
-    <state x="346" y="362" width="672" height="678" key="search.everywhere.popup" timestamp="1574945700958">
-      <screen x="0" y="337" width="1366" height="704" />
+    <state x="346" y="52" width="672" height="681" key="search.everywhere.popup" timestamp="1577125251535">
+      <screen x="0" y="27" width="1366" height="707" />
     </state>
+    <state x="346" y="52" width="672" height="681" key="search.everywhere.popup/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1577125251535" />
     <state x="346" y="362" width="672" height="678" key="search.everywhere.popup/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1574945700958" />
   </component>
 </project>

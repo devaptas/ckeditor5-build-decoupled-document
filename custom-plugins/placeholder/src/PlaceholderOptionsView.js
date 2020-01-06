@@ -94,8 +94,16 @@ export default class PlaceholderOptionsView extends ListView {
     /**
      * Focuses the fist {@link #_focusables} in the actions.
      */
-    focus() {
-        this.focusCycler.focusFirst();
+    focus(value) {
+        const fC = this.focusCycler;
+        fC.focusNext();
+        if(value){
+            const fT = this.focusTracker;
+            const optionEl = fT.focusedElement.querySelector('.ck-button__label');
+            if(optionEl.innerText !== value){
+                this.focus(value);
+            }
+        }
     }
 
     _createOptions(editor, data, placeholder) {
@@ -122,9 +130,11 @@ export default class PlaceholderOptionsView extends ListView {
                         editor.editing.view.focus();
 
                         // Encontra proxima variavel
-                        if (!nextPlaceholder(editor)) {
-                            placeholder.closeBalloon();
-                        }
+                        setTimeout(function () {
+                            if (!nextPlaceholder(editor)) {
+                                placeholder.closeBalloon();
+                            }
+                        }, 100);
                     });
                 });
 

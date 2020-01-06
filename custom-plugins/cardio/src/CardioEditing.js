@@ -5,7 +5,7 @@ import {
 	toWidget,
 	toWidgetEditable,
 } from '@ckeditor/ckeditor5-widget/src/utils';
-import {makeCalculations, selectAllOnFocus} from '../../cardio-utils/src/CardioUtils';
+import {makeCalculations} from '../../cardio-utils/src/CardioUtils';
 
 export default class CardioEditing extends Plugin {
 

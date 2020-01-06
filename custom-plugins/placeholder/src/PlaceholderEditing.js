@@ -26,10 +26,23 @@ export default class PlaceholderEditing extends Plugin {
 
         this._balloon = editor.plugins.get(ContextualBalloon);
         this.listenTo(editor.editing.view.document, 'click', (evt, data) => {
-            evt.stop();
-            if (!editor.isReadOnly) {
+            const element = data.target;
+            if (!editor.isReadOnly && element && element.hasClass('placeholder')) {
+                evt.stop();
                 this._openBalloon(data);
             }
+        });
+
+        // Utilizado para esconder balloon quando editor perde o focus
+        editor.ui.focusTracker.on('change:isFocused', (evt, name, isFocused) => {
+            if (!isFocused) {
+                this.closeBalloon();
+            }
+        });
+
+        // Utilizado para esconder balloon quando texto é realinhado
+        editor.commands.get('alignment').on('execute', (evt, args) => {
+            this.closeBalloon();
         });
     }
 
@@ -46,13 +59,13 @@ export default class PlaceholderEditing extends Plugin {
             // Abre novo balloon
             this._balloon.add({
                 view: this.placeholderOptions,
-                // singleViewMode: true,
+                singleViewMode: true,
                 position: {
                     target: data.domTarget
                 }
             });
 
-            this.placeholderOptions.focus();
+            this.placeholderOptions.focus(modelElement.getAttribute('value'));
 
             // Close the panel on esc key press when the **actions have focus**.
             this.placeholderOptions.keystrokes.set('Esc', (data, cancel) => {
@@ -78,7 +91,7 @@ export default class PlaceholderEditing extends Plugin {
         schema.register('placeholder', {
 
             // Allow wherever text is allowed:
-            allowWhere: '$text',
+            allowIn: 'paragraph',
 
             // The placeholder will act as an inline node:
             isInline: true,
@@ -156,11 +169,18 @@ export default class PlaceholderEditing extends Plugin {
                 // Get mapped view element to update.
                 const placeholderView = conversionApi.mapper.toViewElement(data.item);
 
+                const wrt = conversionApi.writer;
+                if(modelElement.getAttribute('isSolved')){
+                    wrt.addClass('placeholder-solved', placeholderView);
+                }
+                wrt.setAttribute('data-value', modelElement.getAttribute('value'), placeholderView);
+                wrt.setAttribute('data-is-solved', modelElement.getAttribute('isSolved'), placeholderView);
+
                 // Remove current placeholder element contents.
-                conversionApi.writer.remove(placeholderView.getChild(0));
+                wrt.remove(placeholderView.getChild(0));
 
                 // Set current content
-                setContent(conversionApi.writer, {
+                setContent(wrt, {
                     'data-name': modelElement.getAttribute('name'),
                     'data-value': modelElement.getAttribute('value'),
                     'data-is-solved': modelElement.getAttribute('isSolved'),
@@ -172,7 +192,9 @@ export default class PlaceholderEditing extends Plugin {
         function createModelWidget(modelElement, viewWriter) {
             const placeholder = {
                 title: modelElement.getAttribute('name'),
-                class: 'placeholder' + (modelElement.getAttribute('isFixed') ? '' : ' placeholder-pointer'),
+                class: 'placeholder'
+                    + (modelElement.getAttribute('isFixed') ? ' placeholder-solved' : ' placeholder-pointer')
+                    + (modelElement.getAttribute('isSolved') ? ' placeholder-solved' : ''),
                 'data-name': modelElement.getAttribute('name'),
                 'data-attr': modelElement.getAttribute('attr'),
                 'data-value': modelElement.getAttribute('value'),

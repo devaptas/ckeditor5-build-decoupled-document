@@ -196,8 +196,10 @@ DecoupledEditor.prototype.insertHtml = function (html) {
         editor.editing.view.focus();
 
         setTimeout(function () {
+
 			// Abre opções de variaveis caso exista alguma no texto inserido
             if(!nextPlaceholder(editor)){
+
 				// Caso atalho não possua variavel, rola para final do trecho inserido
 				const ev = new KeyboardEvent('keydown', {
 					key: "Enter",
