@@ -4,6 +4,8 @@ import PlaceholderCommand from "./PlaceholderCommand";
 import {toWidget, viewToModelPositionOutsideModelElement} from "@ckeditor/ckeditor5-widget/src/utils";
 import ContextualBalloon from "@ckeditor/ckeditor5-ui/src/panel/balloon/contextualballoon";
 import PlaceholderOptionsView from "./PlaceholderOptionsView";
+import PlaceholderInputView from "./PlaceholderInputView";
+import {nextPlaceholder} from "./PlaceholderUtils";
 
 export default class PlaceholderEditing extends Plugin {
 
@@ -27,9 +29,13 @@ export default class PlaceholderEditing extends Plugin {
         this._balloon = editor.plugins.get(ContextualBalloon);
         this.listenTo(editor.editing.view.document, 'click', (evt, data) => {
             const element = data.target;
-            if (!editor.isReadOnly && element && element.hasClass('placeholder')) {
+            if (!editor.isReadOnly) {
+                if (element && element.hasClass('placeholder')) {
+                    this._openBalloon(data);
+                } else {
+                    this.closeBalloon();
+                }
                 evt.stop();
-                this._openBalloon(data);
             }
         });
 
@@ -48,13 +54,46 @@ export default class PlaceholderEditing extends Plugin {
 
     _openBalloon(data) {
 
+        const editor = this.editor;
+
         // Verifica se existe algum balloon aberto e fecha
         this.closeBalloon();
 
-        const modelElement = this.editor.editing.mapper.toModelElement(data.target);
-        if (modelElement && modelElement.name === 'placeholder' && !modelElement.getAttribute('isFixed')) {
 
-            this.placeholderOptions = this._setplaceholderOptions(data);
+        const modelElement = editor.editing.mapper.toModelElement(data.target);
+        if (modelElement && modelElement.name === 'placeholder') {
+
+            // Variaveis vazias/livres
+            if (modelElement.getAttribute('attr') === 'empty') {
+                this.placeholderOptions = this._setPlaceholderInput(data);
+
+                // Fecha ballon/input qndo Enter é pressionado
+                this.placeholderOptions.keystrokes.set('Enter', (data, cancel) => {
+
+                    // Encontra proxima variavel
+                    this.closeBalloon();
+                    setTimeout(function () {
+                        nextPlaceholder(editor)
+                    }, 100);
+                    cancel();
+                });
+            }
+
+            // Variaveis fixas
+            else if (modelElement.getAttribute('isFixed')) {
+                return;
+            }
+
+            // Variaveis com opções
+            else  {
+                this.placeholderOptions = this._setPlaceholderOptions(data);
+
+                // Close the panel on esc key press when the **actions have focus**.
+                this.placeholderOptions.keystrokes.set('Esc', (data, cancel) => {
+                    this.closeBalloon();
+                    cancel();
+                });
+            }
 
             // Abre novo balloon
             this._balloon.add({
@@ -66,12 +105,6 @@ export default class PlaceholderEditing extends Plugin {
             });
 
             this.placeholderOptions.focus(modelElement.getAttribute('value'));
-
-            // Close the panel on esc key press when the **actions have focus**.
-            this.placeholderOptions.keystrokes.set('Esc', (data, cancel) => {
-                this.closeBalloon();
-                cancel();
-            });
         }
     }
 
@@ -81,7 +114,12 @@ export default class PlaceholderEditing extends Plugin {
         }
     }
 
-    _setplaceholderOptions(data) {
+    _setPlaceholderInput(data) {
+        const editor = this.editor;
+        return new PlaceholderInputView(editor, data, this);
+    }
+
+    _setPlaceholderOptions(data) {
         const editor = this.editor;
         return new PlaceholderOptionsView(editor, data, this);
     }
@@ -170,7 +208,7 @@ export default class PlaceholderEditing extends Plugin {
                 const placeholderView = conversionApi.mapper.toViewElement(data.item);
 
                 const wrt = conversionApi.writer;
-                if(modelElement.getAttribute('isSolved')){
+                if (modelElement.getAttribute('isSolved')) {
                     wrt.addClass('placeholder-solved', placeholderView);
                 }
                 wrt.setAttribute('data-value', modelElement.getAttribute('value'), placeholderView);

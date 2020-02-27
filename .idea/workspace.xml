@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="">
+    <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="Correção no conflito de click entre CARDIO e VARIAVEIS">
+      <change afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderInputView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio-utils/src/CardioUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/cardio/src/CardioEditing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/css/placeholder.css" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/css/placeholder.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderEditing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderOptionsView.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderOptionsView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ckeditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderUI.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +82,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.15.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/custom-plugins/placeholder/src" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -97,19 +94,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/custom-plugins/placeholder/src" />
-      <recent name="$PROJECT_DIR$/custom-plugins/placeholder" />
-      <recent name="$PROJECT_DIR$/custom-plugins/varibles/src" />
-      <recent name="$PROJECT_DIR$/custom-plugins/varibles" />
-      <recent name="$PROJECT_DIR$/custom-plugins/cardio-comp/src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/custom-plugins" />
       <recent name="$PROJECT_DIR$/custom-plugins/varibles/icon" />
       <recent name="$PROJECT_DIR$/custom-plugins/cardio-utils" />
       <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui/src" />
       <recent name="$PROJECT_DIR$/custom-plugins/cardio-ui" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/custom-plugins/placeholder/src" />
+      <recent name="$PROJECT_DIR$/custom-plugins/placeholder" />
+      <recent name="$PROJECT_DIR$/custom-plugins/varibles/src" />
+      <recent name="$PROJECT_DIR$/custom-plugins/varibles" />
+      <recent name="$PROJECT_DIR$/custom-plugins/cardio-comp/src" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -218,7 +215,14 @@
       <workItem from="1577368651309" duration="1419000" />
       <workItem from="1577374422495" duration="3000" />
       <workItem from="1577448178857" duration="3237000" />
-      <workItem from="1578322468004" duration="3194000" />
+      <workItem from="1578322468004" duration="3943000" />
+      <workItem from="1581447192473" duration="8862000" />
+      <workItem from="1581519366873" duration="4527000" />
+      <workItem from="1581534911656" duration="6000" />
+      <workItem from="1581967429061" duration="4925000" />
+      <workItem from="1581984413264" duration="76000" />
+      <workItem from="1582051620574" duration="3833000" />
+      <workItem from="1582113565929" duration="6190000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -458,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576774842570</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Correção no conflito de click entre CARDIO e VARIAVEIS">
+      <created>1578326313026</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1578326313026</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +491,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Rebuild" />
     <MESSAGE value="Rebuild p/ aptasSaude 1.4.6.4" />
     <MESSAGE value="Add inspector para criar plugin de cardio" />
     <MESSAGE value="Refatoração dos diretórios" />
@@ -505,7 +515,8 @@
     <MESSAGE value="Melhorias nas variáveis" />
     <MESSAGE value="Correção e melhoria no upload de imagens" />
     <MESSAGE value="Correção na navegação pelas variaveis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correção na navegação pelas variaveis" />
+    <MESSAGE value="Correção no conflito de click entre CARDIO e VARIAVEIS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correção no conflito de click entre CARDIO e VARIAVEIS" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -517,10 +528,12 @@
       <screen x="0" y="1080" width="1366" height="768" />
     </state>
     <state x="366" y="1175" width="624" height="534" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.1080.1366.768/0.0.1920.1080@0.1080.1366.768" timestamp="1575380486271" />
-    <state x="259" y="337" width="838" height="707" key="CommitChangelistDialog2" timestamp="1576774840893">
-      <screen x="0" y="337" width="1366" height="708" />
+    <state x="259" y="27" width="867" height="706" key="CommitChangelistDialog2" timestamp="1582836590325">
+      <screen x="0" y="27" width="1366" height="707" />
     </state>
+    <state x="259" y="27" width="867" height="706" key="CommitChangelistDialog2/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1582836590325" />
     <state x="259" y="337" width="838" height="707" key="CommitChangelistDialog2/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576774840893" />
+    <state x="259" y="339" key="CommitChangelistDialog2/0.339.1366.707/1366.0.1920.1080@0.339.1366.707" timestamp="1578326309706" />
     <state x="441" y="582" width="306" height="332" key="FileChooserDialogImpl" timestamp="1576698510988">
       <screen x="0" y="337" width="1366" height="708" />
     </state>
@@ -563,18 +576,19 @@
       <screen x="0" y="339" width="1366" height="707" />
     </state>
     <state x="100" y="439" width="1166" height="507" key="VCS.FileHistoryDialog/0.339.1366.707/1366.0.1920.1080@0.339.1366.707" timestamp="1578322772545" />
-    <state x="278" y="412" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1576774853378">
-      <screen x="0" y="337" width="1366" height="708" />
+    <state x="278" y="414" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1578326320232">
+      <screen x="0" y="339" width="1366" height="707" />
     </state>
     <state x="278" y="412" width="800" height="527" key="Vcs.Push.Dialog.v2/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576774853378" />
+    <state x="278" y="414" key="Vcs.Push.Dialog.v2/0.339.1366.707/1366.0.1920.1080@0.339.1366.707" timestamp="1578326320232" />
     <state x="383" y="337" width="590" height="707" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1575902666693">
       <screen x="0" y="337" width="1366" height="708" />
     </state>
     <state x="383" y="337" width="590" height="707" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1575902666693" />
-    <state x="291" y="182" width="1038" height="528" key="find.popup" timestamp="1577137256868">
+    <state x="291" y="182" width="1038" height="528" key="find.popup" timestamp="1582143160262">
       <screen x="0" y="27" width="1366" height="707" />
     </state>
-    <state x="291" y="182" width="1038" height="528" key="find.popup/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1577137256868" />
+    <state x="291" y="182" width="1038" height="528" key="find.popup/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1582143160262" />
     <state x="1775" y="237" width="856" height="756" key="find.popup/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1575063083579" />
     <state x="291" y="492" width="1038" height="504" key="find.popup/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576771199185" />
     <state x="579" y="422" width="196" height="532" key="ftp.server.browser" timestamp="1574944825699">
@@ -589,10 +603,10 @@
       <screen x="0" y="337" width="1366" height="708" />
     </state>
     <state x="347" y="315" key="run.anything.popup/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1575914116486" />
-    <state x="346" y="52" width="672" height="681" key="search.everywhere.popup" timestamp="1577125251535">
+    <state x="346" y="52" width="672" height="681" key="search.everywhere.popup" timestamp="1582056671038">
       <screen x="0" y="27" width="1366" height="707" />
     </state>
-    <state x="346" y="52" width="672" height="681" key="search.everywhere.popup/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1577125251535" />
+    <state x="346" y="52" width="672" height="681" key="search.everywhere.popup/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1582056671038" />
     <state x="346" y="362" width="672" height="678" key="search.everywhere.popup/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1574945700958" />
   </component>
 </project>

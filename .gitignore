@@ -1,15 +1,13 @@
+/.idea/
 package-lock.json
 yarn.lock
 
-.idea
 node_modules/*
 !node_modules/@ckeditor/
 node_modules/@ckeditor/*
-
 !node_modules/@ckeditor/ckeditor5-inspector/
 node_modules/@ckeditor/ckeditor5-inspector/*
 !node_modules/@ckeditor/ckeditor5-inspector/build/
-
 !node_modules/@ckeditor/ckeditor5-utils/
 node_modules/@ckeditor/ckeditor5-utils/*
 !node_modules/@ckeditor/ckeditor5-utils/src/
