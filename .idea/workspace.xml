@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="Correção no conflito de click entre CARDIO e VARIAVEIS">
-      <change afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderInputView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/translations/th.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderEditing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderUI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ckeditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -528,10 +532,11 @@
       <screen x="0" y="1080" width="1366" height="768" />
     </state>
     <state x="366" y="1175" width="624" height="534" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.1080.1366.768/0.0.1920.1080@0.1080.1366.768" timestamp="1575380486271" />
-    <state x="259" y="27" width="867" height="706" key="CommitChangelistDialog2" timestamp="1582836590325">
-      <screen x="0" y="27" width="1366" height="707" />
+    <state x="1730" y="0" width="1219" height="1046" key="CommitChangelistDialog2" timestamp="1582840396463">
+      <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="259" y="27" width="867" height="706" key="CommitChangelistDialog2/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1582836590325" />
+    <state x="1730" y="0" width="1219" height="1046" key="CommitChangelistDialog2/0.27.1366.707/1366.0.1920.1080@1366.0.1920.1080" timestamp="1582840396463" />
     <state x="259" y="337" width="838" height="707" key="CommitChangelistDialog2/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576774840893" />
     <state x="259" y="339" key="CommitChangelistDialog2/0.339.1366.707/1366.0.1920.1080@0.339.1366.707" timestamp="1578326309706" />
     <state x="441" y="582" width="306" height="332" key="FileChooserDialogImpl" timestamp="1576698510988">
@@ -556,13 +561,15 @@
       <screen x="0" y="337" width="1366" height="743" />
     </state>
     <state width="1324" height="187" key="GridCell.Tab.0.right/0.337.1366.743/1366.0.1920.1080@0.337.1366.743" timestamp="1575665959617" />
-    <state x="1477" y="62" width="1666" height="882" key="MergeDialog" timestamp="1576087080285">
+    <state x="1477" y="62" width="1521" height="937" key="MergeDialog" timestamp="1582840292220">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
+    <state x="1477" y="62" width="1521" height="937" key="MergeDialog/0.27.1366.707/1366.0.1920.1080@1366.0.1920.1080" timestamp="1582840292220" />
     <state x="1477" y="62" width="1666" height="882" key="MergeDialog/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576087080285" />
-    <state x="1647" y="62" width="1394" height="964" key="MultipleFileMergeDialog" timestamp="1576087080295">
+    <state x="1647" y="62" width="1360" height="867" key="MultipleFileMergeDialog" timestamp="1582840292223">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
+    <state x="1647" y="62" width="1360" height="867" key="MultipleFileMergeDialog/0.27.1366.707/1366.0.1920.1080@1366.0.1920.1080" timestamp="1582840292223" />
     <state x="1647" y="62" width="1394" height="964" key="MultipleFileMergeDialog/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576087080295" />
     <state x="194" y="310" width="982" height="707" key="SettingsEditor" timestamp="1577369583462">
       <screen x="0" y="339" width="1366" height="707" />
@@ -576,9 +583,10 @@
       <screen x="0" y="339" width="1366" height="707" />
     </state>
     <state x="100" y="439" width="1166" height="507" key="VCS.FileHistoryDialog/0.339.1366.707/1366.0.1920.1080@0.339.1366.707" timestamp="1578322772545" />
-    <state x="278" y="414" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1578326320232">
-      <screen x="0" y="339" width="1366" height="707" />
+    <state x="1757" y="115" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1582840354141">
+      <screen x="1366" y="0" width="1920" height="1080" />
     </state>
+    <state x="1757" y="115" key="Vcs.Push.Dialog.v2/0.27.1366.707/1366.0.1920.1080@1366.0.1920.1080" timestamp="1582840354141" />
     <state x="278" y="412" width="800" height="527" key="Vcs.Push.Dialog.v2/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576774853378" />
     <state x="278" y="414" key="Vcs.Push.Dialog.v2/0.339.1366.707/1366.0.1920.1080@0.339.1366.707" timestamp="1578326320232" />
     <state x="383" y="337" width="590" height="707" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1575902666693">
@@ -595,9 +603,10 @@
       <screen x="0" y="337" width="1366" height="704" />
     </state>
     <state x="579" y="422" width="196" height="532" key="ftp.server.browser/0.337.1366.704/1366.0.1920.1080@0.337.1366.704" timestamp="1574944825699" />
-    <state x="392" y="471" width="581" height="409" key="git4idea.merge.GitMergeDialog" timestamp="1576086535282">
-      <screen x="0" y="337" width="1366" height="708" />
+    <state x="1917" y="204" width="605" height="410" key="git4idea.merge.GitMergeDialog" timestamp="1582839741018">
+      <screen x="1366" y="0" width="1920" height="1080" />
     </state>
+    <state x="1917" y="204" width="605" height="410" key="git4idea.merge.GitMergeDialog/0.27.1366.707/1366.0.1920.1080@1366.0.1920.1080" timestamp="1582839741018" />
     <state x="392" y="471" width="581" height="409" key="git4idea.merge.GitMergeDialog/0.337.1366.708/1366.0.1920.1080@0.337.1366.708" timestamp="1576086535282" />
     <state x="347" y="315" key="run.anything.popup" timestamp="1575914116486">
       <screen x="0" y="337" width="1366" height="708" />
