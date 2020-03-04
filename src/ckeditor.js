@@ -29,6 +29,9 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
+import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
+
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
@@ -79,6 +82,8 @@ DecoupledEditor.builtinPlugins = [
     PasteFromOffice,
     Table,
     TableToolbar,
+    TableProperties,
+    TableCellProperties,
     SimpleUploadAdapter,
     PageBreak,
     Autosave,
@@ -147,7 +152,9 @@ DecoupledEditor.defaultConfig = {
         contentToolbar: [
             'tableColumn',
             'tableRow',
-            'mergeTableCells'
+            'mergeTableCells',
+            'tableProperties',
+            'tableCellProperties'
         ]
     },
     fontSize: {
