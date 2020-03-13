@@ -110,14 +110,14 @@ export default class PlaceholderInputView extends ListView {
         const modelElement = editor.editing.mapper.toModelElement(target);
         const inputView = new InputTextView(editor.locale);
         inputView.set({
-            placeholder: 'LIVRE',
+            placeholder: 'TEXTO',
             value: modelElement.getAttribute('isSolved') ? modelElement.getAttribute('value') : ''
         });
         inputView.on('input', ( eventInfo ) => {
             const value = eventInfo.source.element.value;
             editor.model.change(writer => {
                 writer.setAttributes({
-                    isSolved: value ? 1 : 0,
+                    isSolved: value ? 1 : '',
                     value: value
                 }, modelElement);
             });

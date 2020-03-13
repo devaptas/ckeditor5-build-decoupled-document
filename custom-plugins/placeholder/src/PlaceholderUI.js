@@ -60,14 +60,14 @@ function getDropdownItemsDefinitions(variables) {
         model: new Model({
             icon: keyboardIcon,
             withText: true,
-            label: 'LIVRE',
+            label: 'VARIÁVEL LIVRE',
             attr: 'empty',
             commandParam: {
-                name: 'LIVRE',
+                name: 'VARIÁVEL LIVRE',
                 attr: 'empty',
                 is_fixed: false,
                 is_solved: false,
-                value: '',
+                value: null,
                 options: null
             }
         }),

@@ -59,7 +59,6 @@ export default class PlaceholderEditing extends Plugin {
         // Verifica se existe algum balloon aberto e fecha
         this.closeBalloon();
 
-
         const modelElement = editor.editing.mapper.toModelElement(data.target);
         if (modelElement && modelElement.name === 'placeholder') {
 
@@ -129,7 +128,7 @@ export default class PlaceholderEditing extends Plugin {
         schema.register('placeholder', {
 
             // Allow wherever text is allowed:
-            allowIn: 'paragraph',
+            allowIn: ['$block'],
 
             // The placeholder will act as an inline node:
             isInline: true,
@@ -210,6 +209,8 @@ export default class PlaceholderEditing extends Plugin {
                 const wrt = conversionApi.writer;
                 if (modelElement.getAttribute('isSolved')) {
                     wrt.addClass('placeholder-solved', placeholderView);
+                } else {
+                    wrt.removeClass('placeholder-solved', placeholderView);
                 }
                 wrt.setAttribute('data-value', modelElement.getAttribute('value'), placeholderView);
                 wrt.setAttribute('data-is-solved', modelElement.getAttribute('isSolved'), placeholderView);
@@ -231,8 +232,8 @@ export default class PlaceholderEditing extends Plugin {
             const placeholder = {
                 title: modelElement.getAttribute('name'),
                 class: 'placeholder'
-                    + (modelElement.getAttribute('isFixed') ? ' placeholder-solved' : ' placeholder-pointer')
-                    + (modelElement.getAttribute('isSolved') ? ' placeholder-solved' : ''),
+                    + (!!modelElement.getAttribute('isFixed') ? ' placeholder-solved' : ' placeholder-pointer')
+                    + (!!modelElement.getAttribute('isSolved') ? ' placeholder-solved' : ''),
                 'data-name': modelElement.getAttribute('name'),
                 'data-attr': modelElement.getAttribute('attr'),
                 'data-value': modelElement.getAttribute('value'),

@@ -1,7 +1,6 @@
 // Add eventos
 import ViewPosition from "@ckeditor/ckeditor5-engine/src/view/position";
 import ViewTreeWalker from "@ckeditor/ckeditor5-engine/src/view/treewalker";
-import ModelPosition from "@ckeditor/ckeditor5-engine/src/model/position";
 
 export function addCustomEvents(editor) {
 
