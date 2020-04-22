@@ -32,10 +32,10 @@ export default class PlaceholderEditing extends Plugin {
             if (!editor.isReadOnly) {
                 if (element && element.hasClass('placeholder')) {
                     this._openBalloon(data);
+                    evt.stop();
                 } else {
                     this.closeBalloon();
                 }
-                evt.stop();
             }
         });
 
