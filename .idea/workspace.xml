@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a5c370e1-186e-4f65-bc5d-ab5a5a7ea4ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ckeditor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ckeditor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderEditing.js" beforeDir="false" afterPath="$PROJECT_DIR$/custom-plugins/placeholder/src/PlaceholderEditing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +218,8 @@
       <workItem from="1583330043570" duration="361000" />
       <workItem from="1583415718374" duration="11956000" />
       <workItem from="1584103299553" duration="1712000" />
-      <workItem from="1587562472514" duration="3337000" />
+      <workItem from="1587562472514" duration="3421000" />
+      <workItem from="1588163086612" duration="3525000" />
     </task>
     <task id="LOCAL-00001" summary="Initial customization">
       <created>1562093101671</created>
@@ -483,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584105102306</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Correção na remoção de linhas do módulo de cardio">
+      <created>1587566248279</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1587566248279</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +515,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Re-add inspector.js" />
     <MESSAGE value="Implementação do plugin de cardio" />
     <MESSAGE value="Inicio da implementação do cardioStress" />
     <MESSAGE value="Implementação do cardioStress" />
@@ -529,43 +539,49 @@
     <MESSAGE value="merge v17&#10;&#10;# Conflicts:&#10;#&#9;build/ckeditor.js&#10;#&#9;build/ckeditor.js.map&#10;#&#9;build/translations/af.js&#10;#&#9;build/translations/ar.js&#10;#&#9;build/translations/ast.js&#10;#&#9;build/translations/az.js&#10;#&#9;build/translations/bg.js&#10;#&#9;build/translations/ca.js&#10;#&#9;build/translations/cs.js&#10;#&#9;build/translations/da.js&#10;#&#9;build/translations/de-ch.js&#10;#&#9;build/translations/de.js&#10;#&#9;build/translations/el.js&#10;#&#9;build/translations/en-au.js&#10;#&#9;build/translations/en-gb.js&#10;#&#9;build/translations/eo.js&#10;#&#9;build/translations/es.js&#10;#&#9;build/translations/et.js&#10;#&#9;build/translations/eu.js&#10;#&#9;build/translations/fa.js&#10;#&#9;build/translations/fi.js&#10;#&#9;build/translations/fr.js&#10;#&#9;build/translations/gl.js&#10;#&#9;build/translations/gu.js&#10;#&#9;build/translations/he.js&#10;#&#9;build/translations/hr.js&#10;#&#9;build/translations/hu.js&#10;#&#9;build/translations/id.js&#10;#&#9;build/translations/it.js&#10;#&#9;build/translations/ja.js&#10;#&#9;build/translations/km.js&#10;#&#9;build/translations/kn.js&#10;#&#9;build/translations/ko.js&#10;#&#9;build/translations/ku.js&#10;#&#9;build/translations/lt.js&#10;#&#9;build/translations/lv.js&#10;#&#9;build/translations/ms.js&#10;#&#9;build/translations/nb.js&#10;#&#9;build/translations/ne.js&#10;#&#9;build/translations/nl.js&#10;#&#9;build/translations/no.js&#10;#&#9;build/translations/oc.js&#10;#&#9;build/translations/pl.js&#10;#&#9;build/translations/pt-br.js&#10;#&#9;build/translations/pt.js&#10;#&#9;build/translations/ro.js&#10;#&#9;build/translations/ru.js&#10;#&#9;build/translations/si.js&#10;#&#9;build/translations/sk.js&#10;#&#9;build/translations/sl.js&#10;#&#9;build/translations/sq.js&#10;#&#9;build/translations/sr-latn.js&#10;#&#9;build/translations/sr.js&#10;#&#9;build/translations/sv.js&#10;#&#9;build/translations/tr.js&#10;#&#9;build/translations/tt.js&#10;#&#9;build/translations/ug.js&#10;#&#9;build/translations/uk.js&#10;#&#9;build/translations/vi.js&#10;#&#9;build/translations/zh-cn.js&#10;#&#9;build/translations/zh.js&#10;#&#9;package.json&#10;#&#9;sample/index.html&#10;#&#9;src/ckeditor.js&#10;#&#9;tests/ckeditor.js&#10;#&#9;tests/manual/ckeditor-cjs-version.js&#10;#&#9;tests/manual/ckeditor.js" />
     <MESSAGE value="Add estilização de tabelas" />
     <MESSAGE value="Correção na navegação de variaveis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correção na navegação de variaveis" />
+    <MESSAGE value="Correção na remoção de linhas do módulo de cardio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correção na remoção de linhas do módulo de cardio" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="259" y="27" width="867" height="704" key="CommitChangelistDialog2" timestamp="1584105098654">
-      <screen x="0" y="27" width="1366" height="705" />
+    <state x="259" y="27" width="867" height="705" key="CommitChangelistDialog2" timestamp="1587566244167">
+      <screen x="0" y="312" width="1366" height="768" />
     </state>
     <state x="259" y="27" width="867" height="704" key="CommitChangelistDialog2/0.27.1366.705/1366.0.1920.1080@0.27.1366.705" timestamp="1584105098654" />
     <state x="259" y="27" width="867" height="706" key="CommitChangelistDialog2/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1582836590325" />
     <state x="1730" y="0" width="1219" height="1046" key="CommitChangelistDialog2/0.27.1366.707/1366.0.1920.1080@1366.0.1920.1080" timestamp="1582840414533" />
-    <state x="1477" y="62" width="1521" height="937" key="MergeDialog" timestamp="1582840292220">
+    <state x="259" y="27" width="867" height="705" key="CommitChangelistDialog2/0.312.1366.768/1366.0.1920.1080@0.312.1366.768" timestamp="1587566244167" />
+    <state x="1552" y="124" width="1483" height="851" key="MergeDialog" timestamp="1588163741654">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1477" y="62" width="1521" height="937" key="MergeDialog/0.27.1366.707/1366.0.1920.1080@1366.0.1920.1080" timestamp="1582840292220" />
-    <state x="1647" y="62" width="1360" height="867" key="MultipleFileMergeDialog" timestamp="1582840292223">
+    <state x="1552" y="124" width="1483" height="851" key="MergeDialog/1366.0.1920.1080/0.339.1366.705@0.339.1366.705" timestamp="1588163741654" />
+    <state x="1560" y="196" width="1324" height="723" key="MultipleFileMergeDialog" timestamp="1588163745512">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1647" y="62" width="1360" height="867" key="MultipleFileMergeDialog/0.27.1366.707/1366.0.1920.1080@1366.0.1920.1080" timestamp="1582840292223" />
+    <state x="1560" y="196" width="1324" height="723" key="MultipleFileMergeDialog/1366.0.1920.1080/0.339.1366.705@0.339.1366.705" timestamp="1588163745512" />
     <state x="100" y="1189" width="1166" height="551" key="VCS.FileHistoryDialog" timestamp="1583438870493">
       <screen x="0" y="1080" width="1366" height="768" />
     </state>
     <state x="100" y="1189" width="1166" height="551" key="VCS.FileHistoryDialog/0.1080.1366.768/0.0.1920.1080@0.1080.1366.768" timestamp="1583438870493" />
-    <state x="278" y="102" width="598" height="345" key="Vcs.Push.Dialog.v2" timestamp="1584105106480">
-      <screen x="0" y="27" width="1366" height="705" />
+    <state x="278" y="327" width="598" height="345" key="Vcs.Push.Dialog.v2" timestamp="1587566252042">
+      <screen x="0" y="312" width="1366" height="768" />
     </state>
     <state x="278" y="102" width="598" height="345" key="Vcs.Push.Dialog.v2/0.27.1366.705/1366.0.1920.1080@0.27.1366.705" timestamp="1584105106480" />
     <state x="1757" y="115" width="800" height="527" key="Vcs.Push.Dialog.v2/0.27.1366.707/1366.0.1920.1080@1366.0.1920.1080" timestamp="1582840428973" />
+    <state x="278" y="327" key="Vcs.Push.Dialog.v2/0.312.1366.768/1366.0.1920.1080@0.312.1366.768" timestamp="1587566252042" />
     <state x="245" y="234" width="739" height="498" key="find.popup" timestamp="1587565338421">
       <screen x="0" y="312" width="1366" height="768" />
     </state>
     <state x="344" y="424" width="1038" height="574" key="find.popup/0.1080.1366.768/0.0.1920.1080@0.1080.1366.768" timestamp="1583434626284" />
     <state x="291" y="182" width="1038" height="528" key="find.popup/0.27.1366.707/1366.0.1920.1080@0.27.1366.707" timestamp="1582143160262" />
     <state x="245" y="234" width="739" height="498" key="find.popup/0.312.1366.768/1366.0.1920.1080@0.312.1366.768" timestamp="1587565338421" />
-    <state x="1917" y="204" width="605" height="410" key="git4idea.merge.GitMergeDialog" timestamp="1582839741018">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state x="392" y="472" width="605" height="448" key="git4idea.merge.GitMergeDialog" timestamp="1588163414182">
+      <screen x="0" y="339" width="1366" height="705" />
     </state>
     <state x="1917" y="204" width="605" height="410" key="git4idea.merge.GitMergeDialog/0.27.1366.707/1366.0.1920.1080@1366.0.1920.1080" timestamp="1582839741018" />
+    <state x="392" y="472" width="605" height="448" key="git4idea.merge.GitMergeDialog/1366.0.1920.1080/0.339.1366.705@0.339.1366.705" timestamp="1588163414182" />
     <state x="346" y="52" width="672" height="681" key="search.everywhere.popup" timestamp="1582056671038">
       <screen x="0" y="27" width="1366" height="707" />
     </state>
