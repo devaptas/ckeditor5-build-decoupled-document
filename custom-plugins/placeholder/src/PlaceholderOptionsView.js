@@ -131,9 +131,11 @@ export default class PlaceholderOptionsView extends ListView {
 
                         // Encontra proxima variavel
                         setTimeout(function () {
-                            if (!nextPlaceholder(editor)) {
-                                placeholder.closeBalloon();
-                            }
+                            // if (!nextPlaceholder(editor)) {
+                            //     placeholder.closeBalloon();
+                            // }
+                            placeholder.closeBalloon();
+                            nextPlaceholder(editor);
                         }, 100);
                     });
                 });

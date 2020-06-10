@@ -9,15 +9,16 @@ export function addCustomEvents(editor) {
 		stop();
 		data.preventDefault();
 		data.stopPropagation();
-		nextPlaceholder(editor)
+		nextPlaceholder(editor, true)
 	});
 }
 
-export function nextPlaceholder(editor){
+export function nextPlaceholder(editor, fromStart){
 	const ckView = editor.editing.view;
 	const ckDocument = ckView.document;
+	const currentNode = ckDocument.selection.getLastRange().end.parent;
 
-	const position = new ViewPosition(ckDocument.getRoot(), 0);
+	const position = new ViewPosition(currentNode.isEmpty || fromStart ? ckDocument.getRoot() : currentNode, 0);
 	const walker = new ViewTreeWalker({
 		startPosition: position
 	});
@@ -34,6 +35,11 @@ export function nextPlaceholder(editor){
 				return true;
 			}
 		}
+	}
+	if(!fromStart){
+		console.log('autosearch');
+		nextPlaceholder(editor, true);
+		return true;
 	}
 	return false;
 }
